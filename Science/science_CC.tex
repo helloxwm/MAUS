@@ -1,0 +1,200 @@
+% Use only LaTeX2e, calling the article.cls class and 12-point type.
+
+\documentclass[12pt]{article}
+
+% Users of the {thebibliography} environment or BibTeX should use the
+% scicite.sty package, downloadable from *Science* at
+% www.sciencemag.org/about/authors/prep/TeX_help/ .
+% This package should properly format in-text
+% reference calls and reference-list numbers.
+
+\usepackage{scicite}
+\usepackage{graphicx}
+
+% Use times if you have the font installed; otherwise, comment out the
+% following line.
+
+\usepackage{times}
+
+% The preamble here sets up a lot of new/revised commands and
+% environments.  It's annoying, but please do *not* try to strip these
+% out into a separate .sty file (which could lead to the loss of some
+% information when we convert the file to other formats).  Instead, keep
+% them in the preamble of your main LaTeX source file.
+
+
+% The following parameters seem to provide a reasonable page setup.
+
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+
+%The next command sets up an environment for the abstract to your paper.
+
+\newenvironment{sciabstract}{%
+\begin{quote} \bf}
+{\end{quote}}
+
+
+% If your reference list includes text notes as well as references,
+% include the following line; otherwise, comment it out.
+
+\renewcommand\refname{References and Notes}
+
+% The following lines set up an environment for the last note in the
+% reference list, which commonly includes acknowledgments of funding,
+% help, etc.  It's intended for users of BibTeX or the {thebibliography}
+% environment.  Users who are hand-coding their references at the end
+% using a list environment such as {enumerate} can simply add another
+% item at the end, and it will be numbered automatically.
+
+\newcounter{lastnote}
+\newenvironment{scilastnote}{%
+\setcounter{lastnote}{\value{enumiv}}%
+\addtocounter{lastnote}{+1}%
+\begin{list}%
+{\arabic{lastnote}.}
+{\setlength{\leftmargin}{.22in}}
+{\setlength{\labelsep}{.5em}}}
+{\end{list}}
+
+
+% Include your paper's title here
+
+\title{Microbiota: are you sick?} 
+
+
+% Place the author information here.  Please hand-code the contact
+% information and notecalls; do *not* use \footnote commands.  Let the
+% author contact information appear immediately below the author names
+% as shown.  We would also prefer that you don't change the type-size
+% settings shown here.
+
+\author
+{Jose Manuel Mart\'i,$^{1}$ Daniel M. Mart\'inez,$^{2}$ Manuel Pe\~na$^{1}$, C\'esar Gracia$^{1}$, \\
+Amparo Latorre$^{2,3,4}$, Andr\'es Moya$^{2,3,4}$ \& Carlos P. Garay$^{1,\ast}$\\
+\\
+\normalsize{$^{1}$Instituto de Fisica Corpuscular, CSIC-UVEG, P.O.  22085, 46071, Valencia, Spain.}\\
+\normalsize{$^{2}$FISABIO, Avda de Catalunya, 21, 46020, Valencia, Spain.}\\
+\normalsize{$^{3}$Cavanilles Institute of Biodiversity and Evolutionary Biology, Univ. de Valencia, 46980, Spain.}\\
+\normalsize{$^{4}$CIBER en Epidemiolog\' ia y Salud P\'ublica (CIBEResp), Madrid, Spain.}\\
+\\
+\normalsize{$^\ast$To whom correspondence should be addressed; E-mail:  penya@ific.uv.es}
+}
+
+% Include the date command, but leave its argument blank.
+
+\date{}
+
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%
+
+
+
+\begin{document} 
+
+% Double-space the manuscript.
+
+\baselineskip24pt
+
+% Make the title.
+
+\maketitle 
+
+
+
+% Place your abstract within the special {sciabstract} environment.
+
+\begin{sciabstract}
+Human microbiota plays an important role in determining changes from health to disease. Increasing research activity is dedicated to understand its diversity and variability. 
+We analyse 16S rRNA and whole genome sequencing (WGS) data from the gut microbiota of 97 individuals monitored in time. Temporal fluctuations in the microbiome reveal 
+significant differences due to factors that affect the microbiota such as dietary changes, antibiotic intake, early gut development or disease. Here we show that a fluctuation 
+scaling law describes the temporal variability of the system and that a noise-induced phase transition is central in the route to disease. The universal law distinguishes healthy 
+from sick microbiota and quantitatively characterizes the path in the phase space, which opens up its potential clinical use and, more generally, other technological 
+applications where microbiota plays an important role. 
+\end{sciabstract}
+
+
+
+% In setting up this template for *Science* papers, we've used both
+% the \section* command and the \paragraph* command for topical
+% divisions.  Which you use will of course depend on the type of paper
+% you're writing.  Review Articles tend to have displayed headings, for
+% which \section* is more appropriate; Research Articles, when they have
+% formal topical divisions at all, tend to signal them with bold text
+% that runs into the paragraph, for which \paragraph* is the right
+% choice.  Either way, use the asterisk (*) modifier, as shown, to
+% suppress numbering.
+
+\section*{Introduction}
+
+
+The desire to understand the factors that influence human health and cause diseases has always been one of the major driving forces of biological research. Modern high-throughput sequencing and bioinformatic tools provide a powerful means of understanding how the human microbiome contributes to health and its potential as a target for therapeutic interventions. High throughput methods for microbial 16S ribosomal RNA gene and WGS have now begun to reveal the composition of archaeal, bacterial, fungal and viral communities located both, in and on the human body. Biology has recently acquired new technological and conceptual tools to investigate, model and understand living organisms at the system level, thanks to the spectacular progress in quantitative techniques, large-scale measurement methods and the integration of experimental and computational approaches. Systems Biology has mostly been devoted to the study of well-characterized model organisms but, since the early days of the Human Genome Project it has become clear that applications of system-wide approaches to Human Biology would bring huge opportunities in Medicine. Here we present the imprints of disease in macroscopic properties of the system, by studying the temporal variability in the microbiome.
+
+To this end, we have analysed more than 35000 time series of taxa from the gut microbiomes of 97 individuals (sampling from three up to 332 time points), obtained from publicly available high throughput sequencing data on: healthy individuals over a long term span\cite{moving}, people with various degrees of obesity\cite{lea}, twin pairs discordant for kwashiorkor\cite{kwashiorkor}, response to diet changes\cite{diet} or to antibiotic perturbation\cite{antibiotic}, and subjects diagnosed with irritable bowel syndrome (IBS)\cite{durban}. 
+We engineered a complete software framework and a web platform, ComplexCruncher, ready to be implemented by other users.  
+We summarize our dataset in ST1-6 (Tables 1-6 in suplemental material). The bacteria and archaea taxonomic assignations were obtained by analysing 16S rRNA sequences, which were clustered into operational taxonomic units (OTUs) sharing 97 \% sequence identity using QIIME\cite{qiime}. WGS data\cite{kwashiorkor} were analysed and assigned at strain level by the Livermore Metagenomic Analysis Toolkit (LMAT)\cite{lmat}, according to their default quality threshold. Genus, with best balance between error assignment and number of taxa, was chosen as our reference taxonomic level. We have verified that our conclusions are not significantly affected by selecting family or species as the reference taxonomic level (see Figure 1 in supplemental material).
+
+
+\begin{figure}[!ht]
+\includegraphics[width=1.05\textwidth]{comboplot1.pdf}
+\caption{Taylor's law parameter space. X-weighted power-law fits of the standard deviations versus the mean values for each bacterial genus monitored in time. We show the fit for samples from a healthy subject (Figure A) and from a subject diagnosed with irritable bowel syndrome (Figure B) studied in our lab\cite{durban}. We have compiled all data studied in this work in Figure C. The coloured region (dashed line) corresponds to 68\% (95\%) CL region of healthy individuals in the Taylor parameter space. Points with errors place each individual gut microbiome in the Taylor space. Note that the parameters have been standardized (stdev units) to the healthy group in each study for demonstrative purposes.}
+\end{figure}
+
+
+
+
+We have analysed the microbiome temporal variability to extract global properties of the system. As fluctuations in total counts are plagued by systematic errors we worked on temporal variability of relative abundances for each taxon. Our first finding was that, in all cases, changes in relative abundances of taxa follow a universal pattern known as the fluctuation scaling law\cite{fs} or Taylor's  power law\cite{taylor}, i.e., microbiota of all detected taxa follows a power law dependence between mean relative abundance $x_i$ and dispersion $\sigma_i$, $\sigma_i  = V\cdot x_i^{\beta}$. While the law is universal, spanning six orders of magnitude in the observed relative abundances, the power law (or scaling) index $\beta$ and the variability $V$ (hereafter Taylor parameters) appear to be correlated with the stability of the community and the health status of the host, which is the main finding in this letter (see Figure 1). Taylor parameters describing the temporal variability of the gut microbiome in our sampled individuals are shown in ST1-6. Our results hint at a universal behaviour. Firstly, the variability (which corresponds to the maximum amplitude of fluctuations) is large, which suggests resilient capacity of the microbiota, and the scaling index is always smaller than one, which means that, more abundant taxa are less volatile than less abundant ones. Secondly, Taylor parameters for the microbiome of healthy individuals in different studies are compatible within estimated errors. This enables us to define the health zone in the Taylor parameter space. We can better visualize the results of individuals from different studies by standardizing their Taylor parameters, where standardization means that each parameter is subtracted by the mean value and divided by the standard deviation of the group of healthy individuals in the study (see Section 12 and ST1-6). The zone of health and the standardized Taylor parameters for individuals whose gut microbiota is threatened (i.e., suffering from kwashiorkor, altered diet, antibiotics, IBS) is shown in Figure 1. Children developing kwashiorkor show smaller variability than their healthy twins. A meat/fish-based diet increases the variability significantly when compared to a plant-based diet. All other cases presented increased variability, which is particularly severe, and statistically significant at more than 95\% CL, for obese patients grade III on a diet, individuals taking antibiotics or IBS--diagnosed patients. A global property emerges from all worldwide data collected: Taylor parameters characterize the statistical behaviour of microbiome changes. We have verified that our conclusions are robust to systematic errors due to taxonomic assignment.
+
+\begin{figure}[!ht]
+\includegraphics[width=1.05\textwidth]{comboplot2.pdf}
+\caption{Phase space of microbiota stability. We show the Variability parameter as a function of time for the male in Caporaso's study\cite{moving} (Figure A) and for the patient D in the antibiotics study\cite{antibiotic} (Figure B). Periods of antibiotic treatment are shown by blue vertical lines. Microbiota states can be placed in the phase space F-V (Figure C). The light blue shaded region corresponds to the stable phase, while the grey shaded region is the unstable phase (the phase transition line is calculated for  $\alpha$ = $\beta$ = 0.75). We place healthy individuals (green) and individuals whose gut microbiota is threatened (antibiotics, IBS) in the phase space fitness - variability. Gut microbiota of healthy individuals over a long term span show a quasi--periodical variability (central period is ten days). We show that taking antibiotics (AB1 and AB2 correspond to first and second treatment respectively) induces a phase transition in the gut microbiota, which impacts its future changes. We also show an IBS--diagnosed patient transiting from the unstable to the stable phase.}
+\end{figure}
+
+Taylor's power law has been explained in terms of various effects, all without general consensus. It can be shown to have its origin in a mathematical convergence similar to the central limit theorem, so virtually any statistical model designed to produce a Taylor law converge to a Tweedie distribution\cite{stat}, providing a mechanistic explanation based on the statistical theory of errors\cite{convergence1,convergence2,convergence3}. To unveil the generic mechanisms that drive different scenarios in the $\beta$--V space, we model the system by assuming that taxon relative abundance follows a Langevin equation with a deterministic term that captures the fitness of each taxon and a randomness term with Gaussian random noise\cite{ranking}. Both terms are modelled by power laws, with coefficients that can be interpreted as the taxon fitness $F_i$ and the variability $V$ (see Section 1 in supplemental material). When $V$ is sufficiently low, abundances are stable in time.  Differences in variability $V$ can induce a noise-induced phase transition in relative abundances of taxa. The temporal evolution of the probability of a taxon having abundance $x_i$ given its fitness is governed by the Fokker--Planck equation. The results of solving this equation show that  the stability is best captured by fitness F and amplitude of fluctuations V phase space (see Figure 2). 
+The model predicts two phases for the gut microbiome: a stable phase with large variability that permits some changes in the relative abundances of taxa and an unstable phase with larger variability, above the phase transition, where the order of abundant taxa varies significantly with time. The microbiome of all healthy individuals was found to be in the stable phase, while the microbiome of several other individuals was shown to be in the unstable phase. In particular, individuals taking antibiotics and IBS--diagnosed patient P2 had the most severe symptoms. In this phase diagram, each microbiota state is represented by a point at its measured variability V and inferred fitness F. The model predicts high average fitness for all taxa, i.e., taxa are narrowly distributed in F. The fitness parameter has been chosen with different values for demonstrative purposes. Fitness is larger for the healthiest subjects and smaller for the IBS--diagnosed patients.  
+
+In summary, we have quantitatively characterized whether the microbiota belongs to a healthy individual or a subject corresponding to an altered or pathological state (ie, altered diet, antibiotic treatment, early gut development, diagnosed IBS). Deciphering the mechanisms of disease requires in depth knowledge of the underlying biological mechanisms. We describe here the macroscopic behavior of disease by a noise-induced phase transition with a control parameter that can be measured by the temporal variability of the microbiome. The microbiota of healthy individuals and of individuals with pathologies represent different phases separated by this noise-induced phase transition. Improved high--throughput sequencing of samples from individuals monitored over time and taxonomic assigning methods will provide a better distinction among pathologies or altered states of the microbiota. 
+
+\begin{thebibliography}{1}
+\bibitem{moving} Caporaso, J.G. et al. Moving pictures of the human microbiome. {\it Genome Biol.} {\bf 12,} R50 (2011).
+\bibitem{lea} Faith, J.J. et al. The long-term stability of the human gut microbiota. {\it Science} {\bf 341,} 1237439 (2013).
+\bibitem{kwashiorkor} Smith M.I. et al. Gut microbiomes of Malawian twin pairs discordant for kwashiorkor. {\it Science} {\bf 339,} 548-54 (2013).
+\bibitem{diet} David, L.A. et al. Diet rapidly and reproducibly alters the human gut microbiome. {\it Nature} {\bf 505,} 559-63 (2014).
+\bibitem{antibiotic} Dethlefsen L., Relman D. A. Incomplete recovery and individualized responses of the human distal gut microbiota to repeated antibiotic perturbation. {\it Proc. Nat. Acad. Sci. USA} {\bf 108,} 4554-61 (2011).
+\bibitem{durban} Durban, A. \textit{et al.} Structural alterations of faecal and mucosa-associated bacterial communities in irritable bowel syndrome. {\it FEMS Microbiol. Ecol.} {\bf 86}, 581-9 (2013).
+\bibitem{qiime} Caporaso, J.G. et al. QIIME allows analysis of high-throughput community sequencing data. {\it Nature Methods} {\bf 7,} 335-6 (2010).
+\bibitem{lmat} Ames, S.K. et al. Scalable metagenomic taxonomy classification usng a reference genome database. {\it Bioinformatics} {\bf 29,} 2253-2260 (2013).
+\bibitem{fs} Eisler,Z., Bartos,I., Kertesz,J. Fluctuation scaling in complex systems: Taylor's law and beyond. {\it Adv. Phys.} {\bf 57,} 85 (2008).
+\bibitem{taylor} Taylor, L.R. Aggregation, Variance and the mean. {\it Nature} {\bf 189,} 732-35 (1961).
+\bibitem{stat} Jorgensen,B., Martinez,J.R., Tsao,M. Asymptotic behaviour of the variance function. {\it Scand. J. Statist..} {\bf 21,} 223-243 (1994).
+\bibitem{convergence1} Fronczak,A., Fronczak,P. Origins of Taylor's power law for fluctuation scaling in complex systems. {\it Phys. Rev. E} {\bf 81,} 066112 (2010).
+\bibitem{convergence2} Kendal, W.S., Jorgensen,B. Taylor's power law and fluctuation scaling explained by a central-limit-like convergence. {\it Phys. Rev. E} {\bf 83,} 066115 (2011).
+\bibitem{convergence3} Kendal, W.S., Jorgensen,B. Tweedie convergence: A mathematical basis for Taylor's power law. {\it Phys. Rev. E} {\bf 84,} 066120 (2011).
+\bibitem{ranking} Blumm, N. et al. Dynamics of ranking processes in complex systems. {\it Phys. Rev. Lett.} {\bf 109,} 128701 (2012).
+\end{thebibliography}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
