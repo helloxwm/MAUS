@@ -17,5 +17,5 @@
 -template=
 	\Words count for the Abstract section: {abswords} of 250 max\n
 	\Words count for the Importance section: {impwords} of 150 max\n
-	\Words count for the rest of text: {sum}\n
+	\Words count for the rest of text: {sum} of 5000 max\n
 
