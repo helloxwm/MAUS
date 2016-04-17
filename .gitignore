@@ -51,5 +51,6 @@ Thumbs.db
 *.old
 *.logfile
 *.aux
+*.xwm
 ~$*.docx
 .#*
