@@ -1,0 +1,212 @@
+% !TEX TS-program = pdflatex
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt,oneside,letterpaper]{article}
+
+%%% PACKAGES
+\usepackage{lmodern} % Activa fuentes y macros de Latin Modern
+\usepackage[T1]{fontenc} % set font encoding
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[english]{babel} 
+\usepackage[expert, charter]{mathdesign} % Fuentes... disponibles conjuntos {charter|utopia}
+%%\usepackage{calligra}
+\usepackage[printwatermark]{xwatermark}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{parskip}
+%%\usepackage{float}
+%\usepackage[nolists,tablesfirst, nomarkers]{endfloat}
+\usepackage{moreverb} % for verbatim output
+
+% text layout
+\usepackage[letterpaper]{geometry}
+\geometry{textwidth=16.25cm} % 15.25cm for single-space, 16.25cm for double-space
+\geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
+
+% helps to keep figures from being orphaned on a page by themselves
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+%% Roman footnote numbering style to not collide with bibliographic cites: 
+\renewcommand{\thefootnote}{\Roman{footnote}}
+
+% line numbering
+\usepackage[running,mathlines]{lineno}
+\renewcommand\thelinenumber{\color{red}\arabic{linenumber}}
+\linenumbers
+
+% bold the 'Figure #' in the caption and separate it with a period
+% Captions will be left justified
+\usepackage[labelfont=bf,labelsep=period,font=small]{caption}
+
+% review layout with double-spacing
+\usepackage{setspace} 
+\captionsetup{labelfont=bf,labelsep=period,font=doublespacing}
+
+% cite package, to clean up citations in the main text. Do not remove.
+\usepackage{cite}
+\renewcommand\citeleft{(}
+\renewcommand\citeright{)}
+\renewcommand\citeform[1]{\textsl{#1}}
+
+% Remove brackets from numbering in list of References
+\renewcommand\refname{\large References}
+\makeatletter
+\renewcommand{\@biblabel}[1]{\quad#1.}
+\makeatother
+
+% Importance environment and keywords command
+\newcommand\importancename{Importance}
+\newcommand{\importance}[1]{
+    \small
+    \begin{center}
+        {\bfseries \importancename\vspace{-.5em}\vspace{0pt}}
+    \end{center}
+    \begin{quote}
+    #1
+    \end{quote}
+}
+\providecommand{\keywords}[1]{\textbf{\textit{Keywords---}} #1}
+
+% Package authblk
+\usepackage{authblk}
+\renewcommand\Authands{ \& }
+\renewcommand\Authfont{\normalsize \bf}
+\renewcommand\Affilfont{\small \normalfont}
+
+% notation
+\usepackage{amsmath}
+
+%% Roman footnote numbering style to not collide with bibliographic cites: 
+\renewcommand{\thefootnote}{\Roman{footnote}}
+
+% aux commands
+\newcommand{\CC}[0]{\emph{cmplxcruncher}}
+\newcommand{\task}[1]{\texttt{\bfseries\scshape\textcolor{MidnightBlue}{#1}}}
+\newcommand{\un}[1]{\operatorname{#1}}
+\newcommand{\unclassrate}[0]{\un{kpb/s/core}}
+\newcommand{\todo}[1]{\texttt{\bfseries\textcolor{Orange}{#1}}}
+
+% watermark (time consuming!)
+\newwatermark[allpages,color=red!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
+
+% word count (Need --enable-write18 or --shell-escape)
+\immediate\write18{texcount -opt=option.tc \jobname.tex > wordcount.aux} 
+\newcommand\wordcount{\verbatiminput{wordcount.aux}}
+
+
+%%% DOCUMENT %%%
+
+\begin{document}
+
+\title{
+	\vspace*{0mm} % Helps to include the corresponding author footnote in the title page
+	\singlespacing
+	\begin{flushleft}
+		\texttt{\large Title:} \\
+	\end{flushleft}
+	\vspace*{2mm}
+	Health and disease imprinted in the time variability of the human microbiome\\
+	\vspace*{6mm}
+	\begin{flushleft}
+		\texttt{\large Running title:} \\
+	\end{flushleft}
+	\vspace*{0mm}
+	Microbiota, are you sick?
+	\vspace*{4mm}
+	}
+
+\doublespacing
+
+\author[1,2]{Jose Manuel Martí}
+\author[1,2,3]{Daniel M. Martínez}
+\author[2]{Manuel Peña}
+\author[1,2]{César Gracia}
+\author[1,3,4,5]{Amparo Latorre}
+\author[1,3,4,5]{Andrés Moya}
+\author[1,2,\#]{Carlos P. Garay}
+
+\affil[1]{Institute for Integrative Systems Biology (I2SysBio), 46980, Spain.}
+\affil[2]{Instituto de Fisica Corpuscular, CSIC-UVEG, P.O.  22085, 46071, Valencia, Spain.}
+\affil[3]{FISABIO, Avda de Catalunya, 21, 46020, Valencia, Spain.}
+\affil[4]{Cavanilles Institute of Biodiversity and Evolutionary Biology, Univ. de Valencia, 46980, Spain.}
+\affil[5]{CIBER en Epidemiología y Salud Pública (CIBEResp), Madrid, Spain}
+
+\date{}
+
+\maketitle
+\wordcount
+\footnote[0]{$^\#$ Corresponding author: penagaray@gmail.com}
+
+\clearpage
+
+%TC:newcounter abswords Words in abstract
+%TC:macro \abstract [abswords]
+\abstract{Human microbiota plays an important role in determining changes from health to disease. Increasing research activity is dedicated to understand its diversity and variability. 
+We analyse 16S rRNA and whole genome sequencing (WGS) data from the gut microbiota of 97 individuals monitored in time. Temporal fluctuations in the microbiome reveal 
+significant differences due to factors that affect the microbiota such as dietary changes, antibiotic intake, early gut development or disease. Here we show that a fluctuation 
+scaling law describes the temporal variability of the system and that a noise-induced phase transition is central in the route to disease. The universal law distinguishes healthy 
+from sick microbiota and quantitatively characterizes the path in the phase space, which opens up its potential clinical use and, more generally, other technological 
+applications where microbiota plays an important role.}
+
+%TC:newcounter impwords Words in importance section
+%TC:macro \importance [impwords]
+\importance{Human microbiota is tightly associated to the health status of a person. Here we analyse the microbial composition of several subjects under different conditions, over a time span that ranges from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we prove that we are capable to distinguish stable from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of the people, and it will allow the development of a more complete framework in order to deepen the knowledge of this complex system. }
+
+\vspace{4mm}
+\begin{keywords}
+microbiome, systems biology, ecological modelling, community composition, stability	
+\end{keywords}
+
+%===================================== SECTIONS =======================================
+%%% Introduction
+\section*{Introduction}
+\input{mySys_intro.tex}   
+%%% Result
+\section*{Results}
+\input{mySys_results.tex}
+%%% Discussion
+\section*{Discussion}
+\input{mySys_discussion.tex}    
+%%% Material & Methods
+\section*{Materials and Methods}
+\input{mySys_MandM.tex}   
+
+
+\section*{Acknowledgments}
+Authors declare that there are no competing financial interests in relation to the work described here. 
+
+\section*{Funding Information}
+This work is supported by Generalitat Valenciana Prometeo Grants II/2014/050, II/2014/065, by the Spanish Grants FPA2011-29678, BFU2012-39816-C02-01 of MINECO and by PITN-GA-2011-289442-INVISIBLES. JMM \& DMM acknowledge FPI and FISABIO fellowships. \todo{Modificar becas de JMM y DMM ¿poner algún grant más?}
+
+
+
+\newpage
+\begin{thebibliography}{99}
+\bibitem{moving} Caporaso, J.G. et al. Moving pictures of the human microbiome. {\it Genome Biol.} {\bf 12,} R50 (2011).
+\bibitem{LEA} Faith, J.J. et al. The long-term stability of the human gut microbiota. {\it Science} {\bf 341,} 1237439 (2013).
+\bibitem{kwashiorkor} Smith M.I. et al. Gut microbiomes of Malawian twin pairs discordant for kwashiorkor. {\it Science} {\bf 339,} 548-54 (2013).
+\bibitem{diet} David, L.A. et al. Diet rapidly and reproducibly alters the human gut microbiome. {\it Nature} {\bf 505,} 559-63 (2014).
+\bibitem{antibiotic} Dethlefsen L., Relman D. A. Incomplete recovery and individualized responses of the human distal gut microbiota to repeated antibiotic perturbation. {\it Proc. Nat. Acad. Sci. USA} {\bf 108,} 4554-61 (2011).
+\bibitem{IBS} Durban, A. \textit{et al.} Structural alterations of faecal and mucosa-associated bacterial communities in irritable bowel syndrome. {\it FEMS Microbiol. Ecol.} {\bf 86}, 581-9 (2013).
+\bibitem{QIIME} Caporaso, J.G. et al. QIIME allows analysis of high-throughput community sequencing data. {\it Nature Methods} {\bf 7,} 335-6 (2010).
+\bibitem{LMAT} Ames, S.K. et al. Scalable metagenomic taxonomy classification usng a reference genome database. {\it Bioinformatics} {\bf 29,} 2253-2260 (2013).
+\bibitem{fs} Eisler,Z., Bartos,I., Kertesz,J. Fluctuation scaling in complex systems: Taylor's law and beyond. {\it Adv. Phys.} {\bf 57,} 85 (2008).
+\bibitem{taylor} Taylor, L.R. Aggregation, Variance and the mean. {\it Nature} {\bf 189,} 732-35 (1961).
+\bibitem{stat} Jorgensen,B., Martinez,J.R., Tsao,M. Asymptotic behaviour of the variance function. {\it Scand. J. Statist..} {\bf 21,} 223-243 (1994).
+\bibitem{convergence1} Fronczak,A., Fronczak,P. Origins of Taylor's power law for fluctuation scaling in complex systems. {\it Phys. Rev. E} {\bf 81,} 066112 (2010).
+\bibitem{convergence2} Kendal, W.S., Jorgensen,B. Taylor's power law and fluctuation scaling explained by a central-limit-like convergence. {\it Phys. Rev. E} {\bf 83,} 066115 (2011).
+\bibitem{convergence3} Kendal, W.S., Jorgensen,B. Tweedie convergence: A mathematical basis for Taylor's power law. {\it Phys. Rev. E} {\bf 84,} 066120 (2011).
+\bibitem{ranking} Blumm, N. et al. Dynamics of ranking processes in complex systems. {\it Phys. Rev. Lett.} {\bf 109,} 128701 (2012).
+	\bibitem{FD} Weber, J. \textit{et al.} Fluctuation dissipation theorem. {\it Phys. Rev.} {\bf 101}, 1620-6 (1956).
+	\bibitem{FASTX} Gordon, A., Hannon, G.J. FASTX-Toolkit. FASTQ/A shortreads pre-processing tools (2010). http://hannonlab.cshl.edu/fastx\_toolkit/ (accessed 23 Feb 2015).
+	\bibitem{SILVA} Quast C.  \textit{et al.} The SILVA ribosomal RNA gene database project: improved data processing and web-based tools (2013)
+ 	\bibitem{ecology} Xiao Xiao, Ethan P. White, Mevin B. Hooten, and Susan L. Durham. On the use of log-transformation vs. nonlinear regression for analyzing biological power laws. {\it Ecology} {\bf 92}, 10, 1887-1894 (2011).
+ 	\bibitem{genR2} Magee L., $R^2$ measures based on wald and likelihood ratio joint significance tests. {\it The American Statistician} {\bf 44}, 3, 250-253 (1990).
+	\bibitem{disR2} Nagelkerke N.J.D., A note on a general definition of the coefficient of determination. {\it Biometrika} {\bf 78}, 3, 691-692 (1991).
+	\bibitem{boot} Wu, C.F.J. Jackknife, bootstrap and other resampling methods in regression analysis. (with discussions) \textit{The Annals of Statistics} {\bf 14}: 1261?1350 (1986)
+\end{thebibliography}
+\todo{Eliminar \textit{et al.} y poner la referencia completa como exige la guía de estilo de la revista...}
+
+\end{document}
+
+
