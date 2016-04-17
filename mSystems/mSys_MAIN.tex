@@ -3,6 +3,9 @@
 
 \documentclass[12pt,oneside,letterpaper]{article}
 
+% release codenumber (update it here!)
+\newcommand\releasecode{0.0.1}
+
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
 \usepackage[T1]{fontenc} % set font encoding
@@ -86,8 +89,10 @@
 \newcommand{\unclassrate}[0]{\un{kpb/s/core}}
 \newcommand{\todo}[1]{\texttt{\bfseries\textcolor{Orange}{#1}}}
 
-% watermark (time consuming!)
+% watermarks (time consuming!)
 \newwatermark[allpages,color=red!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
+\newwatermark[allpages,color=red!12,angle=0,scale=1,xpos=0,ypos=137]{
+\emph{mSystems} \LaTeX\ manuscript release \releasecode}
 
 % word count (Need --enable-write18 or --shell-escape)
 \immediate\write18{texcount -opt=option.tc \jobname.tex > wordcount.aux} 
