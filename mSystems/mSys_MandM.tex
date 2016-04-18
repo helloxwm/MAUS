@@ -1,6 +1,3 @@
-We have analysed more than 35000 time series of taxa from the gut microbiomes of 97 individuals (sampling from three up to 332 time points), obtained from publicly available high throughput sequencing data on: healthy individuals over a long term span\cite{moving}, people with various degrees of obesity\cite{LEA}, twin pairs discordant for kwashiorkor\cite{kwashiorkor}, response to diet changes\cite{diet} or to antibiotic perturbation\cite{antibiotic}, and subjects diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. 
-We engineered a complete software framework and a web platform, ComplexCruncher, ready to be implemented by other users.
-  
 We summarize our dataset in ST1-6 (Tables 1-6 in suplemental material). The bacteria and archaea taxonomic assignations were obtained by analysing 16S rRNA sequences, which were clustered into operational taxonomic units (OTUs) sharing 97 \% sequence identity using QIIME\cite{QIIME}. WGS data\cite{kwashiorkor} were analysed and assigned at strain level by the Livermore Metagenomic Analysis Toolkit (LMAT)\cite{LMAT}, according to their default quality threshold. Genus, with best balance between error assignment and number of taxa, was chosen as our reference taxonomic level. We have verified that our conclusions are not significantly affected by selecting family or species as the reference taxonomic level (see Figure 1 in supplemental material).
 
 \todo{Specify, in each study treated, the nature of the samples (conditions, timespan between timepoints, subjects). Specify, and it is very important, what we consider ?healthy? in each study (for example: pre-antibiotics is healthy)}
@@ -37,7 +34,7 @@ where the first case, simplifies to $F= 3 V^2$ if $\beta = 0.75$ and the fitness
 In many physical systems (Brownian motion is the classical example), the two terms of the Langevin equation are related.  The \emph{fluctuation--dissipation theorem} states a general relationship between the response to an external disturbance and the internal fluctuations of the system\cite{FD}. The theorem can be used as the basic formula to derive the fitness from the analysis of fluctuations 
 of the microbiota, assuming that it is in equilibrium (the ordered phase).  
 
-\todo{Explain better the fluctiation-dissipation theorem}
+\todo{Explain better the fluctuation-dissipation theorem}
 
 
 %%%
