@@ -1,25 +1,23 @@
-We have analysed the microbiome temporal variability to extract global properties of the system. As fluctuations in total counts are plagued by systematic errors we worked on temporal variability of relative abundances for each taxon. Our first finding was that, in all cases, changes in relative abundances of taxa follow a ubiquitous pattern known as the fluctuation scaling law\cite{fs} or Taylor's  power law\cite{taylor}, i.e., microbiota of all detected taxa follows a power law dependence between mean relative abundance $x_i$ and dispersion $\sigma_i$, $\sigma_i  = V\cdot x_i^{\beta}$. The law seem to be ubiquitous, spanning to six orders of magnitude in the observed relative abundances (see Figure \ref{fig:main1}). 
+We have analysed the microbiome temporal variability to extract global properties of the system. As fluctuations in total counts are plagued by systematic errors we worked on temporal variability of relative abundances for each taxon. Our first finding was that, in all cases, changes in relative abundances of taxa follow a ubiquitous pattern known as the fluctuation scaling law\cite{fs} or Taylor's  power law\cite{taylor}, i.e., microbiota of all detected taxa follows $\sigma_i  = V\cdot x_i^{\beta}$, a power law dependence between mean relative abundance $x_i$ and dispersion $\sigma_i$. The law seem to be ubiquitous, spanning even to six orders of magnitude in the observed relative abundances (see Figure \ref{fig:main1}). 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_xWboot_LOG.pdf}
 	\includegraphics[width=0.8\textwidth]{results/fits/IBS_P2_Metatranscriptores_stdVSmean_xWboot_LOG.pdf}
-	\caption{Taylor's law parameter space. X-weighted power-law fits of the standard deviations versus the mean values for each bacterial genus monitored in time. We show the fit for samples from a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom), studied in our lab \cite{IBS}.}
+	\caption{X-weighted power-law fits of the standard deviations versus the mean values for each bacterial genus monitored in time. We show the fit for samples from a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom), studied in our lab \cite{IBS}. Taylor's power law seems to be ubiquitous, spanning to six orders of magnitude.}
 	\label{fig:main1}
 \end{figure}
 
-The power law (or scaling) index $\beta$ and the variability $V$ (hereafter Taylor parameters) appear to be correlated with the stability of the community and the health status of the host, which we consider the main finding exposed in this article (see Figure \ref{fig:main2}).
+The power law (or scaling) index $\beta$ and the variability $V$ (hereafter Taylor parameters) appear to be correlated with the stability of the community and related with the health status of the host, which we consider the main finding exposed in this article (see Figure \ref{fig:main2}).
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{results/finalplot11.pdf}
-	\caption{We have compiled here all the data studied in this work. The coloured circle corresponds to 68\% confidence level region of healthy individuals in the Taylor parameter space, while dashed line delimites the 98\% CL region. Points with errors place each individual gut microbiome in the Taylor space. Note that the parameters have been standardized (stdev units) to the healthy group in each study for demonstrative and comparative purposes.}
+	\caption{Taylor's law parameter space. We have compiled here all the data studied in this work. The coloured circle corresponds to 68\% confidence level (CL) region of healthy individuals in the Taylor parameter space, while dashed line delimites the 98\% CL region. Points with errors place each individual gut microbiome in the Taylor space. Note that the parameters have been standardized (stdev units) to the healthy group in each study for demonstrative and comparative purposes.}
 	\label{fig:main2}
 \end{figure}
 
-Taylor parameters describing the temporal variability of the gut microbiome in our sampled individuals are shown in Tables \ref{tab:diet} to \ref{tab:LEA}. Our results hint at an ubiquotous behaviour. Firstly, the variability (which corresponds to the maximum amplitude of fluctuations) is large, which suggests resilient capacity of the microbiota, and the scaling index is always smaller than one, which means that, more abundant taxa are less volatile than less abundant ones. Secondly, Taylor parameters for the microbiome of healthy individuals in different studies are compatible within estimated errors. This enables us to define the healthy zone in the Taylor parameter space. 
-
-In order to jointly visualize and compare the results of individuals from different studies, their Taylor parameters have been standardized, where standardization means that each parameter is subtracted by the mean value and divided by the standard deviation of the group of healthy individuals for each study (for details of the procedure, please see Standardization subsection in Material and Methods). The zone of health and the standardized Taylor parameters for individuals whose gut microbiota is threatened (i.e., suffering from kwashiorkor, altered diet, antibiotics or IBS) is shown in Figure \ref{fig:main2}. Children developing kwashiorkor show smaller variability than their healthy twins. A meat/fish-based diet increases the variability significantly when compared to a plant-based diet. All other cases presented increased variability, which is particularly severe, and statistically significant at more than 95\% CL, for obese patients grade III on a diet, individuals taking antibiotics or IBS--diagnosed patients. A global property emerges from all worldwide data collected: Taylor parameters characterize the statistical behaviour of microbiome changes. In addition, we have verified that our conclusions are robust to systematic errors due to taxonomic assignment.
+Taylor parameters describing the temporal variability of the gut microbiome in our sampled individuals are shown in Tables \ref{tab:diet} to \ref{tab:LEA}. Our results hint at an ubiquitous behaviour. On the first hand, the variability (which corresponds to the maximum amplitude of fluctuations) is large, which suggests resilient capacity of the microbiota. On the other hand, the scaling index is always smaller than one, which means that more abundant taxa are less volatile than less abundant ones. In addition, Taylor parameters for the microbiome of healthy individuals in different studies are compatible within estimated errors. This enables us to define an area in the Taylor parameter space that we called the \emph{healthy zone}.
 
 \begin{table} 
   \begin{center}
@@ -50,7 +48,7 @@ In order to jointly visualize and compare the results of individuals from differ
 	   \hline
     \end{tabular}
   \end{center}
-  \caption{Taylor parameters. Individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to diet,  the population sampled is described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
+  \caption{Taylor parameters for individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to diet, the population sampled is described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$, which we used to describe the \emph{healthy zone} for this study.}
   \label{tab:diet}
 \end{table}
 
@@ -70,7 +68,7 @@ In order to jointly visualize and compare the results of individuals from differ
 	    \hline
     \end{tabular}
   \end{center}
-  \caption{Taylor parameters for individuals taking antibiotics\cite{antibiotic}. Prior to antibiotics intake, the population sampled is described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$.}
+  \caption{Taylor parameters for individuals taking antibiotics\cite{antibiotic}. Prior to antibiotics intake, the population sampled is described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$, which characterize the \emph{healthy zone} for this study.}
   \label{tab:antibiotics}
 \end{table}
 
@@ -86,7 +84,7 @@ In order to jointly visualize and compare the results of individuals from differ
 	     \hline
     \end{tabular}
   \end{center}
-  \caption{Taylor parameters for persons diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. Healthy individuals sampled in this study are characterized by $\bar{V} = 0.134 \pm 0.009, \bar{\beta} = 0.691 \pm 0.025$.}
+  \caption{Taylor parameters for persons diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. Healthy individuals sampled in this study are characterized by $\bar{V} = 0.134 \pm 0.009, \bar{\beta} = 0.691 \pm 0.025$, which we used to define the correspondent \emph{healthy zone}.}
   \label{tab:IBS}
 \end{table}
 
@@ -112,7 +110,7 @@ In order to jointly visualize and compare the results of individuals from differ
 		\hline
     \end{tabular}
   \end{center}
-  \caption{Taylor parameters for the healthy subject of the discordant twins\cite{kwashiorkor}. This table continues in Table \ref{tab:DK}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
+  \caption{Taylor parameters for the healthy subject of the discordant twins\cite{kwashiorkor}. This table continues in Table \ref{tab:DK}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$, values which we used to describe the \emph{healthy zone} for this study.}
   \label{tab:DH}
 \end{table}
 
@@ -139,7 +137,7 @@ In order to jointly visualize and compare the results of individuals from differ
 	    \hline
     \end{tabular}
   \end{center}
-  \caption{Taylor parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Table \ref{tab:DH}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
+  \caption{Taylor parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Table \ref{tab:DH}, so that the population of healthy twins is also characterized by $\bar{V} = 0.25 \pm 0.10 and \bar{\beta} = 0.863 \pm 0.028$.}
   \label{tab:DK}
 \end{table}
 
@@ -175,12 +173,13 @@ In order to jointly visualize and compare the results of individuals from differ
 	    \hline
     \end{tabular}
   \end{center}
-  \caption{Taylor parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, whom were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.}
+  \caption{Taylor parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, whom were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$, which we used to determine the correspondent \emph{healthy zone} for this study.}
   \label{tab:LEA}
 \end{table}
 
+In order to jointly visualize and compare the results of individuals from different studies, their Taylor parameters have been standardized, where standardization means that each parameter is subtracted by the mean value and divided by the standard deviation of the group of healthy individuals for each study (for details of the procedure, please see Standardization subsection in Material and Methods). The healthy zone and the standardized Taylor parameters for individuals whose gut microbiota is threatened (i.e., suffering from kwashiorkor, altered diet, antibiotics or IBS) is shown in Figure \ref{fig:main2}. Children developing kwashiorkor show smaller variability than their healthy twins. A meat/fish-based diet increases the variability significantly when compared to a plant-based diet. All other cases presented increased variability, which is particularly severe, and statistically significant at more than 95\% CL, for obese patients grade III on a diet, individuals taking antibiotics or IBS--diagnosed patients. A global property emerges from all worldwide data collected: Taylor parameters characterize the statistical behaviour of microbiome changes. Furthermore, we have verified that our conclusions are robust to systematic errors due to taxonomic assignment.
 
-Taylor's power law has been explained in terms of various effects, all without general consensus. It can be shown to have its origin in a mathematical convergence similar to the central limit theorem, so virtually any statistical model designed to produce a Taylor law converge to a Tweedie distribution\cite{stat}, providing a mechanistic explanation based on the statistical theory of errors\cite{convergence1,convergence2,convergence3}. To unveil the generic mechanisms that drive different scenarios in the $\beta$--$V$ space, we model the system by assuming that taxon relative abundance follows a Langevin equation with a deterministic term that captures the fitness of each taxon and a randomness term with Gaussian random noise\cite{ranking}. Both terms are modeled by power laws, with coefficients that can be interpreted as the taxon fitness $F_i$ and the variability $V$ (see Model under Material and Methods). When $V$ is sufficiently low, abundances are stable in time.  Differences in variability $V$ can induce a noise-induced phase transition in relative abundances of taxa. The temporal evolution of the probability of a taxon having abundance $x_i$ given its fitness is governed by the Fokker--Planck equation. The results of solving this equation show that the stability is best captured by fitness $F$ and amplitude of fluctuations $V$ phase space (see Figure \ref{fig:main3}). 
+Taylor's power law has been explained in terms of various effects, all without general consensus. It can be shown to have its origin in a mathematical convergence similar to the central limit theorem, so virtually any statistical model designed to produce a Taylor law converge to a Tweedie distribution\cite{stat}, providing a mechanistic explanation based on the statistical theory of errors\cite{convergence1,convergence2,convergence3}. To unveil the generic mechanisms that drive different scenarios in the $\beta$--$V$ space, we model the system by assuming that taxon relative abundance follows a Langevin equation with, on the one hand, a deterministic term that captures the fitness of each taxon and, on the other hand, a randomness term associated with Gaussian random noise\cite{ranking}. Both terms are modeled by power laws, with coefficients that can be interpreted as the taxon fitness $F_i$ and the variability $V$ (see Model under Material and Methods). In this model, when $V$ is sufficiently low, abundances are stable in time. Differences in variability $V$ can induce a noise-induced phase transition in relative abundances of taxa. The temporal evolution of the probability of a taxon having abundance $x_i$ given its fitness is governed by the Fokker--Planck equation. The results of solving this equation show that the stability is best captured by a phase space determined by fitness $F$ and amplitude of fluctuations $V$ (see Figure \ref{fig:main3}). 
 
 \begin{figure}
 	\centering
