@@ -4,7 +4,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{0.0.6}
+\newcommand\releasecode{0.0.7}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -22,9 +22,9 @@
 \usepackage{moreverb} % for verbatim output
 
 % text layout
-\usepackage[letterpaper]{geometry}
-\geometry{textwidth=16.25cm} % 15.25cm for single-space, 16.25cm for double-space
-\geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
+%\usepackage[letterpaper]{geometry}
+%\geometry{textwidth=16.25cm} % 15.25cm for single-space, 16.25cm for double-space
+%\geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
 
 % watermarks (time consuming!)
 \newwatermark[allpages,color=red!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
@@ -65,6 +65,7 @@
 % Importance environment and keywords command
 \newcommand\importancename{Importance}
 \newcommand{\importance}[1]{
+	{
     \small
     \begin{center}
         {\bfseries \importancename\vspace{-.5em}\vspace{0pt}}
@@ -72,8 +73,9 @@
     \begin{quote}
     #1
     \end{quote}
+    }
 }
-\providecommand{\keywords}[1]{\textbf{\textit{Keywords---}} #1}
+\providecommand{\keywords}[1]{\footnotesize\textbf{\textit{Keywords---}} #1}
 
 % Package authblk
 \usepackage{authblk}
@@ -105,7 +107,7 @@
 \begin{document}
 
 \title{
-	\vspace*{0mm} % Helps to include the corresponding author footnote in the title page
+	\vspace*{-16mm} % Helps to include the corresponding author footnote in the title page
 	\singlespacing
 	\begin{flushleft}
 		\texttt{\large Title:} \\
@@ -134,7 +136,7 @@
 \affil[1]{Institute for Integrative Systems Biology (I2SysBio), 46980, Spain.}
 \affil[2]{Instituto de Fisica Corpuscular, CSIC-UVEG, P.O.  22085, 46071, Valencia, Spain.}
 \affil[3]{FISABIO, Avda de Catalunya, 21, 46020, Valencia, Spain.}
-\affil[4]{Cavanilles Institute of Biodiversity and Evolutionary Biology, Univ. de Valencia, 46980, Spain.}
+\affil[4]{Cavanilles Institute of Biodiversity and Evolutionary Biology, UVEG, 46980, Spain.}
 \affil[5]{CIBER en Epidemiología y Salud Pública (CIBEResp), Madrid, Spain}
 
 \date{}
@@ -147,20 +149,20 @@
 
 %TC:newcounter abswords Words in abstract
 %TC:macro \abstract [abswords]
-\abstract{Human microbiota plays an important role in determining changes from health to disease. Increasing research activity is dedicated to understand its diversity and variability. 
+{\abstract{Human microbiota plays an important role in determining changes from health to disease. Increasing research activity is dedicated to understand its diversity and variability. 
 We analyse 16S rRNA and whole genome sequencing (WGS) data from the gut microbiota of 97 individuals monitored in time. Temporal fluctuations in the microbiome reveal 
 significant differences due to factors that affect the microbiota such as dietary changes, antibiotic intake, early gut development or disease. Here we show that a fluctuation 
 scaling law describes the temporal variability of the system and that a noise-induced phase transition is central in the route to disease. The universal law distinguishes healthy 
 from sick microbiota and quantitatively characterizes the path in the phase space, which opens up its potential clinical use and, more generally, other technological 
-applications where microbiota plays an important role.}
+applications where microbiota plays an important role.}}
 
 %TC:newcounter impwords Words in importance section
 %TC:macro \importance [impwords]
-\importance{Human microbiota is tightly associated to the health status of a person. Here we analyse the microbial composition of several subjects under different conditions, over a time span that ranges from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we prove that we are capable to distinguish stable from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of the people, and it will allow the development of a more complete framework in order to deepen the knowledge of this complex system. }
+\importance{Human microbiota is tightly associated to the health status of a person. Here we analyse the microbial composition of several subjects under different conditions, over a time span that ranges from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we prove that we are capable to distinguish stable from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of the people, and it will allow the development of a more complete framework in order to deepen the knowledge of this complex system.}
 
 \vspace{4mm}
 \begin{keywords}
-microbiome, systems biology, ecological modelling, community composition, stability	
+microbiome, systems biology, ecological modeling, metagenomics, stability	
 \end{keywords}
 
 %===================================== SECTIONS =======================================

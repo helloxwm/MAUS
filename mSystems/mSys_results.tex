@@ -5,6 +5,7 @@ We have analysed the microbiome temporal variability to extract global propertie
 
 \begin{figure}
 	\centering
+	\vspace*{-15mm} % Corrects overbox of the figures
 	\includegraphics[width=0.8\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_xWboot_LOG.pdf}
 	\includegraphics[width=0.8\textwidth]{results/fits/IBS_P2_Metatranscriptores_stdVSmean_xWboot_LOG.pdf}
 	\caption{X-weighted power-law fits of the standard deviations versus the mean values for each bacterial genus monitored in time. We show the fit for samples from a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom), studied in our lab \cite{IBS}. Taylor's power law seems to be ubiquitous, spanning to six orders of magnitude.}
@@ -140,7 +141,7 @@ Taylor parameters describing the temporal variability of the gut microbiome in o
 	    \hline
     \end{tabular}
   \end{center}
-  \caption{Taylor parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Table \ref{tab:DH}, so that the population of healthy twins is also characterized by $\bar{V} = 0.25 \pm 0.10 and \bar{\beta} = 0.863 \pm 0.028$.}
+  \caption{Taylor parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Table \ref{tab:DH}, so that the population of healthy twins is also characterized by $\bar{V} = 0.25 \pm 0.10$ and $\bar{\beta} = 0.863 \pm 0.028$.}
   \label{tab:DK}
 \end{table}
 
@@ -186,6 +187,7 @@ Taylor's power law has been explained in terms of various effects, all without g
 
 \begin{figure}
 	\centering
+	\vspace*{-5mm} % Corrects overbox of the figures
 	\includegraphics[width=0.8\textwidth]{results/finalPlot33_new.pdf}
 	\caption{Microbiota states can be placed in the phase space $F$--$V$. The light blue shaded region corresponds to the stable phase, while the grey shaded region is the unstable phase (the phase transition line is calculated for  $\alpha$ = $\beta$ = 0.75). We place healthy individuals (green) and individuals whose gut microbiota is threatened (antibiotics, IBS) in the phase space fitness--variability. Gut microbiota of healthy individuals over a long term span show a quasi--periodical variability (central period is ten days). We show that taking antibiotics (AB1 and AB2 correspond to first and second treatment respectively) induces a phase transition in the gut microbiota, which impacts its future changes. We also show an IBS--diagnosed patient transiting from the unstable to the stable phase.}
 	\label{fig:main3}
@@ -194,35 +196,27 @@ Taylor's power law has been explained in terms of various effects, all without g
 The model predicts two phases for the gut microbiome: a stable phase with large variability that permits some changes in the relative abundances of taxa and an unstable phase with larger variability, above the phase transition, where the order of abundant taxa varies significantly with time. The microbiome of all healthy individuals was found to be in the stable phase, while the microbiome of several other individuals was shown to be in the unstable phase. In particular, individuals taking antibiotics and IBS--diagnosed patient P2 had the most severe symptoms. In this phase diagram, each microbiota state is represented by a point at its measured variability $V$ and inferred fitness $F$. The model predicts high average fitness for all taxa, i.e., taxa are narrowly distributed in F. The fitness parameter has been chosen with different values for demonstrative purposes. Fitness is larger for the healthiest subjects and smaller for the IBS--diagnosed patients.
 
 %%%
-\subsection*{DRAFT: Specific results}
+\subsection*{Specific results}
 
 \subsubsection*{Fit Plots}
-Both for the unweighted fit (see Material and Methods section for details) and for the X-weighted fit (detailed in Material and Methods subsection), two plots are generated: the former with logarithmic scale, the latter with lineal scale. Figure \ref{fig:unwFit} shows an example of the unweighted fit plots and Figure \ref{fig:X-wFit} does the same with the X-weighted fit plots. Additionally, for the unweighted fit, a complete residues analysis is performed, and a 4-in-1 figure is generated as shown in Figure \ref{fig:unwRes}, corresponding to the fit of Figure \ref{fig:unwFit}. Among other tests, it allows to check for normality and homoscedasticity of the residues.
+For each and every dataset included in the study, an unweighted fit (see Material and Methods section for details) and a X-weighted fit (detailed in Material and Methods subsection) have been calculated for standard deviations versus the mean values for each bacterial genus monitored in time. Figure \ref{fig:main1} showed the X-weighted fit for samples from a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom) studied in our lab \cite{IBS}, while Figure \ref{fig:fits} shows the corresponding unweighted fits. Additionally, for the unweighted fit, a complete residues analysis is performed, and a 4-in-1 figure is generated as shown in Figure \ref{fig:unwRes}, corresponding to patient A (top plot in Figure \ref{fig:main1} and Figure \ref{fig:fits}). Among other tests, it allows to check for normality and homoscedasticity of the residues.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_LLR_LOG.pdf}
-	\includegraphics[width=0.8\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_LLR_LIN.pdf}
-	\caption{Example of unweighted fit, shown both in logarithmic and lineal scale plots}
-	\label{fig:unwFit}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_xWboot_LOG.pdf}
-	\includegraphics[width=0.8\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_xWboot_LIN.pdf}
-	\caption{The X-weighted fit log and lineal plots corresponding to the fit of Figure \ref{fig:unwFit}}
-	\label{fig:X-wFit}
+	\includegraphics[width=0.8\textwidth]{results/fits/IBS_P1_metatranscriptomes_family_stdVSmean_LLR_LOG.pdf}
+	\caption{Log plots of unweighted fits corresponding to the datasets shown in Figure \ref{fig:main1}}
+	\label{fig:fits}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_LLR_RES.pdf}
-	\caption{Residues analysis plot corresponding to the fit of Figure \ref{fig:unwFit}. The top-left subplot is a simple residues plot. The top-right subplot is a Normal quantiles plot with linear fitting (value of coefficient of determination is provided). The bottom-left subplot shows an accumulated ESS (Explained Sum of Squares) plot. Finally, the bottom-right subplot is a residues Normal histogram plot. This set of subplots allows to check for normality and homoscedasticity of the residues.}
+	\caption{Residues analysis plot corresponding to the unweighted fit for patient A of the IBS study. The top-left subplot is a simple residues plot. The top-right subplot is a Normal quantiles plot with linear fitting (value of coefficient of determination is provided). The bottom-left subplot shows an accumulated ESS (Explained Sum of Squares) plot. Finally, the bottom-right subplot is a residues Normal histogram plot. This set of subplots allows to check for normality and homoscedasticity of the residues.}
 	\label{fig:unwRes}
 \end{figure}
 
-\subsubsection*{Histogram Plots} 
+\subsubsection*{Histogram Plots (DRAFT)} 
 \CC\ generates three different histogram plots:
 \begin{description}
 	\item[$-$Absolute frequencies plot]: This plot is useful to visually assess the validity of the time points in terms of the accumulated absolute frequency of the elements (taxa), since absolute frequencies far (much higher or much lower) from those typically observed could mean a sampling problem. As an example, Figure \ref{fig:histAFP} shows this histogram for the pre-treatment data (first 7 times) of patient ``D'' in the antibiotics study\cite{antibiotic}. 
@@ -232,22 +226,15 @@ Both for the unweighted fit (see Material and Methods section for details) and f
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{results/hist/antibiotics_h_patD_pre_AbsFreqPlot}
-	\caption{Histogram with the absolute frequencies of the pre-treatment data (7 first times) of patient ``D'' in the antibiotics study\cite{antibiotic}}
-	\label{fig:histAFP}
-\end{figure}
-
-\begin{figure}
-	\centering
 	\includegraphics[width=0.8\textwidth]{results/hist/IBS_h_A_amplicons_family_hist2D.pdf}
-	\caption{2D histogram deviation plot of the data used in the fit shown in Figure \ref{fig:unwFit}}
+	\caption{2D histogram deviation plot of the data for patient A of the IBS study}
 	\label{fig:hist2D}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{results/hist/IBS_h_A_amplicons_family_ZRFhist.pdf}
-	\caption{Histogram with the relative frequency of zero for the elements (taxa) in the data used in the fit shown in Figure \ref{fig:unwFit}}
+	\caption{Histogram with the relative frequency of zero for the elements (taxa) in the data for patient A of the IBS study}
 	\label{fig:histZRF}
 \end{figure}
 
@@ -261,22 +248,15 @@ Both for the unweighted fit (see Material and Methods section for details) and f
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{results/corrank/antibiotics_h_patD_pre_CORE_ElementsCorr}
-	\caption{Element correlation plot of the pre-treatment data (first seven times) of patient ``D'' in the antibiotics study\cite{antibiotic} for ``core'' taxa}
+	\includegraphics[width=0.9\textwidth]{results/corrank/IBS_h_A_amplicons_family_ElmCorrelation.pdf}
+	\caption{Element correlation plot of the for the most dominant taxa in the data for patient A of the IBS study}
 	\label{fig:corrElm}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\textwidth]{results/corrank/antibiotics_h_patD_pre_CORE_TimesCorr}
-	\caption{Times correlation plot of the pre-treatment data (first seven times) of patient ``D'' in the antibiotics study\cite{antibiotic} for ``core'' taxa}
-	\label{fig:corrTim}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{results/corrank/IBS_h_A_amplicons_family_Rank}
-	\caption{Matrix showing the rank variation throughout time for the most dominant elements (taxa) and their calculated RSI (as discussed in Section \ref{sec:RSI}) in the data used in the fit shown in Figure \ref{fig:unwFit}}
+	\includegraphics[width=\textwidth]{results/corrank/IBS_h_A_amplicons_family_Rank.pdf}
+	\caption{Matrix showing the rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index (as discussed in Material and Methods) in the data used in the fit shown in Figure \ref{fig:unwFit}}
 	\label{fig:corrank}
 \end{figure}
 
