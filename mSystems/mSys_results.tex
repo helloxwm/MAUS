@@ -199,7 +199,7 @@ The model predicts two phases for the gut microbiome: a stable phase with large 
 \subsection*{Specific results}
 
 \subsubsection*{Fit Plots}
-For each and every dataset included in the study, an unweighted fit (see Material and Methods section for details) and a X-weighted fit (detailed in Material and Methods subsection) have been calculated for standard deviations versus the mean values for each bacterial genus monitored in time. Figure \ref{fig:main1} showed the X-weighted fit for samples from a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom) studied in our lab \cite{IBS}, while Figure \ref{fig:fits} shows the corresponding unweighted fits. Additionally, for the unweighted fit, a complete residues analysis is performed, and a 4-in-1 figure is generated as shown in Figure \ref{fig:unwRes}, corresponding to patient A (top plot in Figure \ref{fig:main1} and Figure \ref{fig:fits}). Among other tests, it allows to check for normality and homoscedasticity of the residues.
+For each and every dataset included in the study, an unweighted fit (see Material and Methods section for details) and a X-weighted fit (detailed in Material and Methods subsection) have been calculated for standard deviations versus the mean values for each bacterial genus monitored in time. Figure \ref{fig:main1} showed the X-weighted fit for samples from a healthy subject (patient A, top) and from a subject diagnosed with irritable bowel syndrome (patient P2, bottom) studied in our lab\cite{IBS}, while Figure \ref{fig:fits} shows the corresponding unweighted fits. Additionally, for the unweighted fit, a complete residues analysis was performed, and a 4-in-1 figure was generated as shown in Figure \ref{fig:unwRes}, corresponding to patient A (top plot in Figure \ref{fig:main1} and Figure \ref{fig:fits}). Among other tests, it allows to check for normality and homoscedasticity of the residues and, therefore, to further evaluate the goodness of the fit.
 
 \begin{figure}
 	\centering
@@ -212,51 +212,51 @@ For each and every dataset included in the study, an unweighted fit (see Materia
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_LLR_RES.pdf}
-	\caption{Residues analysis plot corresponding to the unweighted fit for patient A of the IBS study. The top-left subplot is a simple residues plot. The top-right subplot is a Normal quantiles plot with linear fitting (value of coefficient of determination is provided). The bottom-left subplot shows an accumulated ESS (Explained Sum of Squares) plot. Finally, the bottom-right subplot is a residues Normal histogram plot. This set of subplots allows to check for normality and homoscedasticity of the residues.}
+	\caption{Residues analysis plot corresponding to the unweighted fit for patient A of the IBS study\cite{IBS}. The top-left subplot is a simple residues plot. The top-right subplot is a Normal quantiles plot with linear fitting (value of coefficient of determination is provided). The bottom-left subplot shows an accumulated ESS (Explained Sum of Squares) plot. Finally, the bottom-right subplot is a residues Normal histogram plot. This set of subplots allows to check for normality and homoscedasticity of the residues.}
 	\label{fig:unwRes}
 \end{figure}
 
-\subsubsection*{Histogram Plots (DRAFT)} 
-\CC\ generates three different histogram plots:
-\begin{description}
-	\item[$-$Absolute frequencies plot]: This plot is useful to visually assess the validity of the time points in terms of the accumulated absolute frequency of the elements (taxa), since absolute frequencies far (much higher or much lower) from those typically observed could mean a sampling problem. As an example, Figure \ref{fig:histAFP} shows this histogram for the pre-treatment data (first 7 times) of patient ``D'' in the antibiotics study\cite{antibiotic}. 
-	\item[$-$2D deviation plot]: The 2D semi-logarithmic histogram representing deviations from the mean versus the mean itself, is a useful tool in the analysis of the stability of ranking processes in complex systems\cite{ranking}. Figure \ref{fig:hist2D} shows this plot for the data used in the fit shown in Figure \ref{fig:unwFit}.
-	\item[$-$Zero relative frequency plot]: We could define the ZRF (Zero Relative Frequency, thereby ranging from 0 to 1) of an element (taxon) as the portion of times where it is zero, i.e., it is not found. Attending to all the elements (taxa), we can plot the ZRF histogram, which then lies on the horizontal axis of the plot. The vertical axis shows the number of elements (taxa), so the height of a bar represents the number of elements that have determinate ZRF. In this respect, the bar over $0.0$ counts the number of elements (taxa) that are present at every time point of the data set (aka ``core''), while the bar over $1.0$ would count the number of elements (taxa) that are never found (this bar never appears because all these ``null'' elements are automatically filtered by the code). Figure \ref{fig:histZRF} shows an example of this plot. There, we can see that $12$ taxa are present at all the time points of the time series while $9$ taxa basically appear only once. So, this plot is clearly useful to notice how the ``core'' is distributed.
-\end{description}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{results/hist/IBS_h_A_amplicons_family_hist2D.pdf}
-	\caption{2D histogram deviation plot of the data for patient A of the IBS study}
-	\label{fig:hist2D}
+\subsubsection*{Histogram Plots} 
+\CC\ generates two related histogram plots, absolute frequencies plot and zero relative frequency plot. The former is useful to visually assess the validity of the time points in terms of the accumulated absolute frequency of the elements (taxa), since absolute frequencies far (much higher or much lower) from those typically observed could mean a sampling problem. In Figure \ref{fig:histAFP} shows this histogram for the pre-treatment data (first 7 times) of patient ``D'' in the antibiotics study\cite{antibiotic}. On the other hand, we could define the ZRF (Zero Relative Frequency, thereby ranging from 0 to 1) of an element (taxon) as the portion of times where it is zero, i.e., it is not found. Attending to all taxa, we can plot the ZRF histogram, which then lies on the horizontal axis of the plot. The vertical axis shows the number of taxa, so the height of a bar represents the amount of taxa that have determinate ZRF. In this respect, the bar over $0.0$ counts the quantity of taxa that are present at every time point of the data set (aka ``core''), while the bar over $1.0$ would count the total of taxa that are never found (this bar never appears because all these ``null'' elements are automatically filtered by the software. Figure \ref{fig:histZRF} shows this plot for the healthy patient A of the IBS study performed in our lab\cite{IBS}. There, we can see that $12$ taxa are present at all the time points of the time series while $9$ taxa basically appear only once. So, this plot is clearly useful to notice how the ``core'' is distributed.
+	
+\begin{figure}		
+	\centering		
+ 	\includegraphics[width=0.8\textwidth]{results/hist/antibiotics_h_patD_pre_AbsFreqPlot}		
+ 	\caption{Histogram with the absolute frequencies of the pre-treatment data (7 first times) of patient ``D'' in the antibiotics study\cite{antibiotic}. We can see that there are no \emph{outlayers} among the total taxa sum for the time series points, so all of them were considered for further analysis by \CC\ software}		
+ 	\label{fig:histAFP}		
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\textwidth]{results/hist/IBS_h_A_amplicons_family_ZRFhist.pdf}
-	\caption{Histogram with the relative frequency of zero for the elements (taxa) in the data for patient A of the IBS study}
+	\caption{Histogram with the relative frequency of zero for the elements (taxa) in the data for patient A of the IBS study\cite{IBS}. In this particular case, the bar over $0.0$ counts the quantity of taxa that are present at every time point of the data set (``core''), while the bar over $1.0$ sums the total of taxa that are never found (this bar never appears because all these ``null'' elements are automatically filtered by \CC): here, $12$ taxa are present at all the time points of the time series while $9$ taxa basically appear only once.}
 	\label{fig:histZRF}
 \end{figure}
 
+A 2D semi-logarithmic histogram representing deviations from the mean versus the mean itself is a useful tool in the analysis of the stability of ranking processes in complex systems\cite{ranking}. Figure \ref{fig:hist2D} shows this 2D deviation plot for the patient A of the IBS study\cite{IBS}.
+ 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\textwidth]{results/hist/IBS_h_A_amplicons_family_hist2D.pdf}
+	\caption{2D histogram deviation plot of the data for patient A of the IBS study\cite{IBS}}
+	\label{fig:hist2D}
+\end{figure}
+
+
 \subsubsection*{Correlation and Rank Plots} 
-\CC\ generates three different plots falling under this category, as well as Excel files with the resulting matrices:
-\begin{description}
-	\item[$-$Elements correlation matrix]: This plot shows a correlation matrix among the elements (taxa), calculated with the time as independent variable. For these calculations, the data set is not normalized to avoid entering an additional constraint. As an example, Figure \ref{fig:corrElm} shows this matrix for the ``core'' elements (taxa) present in the pre-treatment data (first seven times) of patient ``D'' in the antibiotics study\cite{antibiotic}. 
-	\item[$-$Times correlation matrix]: This plot presents a correlation matrix among the time points of the data set, calculated with the elements (taxa) as independent variable. Again, the data set is not normalized. Figure \ref{fig:corrTim} shows this matrix for the ``core'' elements (taxa) present in pre-treatment data (first seven times) of patient ``D'' in the antibiotics study\cite{antibiotic}. 
-	\item[$-$Rank dynamics and stability plot]: This plot shows the variation in the rank with time for the most dominant elements (taxa) and their calculated RSI, as discussed in Section \ref{sec:RSI}. Figure \ref{fig:corrank} shows this plot for the elements (taxa) in the data used in the fit shown in Figure \ref{fig:unwFit}.
-\end{description}
+\CC\ generates two different plots falling under this category, as well as Excel files with the resulting matrices. On the one hand, the elements correlation matrix plot shows a correlation matrix among the taxa, calculated with the time as independent variable. For these calculations, the data set is not normalized to avoid entering an additional constraint. Figure \ref{fig:corrElm} shows this matrix for the most dominant taxa present in the data of the patient ``A'' of the IBS study\cite{IBS}. On the other hand, the rank dynamics and stability plot shows the variation in the rank with time for the most dominant taxa and their calculated RSI, as discussed in Material and Methods. Figure \ref{fig:corrank} shows this plot for the taxa of the aforementioned patient A.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{results/corrank/IBS_h_A_amplicons_family_ElmCorrelation.pdf}
-	\caption{Element correlation plot of the for the most dominant taxa in the data for patient A of the IBS study}
+	\caption{Element correlation plot of the for the most dominant taxa in the data for patient A of the IBS study\cite{IBS}}
 	\label{fig:corrElm}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{results/corrank/IBS_h_A_amplicons_family_Rank.pdf}
-	\caption{Matrix showing the rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index (as discussed in Material and Methods) in the data used in the fit shown in Figure \ref{fig:unwFit}}
+	\caption{Matrix showing the rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index (as discussed in Material and Methods) in the data  for patient A of the IBS study\cite{IBS}}
 	\label{fig:corrank}
 \end{figure}
 

@@ -4,7 +4,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{0.0.7}
+\newcommand\releasecode{0.0.8}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -22,9 +22,9 @@
 \usepackage{moreverb} % for verbatim output
 
 % text layout
-%\usepackage[letterpaper]{geometry}
-%\geometry{textwidth=16.25cm} % 15.25cm for single-space, 16.25cm for double-space
-%\geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
+\usepackage[letterpaper]{geometry}
+\geometry{textwidth=16.25cm} % 15.25cm for single-space, 16.25cm for double-space
+\geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
 
 % watermarks (time consuming!)
 \newwatermark[allpages,color=red!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
@@ -107,7 +107,7 @@
 \begin{document}
 
 \title{
-	\vspace*{-16mm} % Helps to include the corresponding author footnote in the title page
+	\vspace*{0mm} % May help to include the corresponding author footnote in the title page
 	\singlespacing
 	\begin{flushleft}
 		\texttt{\large Title:} \\
