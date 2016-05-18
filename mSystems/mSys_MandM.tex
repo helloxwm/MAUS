@@ -1,4 +1,4 @@
-%%%
+%%
 \subsection*{Model} \label{sec:model}
 
 We model the microbial abundances across time along the lines of Blumm \textit{et al.}\cite{ranking}. The dynamics of taxon relative abundances is described by the Langevin equation:
@@ -33,24 +33,28 @@ of the microbiota, assuming that it is in equilibrium (the ordered phase).
 \todo{Explain better the fluctuation-dissipation theorem}
 
 
-%%%
+%%
 \subsection*{Selection and Methods}
 
 The bacteria and archaea taxonomic assignations were obtained by analysing 16S rRNA sequences, which were clustered into operational taxonomic units (OTUs) sharing 97 \% sequence identity using QIIME\cite{QIIME}. WGS data\cite{kwashiorkor} were analysed and assigned at strain level by the Livermore Metagenomic Analysis Toolkit (LMAT)\cite{LMAT}, according to their default quality threshold. Genus, with best balance between error assignment and number of taxa, was chosen as our reference taxonomic level. We have verified that our conclusions are not significantly affected by selecting family or species as the reference taxonomic level (see Figure \ref{fig:taxlev1}).
 
 \todo{Specify, in each study treated, the nature of the samples (conditions, timespan between timepoints, subjects). Specify, and it is very important, what we consider \emph{healthy} in each study (for example: pre-antibiotics is healthy)}
 
+%%
 \subsubsection*{Sample selection}
 We have chosen studies about relevant pathologies containing metagenomic sequencing time data series of bacterial populations from humans in different healthy and non-healthy states. We have selected only those individuals who had three or more time points of data available in databases. Metadata of each study is provided in Tables \ref{tab:diet} to \ref{tab:LEA}. All used 16S rRNA gene sequencing except for the study of the discordant kwashiorkor twins\cite{kwashiorkor} (see Tables \ref{tab:DH} and \ref{tab:DK}) where shotgun metagenomic sequencing (SMS) and 16S rRNA were used. In the latter case we selected to work with SMS data to show that our method is valid regardless of the source of taxonomic information. Each one of the datasets was treated as follows:
 
+%%
 \subsubsection*{16rRNA sequences processing}
 Reads from the selected studies were first quality filtered using the FastX toolkit\cite{FASTX}, allowing only those reads which had more than 25 of quality along the 75\% of the complete sequence. 16S rRNA reads were then clustered at 97\% nucleotide sequence identity (97\% ID) into operational taxonomic units (OTUs) using QIIME package software\cite{QIIME} (version 1.8) We followed open reference OTU picking workflow in all cases. The clustering method used was uclust, and the OTUs were matched against Silva database\cite{SILVA} (version 111, July 2012) and were assigned to taxonomy with an uclust-based consensus taxonomy assigner. The parameters used in this step were: similarity 0.97, prefilter percent id 0.6, max accepts 20, max rejects 500. 
 
+%%
 \subsubsection*{Metagenomic sequences processing}
-Metagenomic shotgun (and 16S too) sequences were analyzed with LMAT (Livermore Metagenomics Analysis Toolkit) software package\cite{LMAT} (version 1.2.4, with Feb'15 release of data base \emph{LMAT-Grand}). LMAT was run using a Bull shared-memory node belonging to the team's HPC (high performance computing) cluster. It is equipped with 32 cores (64 threads available using Intel Hyper-threading technology) as it has 2 Haswell-based Xeons, the E5-2698v3@2.3 GHz, sharing half a tebibyte (0.5 TiB, that is, 512 gibibytes) of DRAM memory. This node is also provided with a card PCIe SSD as NVRAM, the P420m HHHL, with 1.4 TB, and 750000 reading IOPS, 4 KB, achieving 3.3 GB/s, which Micron kindly issued free of charge, as a sample for testing purposes. The computing node was supplied with a RAID-0 (striping) scratch disk area. We used the ``Grand'' database\footnote{In this context, ``Grand'' refers to a huge database that contains k-mers from all viral, prokaryote, fungal and protist genomes present in the NCBI database, plus Human reference genome (hg19), plus GenBank Human, plus the 1000 Human Genomes Project (HGP). This represent about 31.75 billion k-mers occupying 457.62 GB.}, release Feb'15, provided by the LMAT team. Previously to any calculation, the full database was loaded in the NVRAM. With this configuration the observed LMAT sustained sequence classification rate was $20\unclassrate$. Finally, it is worth mentioning that a complete set of Python scripts have been developed as back-end and front-end of the LMAT pipeline in order to manage the added complexity of time series analysis. 
+Metagenomic shotgun (and 16S too) sequences were analyzed with LMAT (Livermore Metagenomics Analysis Toolkit) software package\cite{LMAT} (version 1.2.4, with Feb'15 release of data base \emph{LMAT-Grand}). LMAT was run using a Bull shared-memory node belonging to the team's HPC (high performance computing) cluster. It is equipped with 32 cores (64 threads available using Intel Hyper-threading technology) as it has 2 Haswell-based Xeons, the E5-2698v3@2.3 GHz, sharing half a tebibyte (0.5 TiB, that is, 512 gibibytes) of DRAM memory. This node is also provided with a card PCIe SSD as NVRAM, the P420m HHHL, with 1.4 TB, and 750000 reading IOPS, 4 KB, achieving 3.3 GB/s, which Micron kindly issued free of charge, as a sample for testing purposes. The computing node was supplied with a RAID-0 (striping) scratch disk area. We used the ``Grand'' database\cite{LMAT2}, release Feb'15, provided by the LMAT team, where ``Grand'' refers to a huge database that contains k-mers from all viral, prokaryote, fungal and protist genomes present in the NCBI database, plus Human reference genome (hg19), plus GenBank Human, plus the 1000 Human Genomes Project (HGP) (this represent about 31.75 billion k-mers occupying 457.62 GB)\cite{LMAT2}. Previously to any calculation, the full database was loaded in the NVRAM. With this configuration the observed LMAT sustained sequence classification rate was $20\unclassrate$. Finally, it is worth mentioning that a complete set of Python scripts have been developed as back-end and front-end of the LMAT pipeline in order to manage the added complexity of time series analysis. 
 
+%%
 \subsubsection*{Taxa level selection}
-We selected genus as taxonomic level for the subsequent steps of our work. In order to ensure that, between adjacent taxonomic levels, there were not crucial differences which could still be of relevance after standardization (see Section \ref{sec:stan}), we tested two different data sets. In the former, the antibiotics study\cite{antibiotic} with 16S data, we tested the differences between genus and family levels. The latter dataset tested was the kwashiorkor discordant twins study\cite{kwashiorkor} for both genus and species taxonomic levels. The Figures \ref{fig:taxlev1} (overview) and \ref{fig:taxlev2} (detail) plot the comparison between studies (and so, 16S and SMS) and between adjacent taxonomic levels.
+We selected genus as taxonomic level for the subsequent steps of our work. In order to ensure that, between adjacent taxonomic levels, there were not crucial differences which could still be of relevance after standardization (see last subsection of Material and Methods), we tested two different data sets. In the former, the antibiotics study\cite{antibiotic} with 16S data, we tested the differences between genus and family levels. The latter dataset tested was the kwashiorkor discordant twins study\cite{kwashiorkor} for both genus and species taxonomic levels. The Figures \ref{fig:taxlev1} (overview) and \ref{fig:taxlev2} (detail) plot the comparison between studies (and so, 16S and SMS) and between adjacent taxonomic levels.
 
 \begin{figure} 
   \includegraphics[width=0.5\textwidth]{results/taxalevel/sum_raw_16S.pdf}
@@ -70,215 +74,49 @@ We selected genus as taxonomic level for the subsequent steps of our work. In or
 \label{fig:taxlev2}
 \end{figure}
 
-
-
-\subsection*{ComplexCruncher}
-
-A complete software framework, named 'ComplexCruncher', has been engineered to support the analysis of the dynamics of ranking processes in complex systems. Although the software was devised with a clear bias towards metagenomics, it is general enough to be able to cope with a ranking process in any complex system. Implemented in Python using well-known open-source community software, the software solution is composed of two parts that can be used together or apart: a web-based graphic front-end connected to a database, and a computing kernel. Used together, this software enables other users to reproduce our results easily and, furthermore, upload and analyse their own data or experiment with the preloaded metagenomics data sets.
-
-`ComplexCruncher WebPortal' (CCWebPortal) is a web platform designed to allow the user to interact with a data repository of selected and well-documented metagenomics data sources. Through a few simple steps, the user can perform advanced searches on the complete set of records in the metagenomics repository.  The web application provides advanced filters that allow the user to reduce the search to a small set of interest. After this first step, the user can refine the search and discard those records that do not meet certain requirements.
-
-The web application allows calculations to be done directly by the stable release of the \CC\ computing kernel. At the end of the calculations, the results are displayed to the user on the same browser which runs the web application. Then, the user can interact over the series of generated graphics thus allowing flexible comparison among them. In addition, CCWebPortal enables direct download of generated data (plots, spreadsheets, etc). The web application generates a report file summarizing all the results in PDF format. If the user has login permissions, CCWebPortal enables the option of insert new database records in addition to editing and deleting existing ones.
-
-CCWebPortal is a web application that runs on current versions of many browsers. Additional software is not needed and only requires javaScript to be enabled on the browser to run applications. 
-CCWebPortal is implemented following the client$-$server distributed programming model, where the javaScript client application connects to a remote server that enables the execution of calculations and transactions through a centralized database management system. A set of relational tables allows the structuring of the metagenomics repository to establish relationships between records. Thus the search and information threshing is optimized for queries launched from the client interface. Access to the database on the server is implemented through Django framework, an open-source framework written in Python using the model-view-controller (MVC) architectural pattern for implementing user interfaces.
-
-The effective data analysis has been performed with a Python tool developed from scratch to more than 4200 lines of code. Implemented following the Object Oriented Programming paradigm, this software is the back-end of the website described above. However, it could be run as an independent piece of software since it is built as a Python package provided with a command-line front-end (\CC.py). Once installed, the tool can be run interactively but also in automatic mode, which uses parallel computation to speed up the analysis of several data sources. 
-
-\CC\ performs the power-law fit described in the \emph{Blumm, N. et al.} paper, but by fitting the best model, i.e. choosing between fitting a power-law using linear regression versus nonlinear regression\cite{ecology}. In the power-law fit plots we also show the generalized coefficient of determination computed for continuous models\cite{genR2,disR2}.
-
-\subsection*{Un-weighted power-law fit}\label{sec:unw}
-
-\subsubsection*{Fitting the best model}
-
-As already mentioned, to choose between fitting power laws ($y=Vx^\beta$) using linear regression on log-transformed (LLR) data versus non-linear regression (NLR), we mainly follow \emph{General Guidelines for the Analysis of Biological Power Laws}\cite{ecology}. It consists of the following three steps:
-\begin{enumerate}
-    \item Determining the appropriate error structure by likelihood analysis.
-    \begin{enumerate}
-        \item Fit the Non-Linear Regression (NLR) model and obtain $V_\text{NLR}$, $\beta_\text{NLR}$ and $\sigma_\text{NLR}^2$.
-        \item Calculate the loglikelihood that the data ($n$ is sample size) are generated from a normal distribution with additive error:
-        \begin{itemize}
-            \item The likelihood of a normal distribution is: 
-            \begin{linenomath}
-            $$\mathcal{L}_\text{norm} = \prod_{i=1}^n\left[\frac{1}{\sqrt{2\pi\sigma^2_\text{NLR}}}\;\exp{\left(-\frac{\left(y_i-V_\text{NLR}x_i^{\beta_\text{NLR}}\right)^2}{2\sigma^2_\text{NLR}}\right)}\right]$$
-            \end{linenomath}
-            \item So, the loglikelihood of a normal distribution is:
-            \begin{eqnarray*}
-                \log\mathcal{L}_\text{norm} &=& -\frac{n}{2}\log\left|2\pi\sigma^2_\text{NLR}\right| - \frac{1}{2\sigma^2_\text{NLR}}\underbrace{\sum_{i=1}^n\left(y_i-V_\text{NLR}x_i^{\beta_\text{NLR}}\right)^2}_{\mathrm{RSS
-                }_\text{NLR}}\\
-                &=& -\frac{n}{2}\log\left|2\pi\sigma^2_\text{NLR}\right|-\frac{\mathrm{RSS}_\text{NLR}}{2\sigma^2_\text{NLR}}
-            \end{eqnarray*}
-        \end{itemize}
-        \item Calculate the \emph{corrected Akaike's Information Criterion} for the NLR model:
-		\begin{linenomath}
-        $$\mathrm{AIC_{c_{NLR}}} = 2k - 2\log\mathcal{L}_\text{norm} + \frac{2k(k+1)}{n-k-1}$$
-		\end{linenomath}
-        \item Fit the Log-transformed Linear Regression (LLR) model and obtain $V_\text{LLR}$, $\beta_\text{LLR}$ and $\sigma_\text{LLR}^2$.
-        \item Calculate the loglikelihood that the data ($n$ is sample size) are generated from a lognormal distribution with multiplicative error:
-        \begin{itemize}
-            \item The likelihood of a lognormal distribution is: 
-            \begin{linenomath}
-            $$\mathcal{L}_\text{logn} = \prod_{i=1}^n\left[\frac{1}{y_i\sqrt{2\pi\sigma^2_\text{LLR}}}\;\exp{\left(-\frac{\left(\log|y_i|-\log|V_\text{LLR}|-\beta_\text{LLR}\log|x_i|\right)^2}{2\sigma^2_\text{LLR}}\right)}\right]$$
-            \end{linenomath}
-            \item So, the loglikelihood of a lognormal distribution is: 
-            \begin{eqnarray*}
-                \log\mathcal{L}_\text{logn} &=& -\frac{n}{2}\log\left|2\pi\sigma^2_\text{LLR}\right| - \sum_{i=1}^n\log|y_i| -\\
-                &&\qquad-\frac{1}{2\sigma^2_\text{LLR}}\underbrace{\sum_{i=1}^n\left(\log|y_i|-\log|V_\text{LLR}|-\beta_\text{LLR}\log|x_i|\right)^2}_{\mathrm{RSS
-                }_\text{LLR}}\\
-                &=& -\frac{n}{2}\log\left|2\pi\sigma^2_\text{LLR}\right| - \frac{\mathrm{RSS}_\text{LLR}}{2\sigma^2_\text{LLR}} - \sum_{i=1}^n\log|y_i|
-            \end{eqnarray*}
-        \end{itemize}
-        \item Calculate the \emph{corrected Akaike's Information Criterion} for the LR model: 
-        	\begin{linenomath}
-        	$$\mathrm{AIC_{c_{LLR}}} = 2k - 2\log\mathcal{L}_\text{logn} + \frac{2k(k+1)}{n-k-1}$$
-			\end{linenomath}
-    \end{enumerate}
-    \item Compare $\mathrm{AIC_{c_{NLR}}}$ with $\mathrm{AIC_{c_{LLR}}}$:
-    \begin{itemize}
-        \item If $\mathrm{AIC_{c_{NLR}}} - \mathrm{AIC_{c_{LLR}}} < -2$, the assumption of normal error is favoured compared to lognormal error, so proceed with the results obtained from the NLR fit.
-        \item If $\mathrm{AIC_{c_{NLR}}} - \mathrm{AIC_{c_{LLR}}} > 2$, the assumption of lognormal error is favoured compared to normal error, so proceed with the results obtained from the LLR fit.
-        \item If $\left|\mathrm{AIC_{c_{NLR}}} - \mathrm{AIC_{c_{LLR}}}\right| \leq 2$, no model is favoured, so proceed with model averaging:
-        \begin{eqnarray*}
-            B_\text{av} &=& w_\text{NLR}V_\text{NLR} + w_\text{LLR}V_\text{LLR} \\
-            \beta_\text{av} &=& w_\text{NLR}\beta_\text{NLR} + w_\text{LLR}\beta_\text{LLR}
-        \end{eqnarray*}
-        where: 
-        \begin{eqnarray*}
-            w_\text{NLR} &=& \frac{1}{1+\mathrm{e}^{\frac{1}{2}\left(\mathrm{AIC_{c_{NLR}}}-\mathrm{AIC_{c_{LLR}}}\right)}} \\
-            w_\text{LLR} &=& \frac{1}{1+\mathrm{e}^{\frac{1}{2}\left(\mathrm{AIC_{c_{LLR}}}-\mathrm{AIC_{c_{NLR}}}\right)}}
-        \end{eqnarray*}
-        which are obtained to fulfill the next condition: $w_\text{NLR} + w_\text{LLR} = 1$. The CIs for $B_\text{av}$ and $\beta_\text{av}$ are to be generated by ordinary bootstrapping\footnote{\CC\ has available the next bootstrapping alternatives\cite{boot}: ordinary, ``Resampling Residuals'' method, ``Wild'' method, and ``Monte-Carlo'' method.}.      
-    \end{itemize}
-    \item Assess the validity of the underlying statistical assumptions with diagnostic plots because while it is rare for all the assumptions to be fully satisfied by real-life data sets, major violations indicate the lack of appropriateness of the model and, thus, the potential invalidity of the results.
-\end{enumerate}
-
-\subsubsection*{Calculating the coefficient of determination}
-
-We think the best approach in this situation is to apply the generalized $R^2$ that, for continuous models, was defined as\cite{genR2}:
-\begin{linenomath}
-$$ R^2 = 1 - \left(\frac{\mathcal{L}(0)}{\mathcal{L}(\hat\theta)}\right)^{\!\!\frac{2}{n}} $$
-\end{linenomath}
-where $\mathcal{L}(\hat\theta)$ and $\mathcal{L}(0)$  denote the likelihoods of the fitted and the ``null'' model, respectively, and $n$ is the sample size. In terms of the loglikelihoods, the generalized coefficient of determination would be:
-\begin{linenomath}
-$$ R^2 = 1 - \mathrm{e}^{-\frac{2}{n}\left(\log\mathcal{L}(\hat\theta)-\log\mathcal{L}(0)\right)} $$
-\end{linenomath}
-We have the likelihoods calculated from the previous section, but what about the ``null'' models? We understand that they are the models with only the intercept. So for the Gaussian additive error model:
-\begin{linenomath}
-$$\mathcal{L}_\text{norm}(0) = \prod_{i=1}^n\left[\frac{1}{\sqrt{2\pi\sigma^2_\text{NLR0}}}\;\exp{\left(-\frac{\left(y_i-\bar y\right)^2}{2\sigma^2_\text{NLR0}}\right)}\right]$$
-\end{linenomath}
-So:
-\begin{eqnarray*}
-\log\mathcal{L}_\text{norm}(0) &=& -\frac{n}{2}\log\left|2\pi\sigma^2_\text{NLR0}\right| - \frac{1}{2\sigma^2_\text{NLR0}}\sum_{i=1}^n\left(y_i-\bar y\right)^2\\
- &=& -\frac{n}{2}\left(\log\left|2\pi\sigma^2_\text{NLR0}\right| + 1 \right)
-\end{eqnarray*}
-since $\sigma^2_\text{NLR0}=\frac{1}{n}\sum\left(y_i-\bar y\right)^2=\frac{1}{n}\mathrm{TSS}_\text{NLR}$. Now, coming back to the coefficient of determination, we have:
-\begin{eqnarray*}
-R^2_\text{NLR} &=& 1 - \mathrm{e}^{\frac{2}{n}\left(\log\mathcal{L}_\text{NLR}(0)-\log\mathcal{L}_\text{NLR}(\hat\theta)\right)} = 1 - \exp{\left(\frac{\log(\mathrm{RSS}_\text{NLR})}{\log(\mathrm{TSS}_\text{NLR})}\right)}
- =\\ &=& 1 - \frac{\mathrm{RSS}_\text{NLR}}{\mathrm{TSS}_\text{NLR}} =
- 1 - \frac{\sum_{i=1}^n\left(y_i-V_\text{NLR}x_i^{\beta_\text{NLR}}\right)^2}{\sum_{i=1}^n\left(y_i-\bar y\right)^2}
-\end{eqnarray*}
-recovering the traditional expression for $R^2$. Using the same approach for calculating $R^2_\text{LLR}$, then:
-\begin{linenomath}
-$$\mathcal{L}_\text{logn}(0) = \prod_{i=1}^n\left[\frac{1}{y_i\sqrt{2\pi\sigma^2_\text{LLR0}}}\;\exp{\left(-\frac{\left(\log|y_i|-\log|B_\text{LLR0}|\right)^2}{2\sigma^2_\text{LLR0}}\right)}\right]$$
-\end{linenomath}
-So:
-\begin{eqnarray*}
-\log\mathcal{L}_\text{logn}(0) &=& -\frac{n}{2}\log\left|2\pi\sigma^2_\text{LLR0}\right| - \frac{1}{2\sigma^2_\text{LLR0}}\sum_{i=1}^n\left(\log|y_i|-\overline{\log|y|}\right)^2 - \sum_{i=1}^n\log|y_i|\\
- &=& -\frac{n}{2}\left(\log\left|2\pi\sigma^2_\text{LLR0}\right| + 1 \right) - \sum_{i=1}^n\log|y_i|
-\end{eqnarray*}
-since $\sigma^2_\text{LLR0}=\frac{1}{n}\sum\left(\log|y_i|-\overline{\log|y|}\right)^2=\frac{1}{n}\mathrm{TSS}_\text{logn}$. Again, recalling the expression for the generalized coefficient of determination, we have:
-\begin{eqnarray*}
-R^2_\text{LLR} &=& 1 - \mathrm{e}^{\frac{2}{n}\left(\log\mathcal{L}_\text{LLR}(0)-\log\mathcal{L}_\text{LLR}(\hat\theta)\right)} = 1 - \exp{\left(\frac{\log(\mathrm{RSS}_\text{LLR})}{\log(\mathrm{TSS}_\text{LLR})}\right)}
- =\\ &=& 1 - \frac{\mathrm{RSS}_\text{LLR}}{\mathrm{TSS}_\text{LLR}} =
- 1 - \frac{\sum_{i=1}^n\left(\log|y_i|-\log|V_\text{LLR}|-\beta_\text{LLR}\log|x_i|\right)^2}{\sum_{i=1}^n\left(\log|y_i|-\overline{\log|y|}\right)^2}
-\end{eqnarray*}
-
-
+%%
 \subsection*{X-weighted power-law fit}\label{sec:X-w}
 
-When fitting the power-law of std vs. mean, we can take into account that every mean has uncertainty and estimate it for a sample size $n$ by the SEM (\emph{Standard Error of the Mean}):
-\begin{linenomath}
-$$ \mathrm{SEM} = \frac{s}{\sqrt{n}}$$
-\end{linenomath}
-where $s$ is the sample standard deviation. So, the vector of weights is computed with:
-\begin{linenomath}
-$$ \mathbf{w} = \frac{1}{\overrightarrow{\mathrm{SEM}}} = \frac{\sqrt{\mathbf{n}}}{\mathbf{s}}$$
-\end{linenomath}
-
-Here, the uncertainties affect the independent variable, so the fit is not so trivial as a Y-weighted fit, where the uncertainties affect the dependent variable. A standard approach to do this fit is: a) invert your variables before applying the weights, b) then perform the weighted fit, and finally, c) revert the inversion. This method is deterministic, but the approximate solution worsens with smaller $R^2$. For comparison, we develop a stochastic method by using a bootstrapping-like strategy that avoids the inversion and is applicable regardless of $R^2$. Both methods, detailed below, are implemented in \CC.
-
-\subsubsection*{Method 1: By inverting the data}
-
-In the case of the log-LR model, we have:
-\begin{linenomath}
-$$\log y = \log V + \beta\log x \quad\rightarrow\quad \underbrace{\log x}_{\tilde y} = \overbrace{-\frac{1}{\beta}\log V}^{b} + \overbrace{\frac{1}{\beta}}^{m}\underbrace{\log y}_{\tilde x}$$ 
-\end{linenomath}
-where $m$ determines the slope or gradient of the fitted line, and $b$ determines the point at which the line crosses the y-axis, otherwise known as the y-intercept. Once the model is fitted, the original parameters can be retrieved easily:
-\begin{eqnarray*}
-\beta &=& \frac{1}{m} \\
-V &=& \mathrm{e}^{-\beta b} = \mathrm{e}^{-\frac{b}{m}}
-\end{eqnarray*}
-Their respective uncertainties are to be obtained using \emph{error propagation}:
-\begin{eqnarray*}
-    \sigma_\beta &=& \left|\frac{\mathrm{d}\beta}{\mathrm{d}m}\right|\sigma_m \quad=\quad \frac{1}{m^2}\;\sigma_m \\
-    \sigma_V &=& \sqrt{\left(\frac{\partial V}{\partial b}\right)^{\!\!2}\sigma_b^2 +
-      \left(\frac{\partial V}{\partial m}\right)^{\!\!2}\sigma_m^2} \quad=\quad
-      \frac{1}{m}\;\mathrm{e}^{-\frac{b}{m}}\,\sqrt{\sigma_b^2 + \frac{b^2}{m^2}\;\sigma_m^2} 
-\end{eqnarray*}
-
-\subsubsection*{Method 2: Bootstrapping-like strategy}
+When fitting the power-law of std vs. mean, we can take into account that every mean has uncertainty and estimate it for a sample size $n$ by the SEM (\emph{Standard Error of the Mean}). Here, the uncertainties affect the independent variable, so the fit is not so trivial as a Y-weighted fit, where the uncertainties affect the dependent variable. A standard approach to do this fit is: a) invert your variables before applying the weights, b) then perform the weighted fit, and finally, c) revert the inversion. This method is deterministic, but the approximate solution worsens with smaller coefficients of determination. To overcome this limitation, we developed a stochastic method by using a bootstrapping-like strategy that avoids the inversion and is applicable regardless of the coefficient of determination. 
 
 The basic idea of bootstrapping is that inference about a population from sample data (sample $\rightarrow$ population) can be modeled by resampling the sample data and performing inference on (resample $\rightarrow$ sample). To adapt this general idea to our problem, we resample the x-data array using its errors array. That is, for each replicate, a new x-data array is computed based on:
 \begin{linenomath}
 $$x^*_i = x_i + v_i$$
 \end{linenomath}
-where $v_i$ is a Gaussian random variable with mean $\mu_i=0$ and standard deviation $\sigma_i=\mathrm{SEM}_i$, as defined previously. For each replicate a complete un-weighted power-law fit is performed, as described in the previous section. It is worth mentioning that each replicate is filtered to avoid values of $x^*_i$ under \emph{eps} (obtained by \texttt{np.finfo(np.double).eps}) in order to keep away from the error of getting log of negatives or zero during the fit.
+where $v_i$ is a Gaussian random variable with mean $\mu_i=0$ and standard deviation $\sigma_i=\mathrm{SEM}_i$, as defined previously. For each replicate a complete un-weighted power-law fit is performed, where to choose between fitting power laws ($y=Vx^\beta$) using linear regression on log-transformed (LLR) data versus non-linear regression (NLR) we mainly follow \emph{General Guidelines for the Analysis of Biological Power Laws}\cite{ecology}. The parameters of the X-weighted fit are then estimated by averaging through all the replicate fits performed, and their errors are estimated by computing the standard deviation also for all the fits. At the end of each step, the relative error is calculated by comparing the fit parameters estimation in the last step with the previous one. Finally, both the coefficient of determination of the fit and the coefficient of correlation between the fit parameters are estimated by averaging.
 
-We devised and implemented a multi-step algorithm to estimate the fit parameters that finishes when a relative error of less than $10^{-4}$ is achieved. It also ends if the number of steps reaches $100$ to avoid too much time lapse, to prevent any pathologic numeric case which, in fact, we still have not detected in all the data sets analyzed.
+%%
+\subsection*{Rank Stability Index}\label{sec:RSI}
 
-In the previous version of the algorithm, for each step, the method generated $10$ replicates for each x-data point, in other words, it was computing the fit for $10$ times the length of the x-data array replicates, with a maximum of $10000$ fits per step. Nevertheless, we found that such an approach depending on the length of the x-data array did not perform better, so we decided to simplify the method and fix the number of fits per step in $100$. This latter approach improved the performance. 
-
-The parameters of the X-weighted fit are then estimated by averaging through all the replicate fits performed, and their errors are estimated by computing the standard deviation also for all the fits. At the end of each step, the relative error is calculated by comparing the fit parameters estimation in the last step with the previous one.
-
-Finally, both the coefficient of determination of the fit and the coefficient of correlation between the fit parameters are estimated by averaging.
-
-\subsection*{Rank Stability Index (RSI)}\label{sec:RSI}
-
-The Rank Stability Index is shown as a percentage in a separate bar on the right of the rank matrix plot provided by \CC. The RSI is strictly $1$ for an element whose range never changes over time, and is strictly $0$ for an element whose rank oscillates between the extremes from time to time. So, RSI is calculated, per element, as $1$ less the quotient of the number of true rank hops taken between the number of maximum possible rank hops, all powered to $p$:
+The Rank Stability Index (RSI) is shown as a percentage in a separate bar on the right of the rank matrix plot shown in Figure \ref{fig:corrank}. The RSI is strictly $1$ for an element whose range never changes over time, and is strictly $0$ for an element whose rank oscillates between the extremes from time to time. So, RSI is calculated, per element, as $1$ less the quotient of the number of true rank hops taken between the number of maximum possible rank hops, all powered to $p$:
 \begin{linenomath}
 $${\rm RSI} = \left(1-\frac{\text{true rank hops}}{\text{possible rank hops}}\right)^p = \left(1-\frac{D}{(N-1)(t-1)}\right)^p$$
 \end{linenomath}
-where $D$ is the total of rank hops taken by the studied element, $N$ is the number of elements that have been ranked, and $t$ is the number of time samples. The power index $p$ is arbitrarily chosen to increase the resolution in the stable region; the value in the current version of the code is $p=4$. 
+where $D$ is the total of rank hops taken by the studied element, $N$ is the number of elements that have been ranked, and $t$ is the number of time samples. The power index $p=4$ is arbitrarily chosen to increase the resolution in the stable region. 
 
-As an example of this ``zooming'' effect in the stable region, to match a linear ($p=1$) RSI of 0.9 to a powered one of 0.1, we should select $p=21.8543$. An alternative way to obtain this effect and exactly map a linear RSI of 0.9 to a non-linear RSI (${\rm RSI'}$) of 0.1, is by applying the following function:
-\begin{linenomath}
-$${\rm RSI'} = \frac{10^{10\left(1-\frac{D}{(N-1)(t-1)}\right)}-1}{10^{10}-1} \approx 10^{-10\left(\frac{D}{(N-1)(t-1)}\right)}$$
-\end{linenomath}
-where the approximation is valid because $10^{10}\gg 1$ but, the small price to pay for it is that, in the worst instability case, the ${\rm RSI'}$ would not be strictly $0$ but $10^{-10}$.
-
-The colour code of the RSI percentage text in the rank plot of \CC\ is chosen following the first condition satisfied from those shown in Table \ref{tab:RSI} (see page \pageref{tab:RSI}). 
+The colour code of the RSI percentage text in the rank plot shown in Figure \ref{fig:corrank} is chosen following the first condition satisfied from those shown in Table \ref{tab:RSI}.
 
 \begin{table}
   \begin{center}
-    \begin{tabular}{ccc}
+    \begin{tabular}{cccr}
     \hline
-    Case  &  Condition  &  Colour  \\
+    Case  &  Condition  &  Colour  &  Description \\
     \hline
-    1  &  $1\ge{\rm RSI}>0.99$  & \textcolor{blue}{blue}  \\ 
-    2  & ${\rm RSI}>0.90$  &  \textcolor{green}{green}  \\
-    3  &  ${\rm RSI}>0.75$  &  \textcolor{orange}{orange} \\
-    4  &  ${\rm RSI}>0.25$  &  \textcolor{red}{red} \\
-    5  &  $0.25\ge{\rm RSI}\ge0$  &  \bfseries{black}  \\
+    1  &  $1\ge{\rm RSI}>0.99$  & \textcolor{blue}{blue} & constant rank \\ 
+    2  & ${\rm RSI}>0.90$  &  \textcolor{green}{green}  & highly stable rank \\
+    3  &  ${\rm RSI}>0.75$  &  \textcolor{orange}{orange} & moderately stable rank \\
+    4  &  ${\rm RSI}>0.25$  &  \textcolor{red}{red} & unstable rank \\
+    5  &  $0.25\ge{\rm RSI}\ge0$  &  \bfseries{black} & very unstable rank \\
     \hline
     \end{tabular}
-  \end{center}
-  \caption{Colour code of the RSI percentage text shown in rank plots, following the first condition satisfied.}
+  \end{center} 
+  \caption{Colour code of the RSI percentage text shown in Figure \ref{fig:corrank}, following the first condition satisfied.}
   \label{tab:RSI}
 \end{table}
 
-
+%%
 \subsection*{Standardization} \label{sec:stan}
-In order to show all the studies properly under common axes, we decided to standardize the Taylor parameters using the group of healthy individuals for each study. With this approach, all the studies can be visualized in a shared plot with units of Taylor-parameters standard-deviation on their axes.
+In order to properly show all the studies under common axes, we decided to standardize the Taylor parameters using the group of healthy individuals for each study. With this approach, all the studies can be visualized in a shared plot with units of Taylor-parameters standard-deviation on their axes.
 
 For a Taylor parameter, e.g. $V$, the estimate of the mean ($\widehat{V}$) for the healthy subpopulation, composed of $h$ individuals, is:
 \begin{linenomath}

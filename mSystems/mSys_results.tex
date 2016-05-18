@@ -1,5 +1,3 @@
-%%%
-\subsection*{Global results}
 
 We have analysed the microbiome temporal variability to extract global properties of the system. As fluctuations in total counts are plagued by systematic errors we worked on temporal variability of relative abundances for each taxon. Our first finding was that, in all cases, changes in relative abundances of taxa follow a ubiquitous pattern known as the fluctuation scaling law\cite{fs} or Taylor's  power law\cite{taylor}, i.e., microbiota of all detected taxa follows $\sigma_i  = V\cdot x_i^{\beta}$, a power law dependence between mean relative abundance $x_i$ and dispersion $\sigma_i$. The law seem to be ubiquitous, spanning even to six orders of magnitude in the observed relative abundances (see Figure \ref{fig:main1}). 
 
@@ -196,76 +194,23 @@ Taylor's power law has been explained in terms of various effects, all without g
 The model predicts two phases for the gut microbiome: a stable phase with large variability that permits some changes in the relative abundances of taxa and an unstable phase with larger variability, above the phase transition, where the order of abundant taxa varies significantly with time. The microbiome of all healthy individuals was found to be in the stable phase, while the microbiome of several other individuals was shown to be in the unstable phase. In particular, individuals taking antibiotics and IBS--diagnosed patient P2 had the most severe symptoms. In this phase diagram, each microbiota state is represented by a point at its measured variability $V$ and inferred fitness $F$. The model predicts high average fitness for all taxa, i.e., taxa are narrowly distributed in F. The fitness parameter has been chosen with different values for demonstrative purposes. Fitness is larger for the healthiest subjects and smaller for the IBS--diagnosed patients.
 
 %%%
-\subsection*{Specific results}
-
-\subsubsection*{Fit Plots}
-For each and every dataset included in the study, an unweighted fit and a X-weighted fit (see Material and Methods section for details on both fits) have been calculated for standard deviations versus the mean values for each bacterial genus monitored in time. Figure \ref{fig:main1} showed the X-weighted fit for samples from a healthy subject (patient A, top) and from a subject diagnosed with irritable bowel syndrome (patient P2, bottom) studied in our lab\cite{IBS}, while Figure \ref{fig:fits} shows the corresponding unweighted fits. Both for the X-weighted and the unweighted fit, the IBS patient shows significative higher values of $V$ and $\beta$ than the healthy subject.
+\subsection*{Rank stability of the taxa} 
+The rank dynamics and stability plot in Figure \ref{fig:corrank} shows the variation in the rank with time for the most dominant taxa and their calculated Rank Stability Index (RSI, as discussed in Material and Methods) for the taxa of a healthy subject (individual \emph{A}, top) and from a subject diagnosed with IBS (patient \emph{P2}, bottom) of the IBS study\cite{IBS}. The taxa are listed ordered by the accumulated frequency along the time series, so y-axis is an overall dominance axis for each sample set. Generally speaking, we observe that the most dominant taxa are the most rank stable. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.8\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_LLR_LOG.pdf}
-	\includegraphics[width=0.8\textwidth]{results/fits/IBS_P1_metatranscriptomes_family_stdVSmean_LLR_LOG.pdf}
-	\caption{Log plots of unweighted fits corresponding to the datasets shown in Figure \ref{fig:main1}, a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom) studied in our lab \cite{IBS}}
-	\label{fig:fits}
-\end{figure}
-
-Additionally, for the unweighted fit, a complete residues analysis was performed, and a 4-in-1 figure was generated as shown in Figure \ref{fig:unwRes}, corresponding to patient A (top plot in Figure \ref{fig:main1} and Figure \ref{fig:fits}). This allows to check for normality and homoscedasticity of the residues and, therefore, to further assess the goodness of the model's fit to the data.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{results/fits/IBS_h_A_amplicons_family_stdVSmean_LLR_RES.pdf}
-	\caption{Residues analysis plot corresponding to the unweighted fit for patient A of the IBS study\cite{IBS}. The top-left subplot is a simple residues plot. The top-right subplot is a Normal quantiles plot with linear fitting (value of coefficient of determination is provided). The bottom-left subplot shows an accumulated ESS (Explained Sum of Squares) plot. Finally, the bottom-right subplot is a residues Normal histogram plot. This set of subplots allows to check for normality and homoscedasticity of the residues and, therefore, to further assess the goodness of the model's fit to the real data.}
-	\label{fig:unwRes}
-\end{figure}
-
-\subsubsection*{Histogram Plots} 
-The \CC\ software generates two related histogram plots: absolute frequencies plot and zero relative frequency plot. The former is useful to visually assess the validity of the time points in terms of the accumulated absolute frequency of the elements (taxa), since absolute frequencies far (much higher or much lower) from those typically observed could mean a sampling problem. In Figure \ref{fig:histAFP} shows this histogram for the pre-treatment data (first 7 times) of patient ``D'' in the antibiotics study\cite{antibiotic}. We can see that there are no \emph{outlayers} among the total taxa sum for the sample points of this time series, so all of them were considered for further analysis by \CC.
-
-On the other hand, we could define the ZRF (Zero Relative Frequency, thereby ranging from 0 to 1) of an element (taxon) as the portion of times of the time series where the corresponding frequency is zero, i.e., such taxon is not found. The ZRF is useful for assessing how regularly is appearing the microbiota in the samples. In that sense, we define the ``core'' as the taxa that has a ZRF of less than 0.2, i.e., is present in more than the 80\% of the samples.
-
-Attending to all taxa in a dataset, we can plot the ZRF histogram, which then lies on the horizontal axis of the plot, with the vertical axis showing the number of taxa. So, the height of a bar represents the amount of taxa that have determinate ZRF. In this respect, the bar near $0$ counts the quantity of taxa that are present at every (or almost every) time point of the data set. In the same way, in the opposite case, the bar near $1$ counts the total of taxa that are scarcely found but present at least in one time (the software filters any taxon not appearing at any time). Figure \ref{fig:histZRF} shows this plot for the healthy patient A of the IBS study performed in our lab\cite{IBS}. There, we can see that $12$ taxa are present at all the time points of the time series while $9$ taxa basically appear only once. Ranging between those extremes, there are a significative amount of elements, $23$ taxa, appearing from often to seldom, but not belonging to the ``core'' region.
-	
-\begin{figure}		
-	\centering		
- 	\includegraphics[width=0.8\textwidth]{results/hist/antibiotics_h_patD_pre_AbsFreqPlot}		
- 	\caption{Histogram with the absolute frequencies of the pre-treatment data (7 first times) of patient ``D'' in the antibiotics study\cite{antibiotic}. There are no \emph{outlayers} among the total taxa sum for the time series sample points, so all of them were considered for further analysis by \CC\ software}		
- 	\label{fig:histAFP}		
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{results/hist/IBS_h_A_amplicons_family_ZRFhist.pdf}
-	\caption{Histogram with the relative frequency of zero for the elements (taxa) in the data for patient A of the IBS study\cite{IBS}. In this particular case, the bar near $0$ counts the quantity of taxa that are present at almost every time point of the data set, while the bar near $1$ sums the total of taxa that are scarcely found: here, $12$ taxa are present at all the time points of the time series while $9$ taxa basically appear only once.}
-	\label{fig:histZRF}
-\end{figure}
-
-A 2D semi-logarithmic histogram representing deviations from the mean versus the mean itself is a useful tool in the analysis of the stability of ranking processes in complex systems\cite{ranking}. Figure \ref{fig:hist2D} shows this 2D deviation plot for the patient A of the IBS study\cite{IBS}.
- 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.8\textwidth]{results/hist/IBS_h_A_amplicons_family_hist2D.pdf}
-	\caption{2D histogram deviation plot of the data for patient A of the IBS study\cite{IBS}}
-	\label{fig:hist2D}
-\end{figure}
-
-
-\subsubsection*{Correlation and Rank Plots} 
-\CC\ generates two different plots falling under this category in addition to the Excel files with the resulting matrices. On the one hand, the elements correlation matrix plot shows a correlation matrix among the taxa, calculated with the time as independent variable. For these calculations, the data set is not normalized to avoid entering an additional constraint. Figure \ref{fig:corrElm} shows this matrix for the most dominant taxa present in the data of the patient ``A'' of the IBS study\cite{IBS}. On the other hand, the rank dynamics and stability plot shows the variation in the rank with time for the most dominant taxa and their calculated RSI, as discussed in Material and Methods. Figure \ref{fig:corrank} shows this plot for the taxa of the aforementioned patient A.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.9\textwidth]{results/corrank/IBS_h_A_amplicons_family_ElmCorrelation.pdf}
-	\caption{Element correlation plot of the for the most dominant taxa in the data for patient A of the IBS study\cite{IBS}}
-	\label{fig:corrElm}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=\textwidth]{results/corrank/IBS_h_A_amplicons_family_Rank.pdf}
-	\caption{Matrix showing the rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index (as discussed in Material and Methods) in the data  for patient A of the IBS study\cite{IBS}}
+	\vspace*{-10mm} % Corrects overbox of the figures
+	\includegraphics[width=0.8\textwidth]{results/corrank/IBS_h_A_amplicons_family_Rank.pdf}\vspace*{-3mm} % Corrects overbox of the figures
+	\hspace*{-4.5mm}\includegraphics[width=0.83\textwidth]{results/corrank/IBS_P2_Metatranscriptores_Rank.pdf}
+	\caption{Matrixes showing the rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index (as discussed in Material and Methods). We show the matrix for samples from a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom), studied in our lab\cite{IBS}.}
 	\label{fig:corrank}
 \end{figure}
 
+Nevertheless, in the particular case of the healthy individual, \emph{Burkholderiales} and \emph{Betaproteobacteria} (taxa ordered as 18th and 25th in the dominance axis) show comparatively very low rank stability regarding similar dominant taxa while, on the other hand, \emph{Comamonadaceae}, \emph{Lactobacillaceae}, \emph{Fusobacteriaceae}, \emph{Aerococcaceae} and \emph{Carnobacteriaceae} show higher stability than other more dominant taxa, forming a kind of \emph{rank stability island} for medium-ranked taxa around position 40 in the dominance axis, and thus colored in orange following Table \ref{tab:RSI} criteria, since they show a moderately stable RSI.
+
+In the IBS diagnosed patient, beyond the differences in dominance for the particular taxa, we still observe that the most dominant are the most rank stable. However, as opposed to the healthy individual results, far from presenting a \emph{rank stability island}, the medium-ranked taxa are very rank unstable, mostly due to transient (often one or two consecutive samples) but deep drops in their relative abundance, which are usually happening more than twice along the time series. That is, for instance, the case of \emph{Sphingobacteriales} with two non-consecutive samples dropping to 111th rank position. In other cases, the high rank instability comes from a rank fluctuation over all the time series, as for \emph{Streptococcaceae} and \emph{Burkholderiales}, which are ranking 26th and 29th respectively in the overall dominance axis but show very low RSI, and thus colored in black attending to Table \ref{tab:RSI}.
+
+We found the presence of such of \emph{rank stability island} for medium-ranked taxa in the other healthy subjects (\emph{B} and \emph{C}) of the IBS study\cite{IBS} together with its total absence for the other IBS diagnosed patient (patient \emph{P1}), which also presents very high rank instability in its medium-ranked taxa.
 
 %%%
 \subsection*{Time dependence of model parameters}

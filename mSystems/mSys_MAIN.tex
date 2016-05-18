@@ -4,7 +4,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{0.1.0}
+\newcommand\releasecode{0.2.0}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -27,8 +27,8 @@
 \geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
 
 % watermarks (time consuming!)
-\newwatermark[allpages,color=red!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
-\newwatermark[allpages,color=red!12,angle=0,scale=1,xpos=0,ypos=137]{
+\newwatermark[allpages,color=blue!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
+\newwatermark[allpages,color=blue!12,angle=0,scale=1,xpos=0,ypos=137]{
 \emph{mSystems} \LaTeX\ manuscript release \releasecode}
 
 % helps to keep figures from being orphaned on a page by themselves
@@ -125,8 +125,8 @@
 
 \doublespacing
 
-\author[1,2]{Jose Manuel Martí}
-\author[1,2,3]{Daniel Martínez-Martínez}
+\author[1,2,$*$]{Jose Manuel Martí}
+\author[1,2,3,$*$]{Daniel Martínez-Martínez}
 \author[2]{Manuel Peña}
 \author[1,2]{César Gracia}
 \author[1,3,4,5]{Amparo Latorre}
@@ -143,6 +143,7 @@
 
 \maketitle
 \wordcount
+\footnote[0]{$^*$ Equally contributed}
 \footnote[0]{$^\#$ Corresponding author: penagaray@gmail.com}
 
 \clearpage
@@ -163,17 +164,20 @@ microbiome, systems biology, ecological modeling, metagenomics, stability
 %===================================== SECTIONS =======================================
 %%% Introduction
 \section*{Introduction}
-\input{mSys_intro.tex}   
+\input{mSys_intro.tex}
+\clearpage
 %%% Result
 \section*{Results}
 \input{mSys_results.tex}
+\clearpage
 %%% Discussion
 \section*{Discussion}
-\input{mSys_discussion.tex}    
+\input{mSys_discussion.tex}
+\clearpage    
 %%% Material & Methods
 \section*{Materials and Methods}
 \input{mSys_MandM.tex}   
-
+\clearpage
 
 \section*{Acknowledgments}
 Authors declare that there are no competing financial interests in relation to the work described here. 
@@ -181,9 +185,7 @@ Authors declare that there are no competing financial interests in relation to t
 \section*{Funding Information}
 This work is supported by Generalitat Valenciana Prometeo Grants II/2014/050, II/2014/065, by the Spanish Grants FPA2011-29678, BFU2012-39816-C02-01 of MINECO and by PITN-GA-2011-289442-INVISIBLES. JMM \& DMM acknowledge FPI and FISABIO fellowships. \todo{Modificar becas de JMM y DMM ¿poner algún grant más?}
 
-
-
-\newpage
+\clearpage
 \begin{thebibliography}{99}
 \bibitem{bileacids} {\bf Swann JR, Want EJ, Geier FM, Spagou K, Wilson ID, Sidaway JE, Nicholson JK, Holmes E.} 2011. Systemic gut microbial modulation of bile acid metabolism in host tissue compartments. Proc Natl Acad Sci {\bf 108}:4523–4530.
 \bibitem{choline} {\bf nSpencer MD, Hamp TJ, Reid RW, Fischer LM, Zeisel SH, Fodor AA.} 2011. Association between composition of the human gastrointestinal microbiome and development of fatty liver with choline deficiency. Gastroenterology {\bf 140}:976–986.
@@ -224,7 +226,8 @@ This work is supported by Generalitat Valenciana Prometeo Grants II/2014/050, II
 \bibitem{diet} David, L.A. et al. Diet rapidly and reproducibly alters the human gut microbiome. {\it Nature} {\bf 505,} 559-63 (2014).
 \bibitem{antibiotic} Dethlefsen L., Relman D. A. Incomplete recovery and individualized responses of the human distal gut microbiota to repeated antibiotic perturbation. {\it Proc. Nat. Acad. Sci. USA} {\bf 108,} 4554-61 (2011).
 \bibitem{QIIME} Caporaso, J.G. et al. QIIME allows analysis of high-throughput community sequencing data. {\it Nature Methods} {\bf 7,} 335-6 (2010).
-\bibitem{LMAT} Ames, S.K. et al. Scalable metagenomic taxonomy classification usng a reference genome database. {\it Bioinformatics} {\bf 29,} 2253-2260 (2013).
+\bibitem{LMAT} {\bf Ames SK, Hysom DA, Gardner SN, Lloyd GS, Gokhale MB, Allen JE}.  2013. Scalable metagenomic taxonomy classification using a reference genome database.  Bioinformatics {\bf 29}:2253-2260.
+\bibitem{LMAT2} {\bf Ames SK, Gardner SN, Marti JM, Slezak TR, Gokhale MB, Allen JE}. 2015. Using populations of human and microbial genomes for organism detection in metagenomes. Genome Res. {\bf 25}:1056-67.
 \bibitem{fs} Eisler,Z., Bartos,I., Kertesz,J. Fluctuation scaling in complex systems: Taylor's law and beyond. {\it Adv. Phys.} {\bf 57,} 85 (2008).
 \bibitem{stat} Jorgensen,B., Martinez,J.R., Tsao,M. Asymptotic behaviour of the variance function. {\it Scand. J. Statist..} {\bf 21,} 223-243 (1994).
 \bibitem{convergence1} Fronczak,A., Fronczak,P. Origins of Taylor's power law for fluctuation scaling in complex systems. {\it Phys. Rev. E} {\bf 81,} 066112 (2010).
