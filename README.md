@@ -2,7 +2,7 @@
 ## aka MAUS (Microbiota, are you sick?)
 ### :open_file_folder: Current release: mSystems (draft)
 
-Jose Manuel Martí(*1,2,:eight_spoked_asterisk:), Daniel M. Martínez(*1,2,3,:eight_spoked_asterisk:*), Manuel Peña(*2*), César Gracia(*1,2*), Amparo Latorre(*1,3,4,5*), Andrés Moya(*1,3,4,5*)  & Carlos P. Garay(*1,2*)
+Jose Manuel Martí(*1,2,*:eight_spoked_asterisk:), Daniel M. Martínez(*1,2,3,*:eight_spoked_asterisk:), Manuel Peña(*2*), César Gracia(*1,2*), Amparo Latorre(*1,3,4,5*), Andrés Moya(*1,3,4,5*,:email:)  & Carlos P. Garay(*1,2*,:email:)
 
 _**1**_ Institute for Integrative Systems Biology (I2SysBio), 46980, Spain.
 
@@ -15,6 +15,8 @@ _**4**_ Cavanilles Institute of Biodiversity and Evolutionary Biology, Univ. de 
 _**5**_ CIBER en Epidemiología y Salud Pública (CIBEResp), Madrid, Spain.
 
 :eight_spoked_asterisk: : Equally contributed
+
+:email: : Correponding authors
 - - -
 :point_right: [Link to Biorxiv pre-published release](http://biorxiv.org/content/early/2015/10/27/029991)
 - - -
