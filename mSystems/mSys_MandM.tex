@@ -40,7 +40,7 @@ The bacteria and archaea taxonomic assignations were obtained by analysing 16S r
 
 %%
 \subsubsection*{Sample selection}
-We have chosen studies about relevant pathologies containing metagenomic sequencing time data series of bacterial populations from humans in different healthy and non-healthy states. We have selected only those individuals who had three or more time points of data available in databases. Caporaso et al. study \cite{moving} was selected as it has two healthy individuals measured over a very large timespan, with almost daily sampling. Faith et al. study \cite{LEA} was selected due to the BMI differences between subjects, moreover some of them had diets which can be treated as system perturbations. We considered healthy only those individuals who had normal or overweight BMI. Smith et al., study \cite{kwashiorkor} was selected for both the age of the patients and the rare disease. We only worked with the discordant twins, and considered healthy those who were not affected by kwashiorkor in each pair of patients. David et al., study \cite{diet} was selected for its differential diets. We considered as the healthy part the first time samples of each individual before the diet, and the rest of time points as perturbations. Dethlefsen and Relman work \cite{antibiotics} was selected due to the interesting treatment of two antibiotic intakes of the same antibiotic by three different subjects. We considered as the healthy part only those times before any antibiotic treatment, and as perturbations the time of antibiotic intakes and the period after that. And finally, we also considered a study made in our group carried by Durbán et al., \cite{IBS} in which we considered as healthy subjects those who didn't suffer from irritable bowel disease, and as perturbation the patients who had this disease. 
+We have chosen studies about relevant pathologies containing metagenomic sequencing time data series of bacterial populations from humans in different healthy and non-healthy states. We have selected only those individuals who had three or more time points of data available in databases. Caporaso et al. study \cite{moving} was selected as it has two healthy individuals measured over a very large timespan, with almost daily sampling. Faith et al. study \cite{LEA} was selected due to the BMI differences between subjects, moreover some of them had diets which can be treated as system perturbations. We considered healthy only those individuals who had normal or overweight BMI. Smith et al., study \cite{kwashiorkor} was selected for both the age of the patients and the rare disease. We only worked with the discordant twins, and considered healthy those who were not affected by kwashiorkor in each pair of patients. David et al., study \cite{diet} was selected for its differential diets. We considered as the healthy part the first time samples of each individual before the diet, and the rest of time points as perturbations. Dethlefsen and Relman work \cite{antibiotics} was selected due to the interesting treatment of two antibiotic intakes of the same antibiotic by three different subjects. We considered as the healthy part only those times before any antibiotic treatment, and as perturbations the time of antibiotic intakes and the period after that. And finally, we also considered a study made in our group carried by Durban et al., \cite{IBS} in which we considered as healthy subjects those who didn't suffer from irritable bowel disease, and as perturbation the patients who had this disease. 
 
 Metadata of each study is provided in Tables \ref{tab:diet} to \ref{tab:LEA}. All used 16S rRNA gene sequencing except for the study of the discordant kwashiorkor twins\cite{kwashiorkor} (see Tables \ref{tab:DH} and \ref{tab:DK}) where shotgun metagenomic sequencing (SMS) and 16S rRNA were used. In the latter case we selected to work with SMS data to show that our method is valid regardless of the source of taxonomic information. Each one of the datasets was treated as follows:
 
@@ -93,26 +93,6 @@ The Rank Stability Index (RSI) is shown as a percentage in a separate bar on the
 $${\rm RSI} = \left(1-\frac{\text{true rank hops}}{\text{possible rank hops}}\right)^p = \left(1-\frac{D}{(N-1)(t-1)}\right)^p$$
 \end{linenomath}
 where $D$ is the total of rank hops taken by the studied element, $N$ is the number of elements that have been ranked, and $t$ is the number of time samples. The power index $p=4$ is arbitrarily chosen to increase the resolution in the stable region. 
-
-The colour code of the RSI percentage text in the rank plot shown in Figure \ref{fig:corrank} is chosen following the first condition satisfied from those shown in Table \ref{tab:RSI}.
-
-\begin{table}
-  \begin{center}
-    \begin{tabular}{cccr}
-    \hline
-    Case  &  Condition  &  Colour  &  Description \\
-    \hline
-    1  &  $1\ge{\rm RSI}>0.99$  & \textcolor{blue}{blue} & constant rank \\ 
-    2  & ${\rm RSI}>0.90$  &  \textcolor{green}{green}  & highly stable rank \\
-    3  &  ${\rm RSI}>0.75$  &  \textcolor{orange}{orange} & moderately stable rank \\
-    4  &  ${\rm RSI}>0.25$  &  \textcolor{red}{red} & unstable rank \\
-    5  &  $0.25\ge{\rm RSI}\ge0$  &  \bfseries{black} & very unstable rank \\
-    \hline
-    \end{tabular}
-  \end{center} 
-  \caption{Colour code of the RSI percentage text shown in Figure \ref{fig:corrank}, following the first condition satisfied.}
-  \label{tab:RSI}
-\end{table}
 
 %%
 \subsection*{Standardization} \label{sec:stan}
