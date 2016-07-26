@@ -35,38 +35,46 @@ The model predicts two phases for the gut microbiome: a stable phase with large 
 
 %%%
 \subsection*{Rank stability of the taxa} 
-The rank dynamics and stability plot in Figure \ref{fig:corrank} shows the variation in the rank with time for the most dominant taxa and their calculated Rank Stability Index (RSI, as discussed in Material and Methods) for the taxa of a healthy subject (individual \emph{A}, top) and from a subject diagnosed with IBS (patient \emph{P2}, bottom) of the IBS study\cite{IBS}. The taxa are listed ordered by the accumulated frequency along the time series, so y-axis is an overall dominance axis for each sample set. Generally speaking, we observe that the most dominant taxa are the most rank stable. 
 
-\begin{figure}
-	\centering
-	\vspace*{-10mm} % Corrects overbox of the figures
-	\includegraphics[width=0.8\textwidth]{results/corrank/IBS_h_A_amplicons_family_Rank.pdf}\vspace*{-3mm} % Corrects overbox of the figures
-	\hspace*{-4.5mm}\includegraphics[width=0.83\textwidth]{results/corrank/IBS_P2_Metatranscriptores_Rank.pdf}
-	\caption{Matrixes showing the rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index (as shown in Material and Methods). We show the matrix for samples from a healthy subject (top) and from a subject diagnosed with irritable bowel syndrome (bottom), studied in our lab\cite{IBS}.}
-	\label{fig:corrank}
-\end{figure}
-
-Nevertheless, in the particular case of the healthy individual, \emph{Burkholderiales} and \emph{Betaproteobacteria} (taxa ordered as 18th and 25th in the dominance axis) show comparatively very low rank stability regarding similar dominant taxa while, on the other hand, \emph{Comamonadaceae}, \emph{Lactobacillaceae}, \emph{Fusobacteriaceae}, \emph{Aerococcaceae} and \emph{Carnobacteriaceae} show higher stability than other more dominant taxa, forming a kind of \emph{rank stability island} for medium-ranked taxa around position 40 in the dominance axis, and thus colored in orange following Table \ref{tab:RSI} criteria, since they show a moderately stable RSI.
-
-\begin{table}
-  \begin{center}
-    \begin{tabular}{cccr}
+\def \RSItable {
+\scriptsize
+	\begin{tabular}{cccr}
+	\multicolumn{4}{c}{Colour code for the RSI percentage column} \\
     \hline
     Case  &  Condition  &  Colour  &  Description \\
     \hline
     1  &  $1\ge{\rm RSI}>0.99$  & \textcolor{blue}{blue} & constant rank \\ 
-    2  & ${\rm RSI}>0.90$  &  \textcolor{green}{green}  & highly stable rank \\
-    3  &  ${\rm RSI}>0.75$  &  \textcolor{orange}{orange} & moderately stable rank \\
-    4  &  ${\rm RSI}>0.25$  &  \textcolor{red}{red} & unstable rank \\
+    2  &  $0.99\ge{\rm RSI}>0.90$  &  \textcolor{green}{green}  & highly stable rank \\
+    3  &  $0.90\ge{\rm RSI}>0.75$  &  \textcolor{orange}{orange} & moderately stable rank \\
+    4  &  $0.75\ge{\rm RSI}>0.25$  &  \textcolor{red}{red} & unstable rank \\
     5  &  $0.25\ge{\rm RSI}\ge0$  &  \bfseries{black} & very unstable rank \\
     \hline
-    \end{tabular}
-  \end{center} 
-  \caption{Colour code of the RSI percentage text following the first condition satisfied.}
-  \label{tab:RSI}
-\end{table}
+    \end{tabular}	
+}
 
-In the IBS diagnosed patient, beyond the differences in dominance for the particular taxa, we still observe that the most dominant are the most rank stable. However, as opposed to the healthy individual results, far from presenting a \emph{rank stability island}, the medium-ranked taxa are very rank unstable, mostly due to transient (often one or two consecutive samples) but deep drops in their relative abundance, which are usually happening more than twice along the time series. That is, for instance, the case of \emph{Sphingobacteriales} with two non-consecutive samples dropping to 111th rank position. In other cases, the high rank instability comes from a rank fluctuation over all the time series, as for \emph{Streptococcaceae} and \emph{Burkholderiales}, which are ranking 26th and 29th respectively in the overall dominance axis but show very low RSI, and thus colored in black attending to Table \ref{tab:RSI}.
+The rank dynamics and stability plots in Figure \ref{fig:corrank_IBS_A} and \ref{fig:corrank_IBS_P2} show the variation in the rank with time for the most dominant taxa and their calculated Rank Stability Index (RSI, as discussed in Material and Methods) for the taxa of a healthy subject (individual \emph{A}, Figure \ref{fig:corrank_IBS_A}) and from a subject diagnosed with IBS (patient \emph{P2}, Figure \ref{fig:corrank_IBS_P2}) of the IBS study\cite{IBS}. The taxa are listed ordered by the accumulated frequency along the time series, so y-axis is an overall dominance axis for each sample set. Generally speaking, we observe that the most dominant taxa are the most rank stable. 
+
+\begin{figure}
+	\centering
+	%\vspace*{-10mm} % Corrects overbox of the figures
+	\includegraphics[width=0.99\textwidth]{results/corrank/IBS_h_A_amplicons_family_Rank.pdf}
+	\RSItable	
+	\caption{Rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index (as shown in Material and Methods) for samples from a healthy subject studied in our lab\cite{IBS}.}
+	\label{fig:corrank_IBS_A}
+\end{figure}
+
+\begin{figure}
+	\centering
+	%\vspace*{-10mm} % Corrects overbox of the figures
+	\hspace*{-4.5mm}\includegraphics[width=0.99\textwidth]{results/corrank/IBS_P2_Metatranscriptores_Rank.pdf}
+	\RSItable
+	\caption{Rank variation throughout time for the most dominant elements (taxa) and their calculated Rank Stability Index for samples from a subject diagnosed with irritable bowel syndrome studied in our lab\cite{IBS}.}
+	\label{fig:corrank_IBS_P2}
+\end{figure}
+
+Nevertheless, in the particular case of the healthy individual in Figure \ref{fig:corrank_IBS_A}, \emph{Burkholderiales} and \emph{Betaproteobacteria} (taxa ordered as 18th and 25th in the dominance axis) show comparatively very low rank stability regarding similar dominant taxa while, on the other hand, \emph{Comamonadaceae}, \emph{Lactobacillaceae}, \emph{Fusobacteriaceae}, \emph{Aerococcaceae} and \emph{Carnobacteriaceae} show higher stability than other more dominant taxa, forming a kind of \emph{rank stability island} for medium-ranked taxa around position 40 in the dominance axis, and thus colored in orange, following the color criteria shown in the table included in Figure \ref{fig:corrank_IBS_A}, since they show a moderately stable RSI.
+
+In the IBS diagnosed patient of Figure \ref{fig:corrank_IBS_P2}, beyond the differences in dominance for the particular taxa, we still observe that the most dominant are the most rank stable. However, as opposed to the healthy individual results, far from presenting a \emph{rank stability island}, the medium-ranked taxa are very rank unstable, mostly due to transient (often one or two consecutive samples) but deep drops in their relative abundance, which are usually happening more than twice along the time series. That is, for instance, the case of \emph{Sphingobacteriales} with two non-consecutive samples dropping to 111th rank position. In other cases, the high rank instability comes from a rank fluctuation over all the time series, as for \emph{Streptococcaceae} and \emph{Burkholderiales}, which are ranking 26th and 29th respectively in the overall dominance axis but show very low RSI, and thus colored in black attending to the color criteria shown in the table included in Figure \ref{fig:corrank_IBS_P2}.
 
 We found the presence of such of \emph{rank stability island} for medium-ranked taxa in the other healthy subjects (\emph{B} and \emph{C}) of the IBS study\cite{IBS} together with its total absence for the other IBS diagnosed patient (patient \emph{P1}), which also presents very high rank instability in its medium-ranked taxa.
 

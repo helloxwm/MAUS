@@ -4,7 +4,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{0.4.0}
+\newcommand\releasecode{0.5.0}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -27,8 +27,8 @@
 \geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
 
 % watermarks (time consuming!)
-\newwatermark[allpages,color=PineGreen!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
-\newwatermark[allpages,color=PineGreen!12,angle=0,scale=1,xpos=0,ypos=137]{
+\newwatermark[allpages,color=Fuchsia!4,angle=45,scale=9,xpos=-40,ypos=0]{DRAFT}
+\newwatermark[allpages,color=Fuchsia!12,angle=0,scale=1,xpos=0,ypos=137]{
 \emph{mSystems} \LaTeX\ manuscript release \releasecode}
 
 % helps to keep figures from being orphaned on a page by themselves
@@ -150,7 +150,7 @@
 
 %TC:newcounter abswords Words in abstract
 %TC:macro \abstract [abswords]
-{\abstract{Animal microbiota (human included) plays an important role keeping healthy the physiological status of the host. Increasing research activity is dedicated to understand how changes in composition and function of the microbiota are associated to disease or not. We analyze 16S rRNA and whole genome sequencing (WGS) published data from the gut microbiota of 97 individuals monitored in time. Temporal fluctuations in the microbial composition reveal significant differences due to factors such us dietary changes, antibiotic intake, age or disease. Here we show that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law allows to estimate the temporal variability of the microbial population and quantitatively characterizes the path toward disease by a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, applications in other fields where it is important to know if a given community is stable or not.}}
+{\abstract{Animal microbiota (human included) plays an important role keeping healthy the physiological status of the host. Increasing research activity is dedicated to understand how changes in composition and function of the microbiota are associated to disease or not. We analyze 16S rRNA and shotgun metagenomic sequencing (SMS) published data from the gut microbiota of 97 individuals monitored in time. Temporal fluctuations in the microbial composition reveal significant differences due to factors such us dietary changes, antibiotic intake, age or disease. Here we show that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law allows to estimate the temporal variability of the microbial population and quantitatively characterizes the path toward disease by a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, applications in other fields where it is important to know if a given community is stable or not.}}
 
 %TC:newcounter impwords Words in importance section
 %TC:macro \importance [impwords]
@@ -165,19 +165,19 @@ microbiome, systems biology, ecological modeling, metagenomics, stability
 %%% Introduction
 \section*{Introduction}
 \input{mSys_intro.tex}
-\clearpage
+%\clearpage
 %%% Result
 \section*{Results}
 \input{mSys_results.tex}
-\clearpage
+%\clearpage
 %%% Discussion
 \section*{Discussion}
 \input{mSys_discussion.tex}
-\clearpage    
+%\clearpage    
 %%% Material & Methods
 \section*{Materials and Methods}
 \input{mSys_MandM.tex}   
-\clearpage
+%\clearpage
 
 \section*{Acknowledgments}
 Authors declare that there are no competing financial interests in relation to the work described here. We thereby express our acknowledgement to Bull/Atos and Micron Technology for providing us with the PCIe SSD card Micron P420m HHHL as a free-of-charge sample for high performance throughput database testing purposes.
@@ -206,6 +206,9 @@ This work was supported by grants to AM from the Spanish Ministry of Science and
 \bibitem{ob2} {\bf Turnbaugh PJ, Hamady M, Yatsunenko T, Cantarel BL, Duncan A, Ley RE, Sogin ML, Jones WJ, Roe BA, Affourtit JP, Egholm M, Henrissat B, Heath AC, Knight R, Gordon JI.} 2009. LETTERS A core gut microbiome in obese and lean twins. Nature {\bf 457}:480–484.
 \bibitem{nutr} {\bf Subramanian S, Huq S, Yatsunenko T, Haque R, Mahfuz M, Alam MA, Benezra A, DeStefano J, Meier MF, Muegge BD, Barratt MJ, VanArendonk LG, Zhang Q, Province MA, Petri WA, Ahmed T, Gordon JI.} 2014. Persistent gut microbiota immaturity in malnourished Bangladeshi children. Nature {\bf 510}:417–21.
 \bibitem{Moya_trends} {\bf Moya A, Ferrer M.} 2016. Functional Redundancy-Induced Stability of Gut Microbiota Subjected to Disturbance. Trends Microbiol {\bf 24}:402–413.
+\bibitem{CFS} {\bf Giloteaux L, Goodrich JK, Walters WA, Levine SM, Ley RE, Hanson MR}. 2016.
+Reduced diversity and altered composition of the gut microbiome in individuals with myalgic encephalomyelitis/chronic fatigue syndrome. Microbiome. {\bf 4}:30
+
 \bibitem{microb&health} {\bf Marchesi JR, Adams DH, Fava F, Hermes GD a, Hirschfield GM, Hold G, Quraishi MN, Kinross J, Smidt H, Tuohy KM, Thomas L V, Zoetendal EG, Hart A.} 2015. The gut microbiota and host health: a new clinical frontier. Gut 1–10.
 \bibitem{normal1} {\bf Falony G, Joossens M, Vieira-Silva S, Wang J, Darzi Y, Faust K, Kurilshikov A, Bonder MJ, Valles-Colomer M, Vandeputte D, Tito RY, Chaffron S, Rymenans L, Verspecht C, De Sutter L, Lima-Mendez G, Dhoe K, Jonckheere K, Homola D, Garcia R, Tigchelaar EF, Eeckhaudt L, Fu J, Henckaerts L, Zhernakova A, Wijmenga C, Raes J.} 2016. Population-level analysis of gut microbiome variation. Science (80- ) {\bf 352}:560–564.
 \bibitem{normal2} {\bf Zhernakova A, Kurilshikov A, Bonder MJ, Tigchelaar EF, Schirmer M, Vatanen T, Mujagic Z, Vila AV, Falony G, Vieira-Silva S, Wang J, Imhann F, Brandsma E, Jankipersadsing SA, Joossens M, Cenit MC, Deelen P, Swertz MA, Weersma RK, Feskens EJM, Netea MG, Gevers D, Jonkers D, Franke L, Aulchenko YS, Huttenhower C, Raes J, Hofker MH, Xavier RJ, Wijmenga C, Fu J.} 2016. Population-based metagenomics analysis reveals markers for gut microbiome composition and diversity. Science (80- ) {\bf 352}:565–569.
@@ -222,7 +225,7 @@ This work was supported by grants to AM from the Spanish Ministry of Science and
 \bibitem{genexpress} {\bf Živković J, Tadić B, Wick N, Thurner S.} 2006. Statistical indicators of collective behavior and functional clusters in gene networks of yeast. Eur Phys J B {\bf 50}:255–258.
 \bibitem{genome} {\bf Kendal WS.} 2003. An Exponential Dispersion Model for the Distribution of Human Single Nucleotide Polymorphisms. Mol Biol Evol {\bf 20}:579–590.
 \bibitem{isme1} {\bf Zhang Z, Geng J, Tang X, Fan H, Xu J, Wen X, Ma ZS, Shi P.} 2014. Spatial heterogeneity and co-occurrence patterns of human mucosal-associated intestinal microbiota. ISME J {\bf 8}:881–93.
-\bibitem{cohen_bac} {\bf Kaltz O, Escobar-Paramo P, Hochberg M, Cohen} JE. 2012. Bacterial microcosms obey Taylor’s law: Effects of abiotic and biotic stress and genetics on mean and variance of population density. Ecol Process {\bf 1}:5.
+\bibitem{cohen_bac} {\bf Kaltz O, Escobar-Paramo P, Hochberg M, Cohen} JE. 2012. Bacterial microcosmos obey Taylor’s law: Effects of abiotic and biotic stress and genetics on mean and variance of population density. Ecol Process {\bf 1}:5.
 \bibitem {ramslayer} {\bf Ramsayer J, Fellous S, Cohen JE, Hochberg ME.} 2012. Taylor’s Law holds in experimental bacterial populations but competition does not influence the slope. Biol Lett {\bf 8}:316–319.
 \bibitem{cobas} {\bf Pérez-Cobas AE, Artacho A, Ott SJ, Moya A, Gosalbes MJ, Latorre A.} 2014. Structural and functional changes in the gut microbiota associated to Clostridium difficile infection. Front Microbiol {\bf 5}:1–15.
 \bibitem{schloss} {\bf Ding T, Schloss PD.} 2014. Dynamics and associations of microbial community types across the human body. Nature {\bf 509}:357–360.
@@ -236,8 +239,9 @@ This work was supported by grants to AM from the Spanish Ministry of Science and
 \bibitem{diet} {\bf David LA, Maurice CF, Carmody RN, Gootenberg DB, Button JE, Wolfe BE, Ling A V, Devlin AS, Varma Y, Fischbach MA, Biddinger SB, Dutton RJ, Turnbaugh PJ.} 2014. Diet rapidly and reproducibly alters the human gut microbiome. Nature {\bf 505}:559–63.
 \bibitem{antibiotic} {\bf Dethlefsen L, Relman DA.} 2011. Incomplete recovery and individualized responses of the human distal gut microbiota to repeated antibiotic perturbation. Proc Natl Acad Sci {\bf108}:4554–61.
 
-
+\bibitem{FASTX} {\bf Gordon, A., Hannon, G.J.} 2010. FASTX-Toolkit. FASTQ/A shortreads pre-processing tools v0.0.13. http://hannonlab.cshl.edu/fastx\_toolkit/ (last accessed 26 Jul 2016).
 \bibitem{QIIME} {\bf Caporaso JG, Kuczynski J, Stombaugh J, Bittinger K, Bushman FD, Costello EK, Fierer N, Peña AG, Goodrich JK, Gordon JI, Huttley G a, Kelley ST, Knights D, Koenig JE, Ley RE, Lozupone C a, Mcdonald D, Muegge BD, Pirrung M, Reeder J, Sevinsky JR, Turnbaugh PJ, Walters W a, Widmann J, Yatsunenko T, Zaneveld J, Knight R.} 2010. correspondence QIIME allows analysis of high- throughput community sequencing data Intensity normalization improves color calling in SOLiD sequencing. Nat Publ Gr {\bf 7}:335–336.
+\bibitem{SILVA} {\bf Quast C, Pruesse E, Yilmaz P, Gerken J, Schweer T, Yarza P, Peplies J, Glöckner FO}. 2013. The SILVA ribosomal RNA gene database project: improved data processing and web-based tools. Acids Res. {\bf 41}:D590-D596
 \bibitem{LMAT} {\bf Ames SK, Hysom DA, Gardner SN, Lloyd GS, Gokhale MB, Allen JE}.  2013. Scalable metagenomic taxonomy classification using a reference genome database.  Bioinformatics {\bf 29}:2253-2260.
 \bibitem{LMAT2} {\bf Ames SK, Gardner SN, Marti JM, Slezak TR, Gokhale MB, Allen JE}. 2015. Using populations of human and microbial genomes for organism detection in metagenomes. Genome Res. {\bf 25}:1056-67.
 \bibitem{fs} {\bf Eisler Z, Bartos I, Kertész J.} 2008. Fluctuation scaling in complex systems: Taylor’s law and beyond1. Adv Phys {\bf 57}:89–142.
@@ -254,15 +258,14 @@ This work was supported by grants to AM from the Spanish Ministry of Science and
 \bibitem {mehta} {\bf Fisher CK, Mehta P.} 2014. Identifying keystone species in the human gut microbiome from metagenomic timeseries using sparse linear regression. PLoS One {\bf 9}:e102451.
 \bibitem {bucci}  {\bf Bucci V, Tzen B, Li N, Simmons M, Tanoue T, Bogart E, Deng L, Yeliseyev V, Delaney ML, Liu Q, Olle B, Stein RR, Honda K, Bry L, Gerber GK.} 2016. MDSINE: Microbial Dynamical Systems INference Engine for microbiome time-series analyses. Genome Biol {\bf 17}:121.
 \bibitem {cohen_taylor} {\bf Cohen JE, Xu M, Schuster WSF}. 2013. Stochastic multiplicative population growth predicts and interprets Taylor ’ s power law of fluctuation scaling Stochastic multiplicative population growth predicts and interprets Taylor ’ s power law of fluctuation scaling. Proc R Soc B Biol Sci {\bf 280}:20122955.
-\bibitem {koenig} {\bf Koenig JE, Spor A, Scalfone N, Fricker AD, Stombaugh J, Knight R, Angenent LT, Ley RE.} 2011. Succession of microbial consortia in the developing infant gut microbiome. Proc Natl Acad Sci {\bf 108} :4578–4585.
-\bibitem {tikhonov} {\bf  Tikhonov M.} 2016. Community-level cohesion without cooperation. Elife {\bf 5}.  \todo{Revisar referencias a partir de aquí: si proceden una vez que CC no se incluye y, en caso aformativo, adaptar el formato}
-	\bibitem{FD} Weber, J. \textit{et al.} Fluctuation dissipation theorem. {\it Phys. Rev.} {\bf 101}, 1620-6 (1956).
-	\bibitem{FASTX} Gordon, A., Hannon, G.J. FASTX-Toolkit. FASTQ/A shortreads pre-processing tools (2010). http://hannonlab.cshl.edu/fastx\_toolkit/ (accessed 23 Feb 2015).
-	\bibitem{SILVA} Quast C.  \textit{et al.} The SILVA ribosomal RNA gene database project: improved data processing and web-based tools (2013)
- 	\bibitem{ecology} Xiao Xiao, Ethan P. White, Mevin B. Hooten, and Susan L. Durham. On the use of log-transformation vs. nonlinear regression for analyzing biological power laws. {\it Ecology} {\bf 92}, 10, 1887-1894 (2011).
- 	\bibitem{genR2} Magee L., $R^2$ measures based on wald and likelihood ratio joint significance tests. {\it The American Statistician} {\bf 44}, 3, 250-253 (1990).
-	\bibitem{disR2} Nagelkerke N.J.D., A note on a general definition of the coefficient of determination. {\it Biometrika} {\bf 78}, 3, 691-692 (1991).
-	\bibitem{boot} Wu, C.F.J. Jackknife, bootstrap and other resampling methods in regression analysis. (with discussions) \textit{The Annals of Statistics} {\bf 14}: 1261?1350 (1986)
+\bibitem {koenig} {\bf Koenig JE, Spor A, Scalfone N, Fricker AD, Stombaugh J, Knight R, Angenent LT, Ley RE.} 2011. Succession of microbial consortia in the developing infant gut microbiome. Proc Natl Acad Sci {\bf 108}:4578–4585.
+\bibitem {FD} {\bf Weber, J.} 1956. Fluctuation Dissipation Theorem. Phys. Rev. {\bf 101}:1620-6
+\bibitem {tikhonov} {\bf  Tikhonov M.} 2016. Community-level cohesion without cooperation. Elife {\bf 5}.  
+
+
+%M&M
+\bibitem{biopwrlaw} {\bf Xiao X, White EP, Hooten MB, Durham SL}. 2011. On the use of log-transformation vs. nonlinear regression for analyzing biological power laws. Ecology {\bf 92}:1887-1894
+\bibitem{boot} {\bf Wu, C.F.J.} 1986. Jackknife, bootstrap and other resampling methods in regression analysis. (with discussions) \textit{The Annals of Statistics} {\bf 14}:1261-1350 
 \end{thebibliography}
 
 \end{document}
