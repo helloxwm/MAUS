@@ -1,4 +1,5 @@
 %%
+%\small
 \subsection*{Model} \label{sec:model}
 
 We model the microbial abundances across time along the lines of Blumm \textit{et al.}\cite{ranking}. The dynamics of taxon relative abundances is described by the Langevin equation:
@@ -27,22 +28,42 @@ F_i &=& \beta V^2\quad \textrm{if} \quad  2\beta = 1+\alpha,
 \notag
 \end{eqnarray}
 where the first case, simplifies to $F= 3 V^2$ if $\beta = 0.75$ and the fitness of this taxon dominates in $\phi_0$. 
-In many physical systems (Brownian motion is the classical example), the two terms of the Langevin equation are related.  The \emph{Fluctuation Dissipation Theorem} states a general relationship between the response to an external disturbance and the internal fluctuations of the system\cite{FD}. The theorem can be used as the basic formula to derive the fitness from the analysis of fluctuations 
+In many physical systems (Brownian motion is the classical example \cite{Einstein}), the two terms of the Langevin equation are related.  The \emph{Fluctuation Dissipation Theorem} states a general relationship between the response to an external disturbance and the internal fluctuations of the system\cite{FD}. The theorem can be used as the basic formula to derive the fitness from the analysis of fluctuations 
 of the microbiota, assuming that it is in equilibrium (the ordered phase).  
 
-\todo{Explain better the Fluctuation Dissipation Theorem}
+%%
+\subsection*{Standardization} \label{sec:stan}
+In order to properly show all the studies under common axes, we decided to standardize the Taylor parameters using the group of healthy individuals for each study. With this approach, all the studies can be visualized in a shared plot with units of Taylor-parameters standard-deviation on their axes.
 
+For a Taylor parameter, e.g. $V$, the estimate of the mean ($\widehat{V}$) for the healthy subpopulation, composed of $h$ individuals, is:
+\begin{linenomath}
+$$\widehat{V} = \frac{1}{W_1}\sum_{i=1}^h V_i \omega_i=\sum_{i=1}^h V_i \omega_i$$
+\end{linenomath}
+as $W_1=\sum_i^h \omega_i=1$, since $\omega_i$ are normalized weights calculated as:
+\begin{linenomath}
+$$\omega_i = \frac{\frac{1}{\sigma^2_{V_i}}}{\sum_i^h\frac{1}{\sigma^2_{V_i}}}$$
+\end{linenomath}
+being $\sigma_{V_i}$ the estimation of the uncertainty in $V_i$ obtained together with $V_i$ from the X-weighted power-law fit described in Section \ref{sec:X-w}, for healthy individuals.
+
+Likewise, the estimation of the standard deviation for the healthy population ($\widehat{\sigma}_V$) is:
+\begin{linenomath}
+$$\widehat{\sigma}_V = \sqrt{\frac{1}{W_1-\frac{W_2}{W_1}}\sum_{i=1}^h\left[\omega_i\left(V_i-\hat{V}\right)^2\right]}$$
+\end{linenomath}
+being $W_2=\sum_i^h \omega_i^2$, which finally yields to:
+\begin{linenomath}
+$$\widehat{\sigma}_V = \sqrt{\frac{1}{1-\sum_i^h \omega_i^2}\sum_{i=1}^h\left[\omega_i\left(V_i-\hat{V}\right)^2\right]}$$
+\end{linenomath}
 
 %%
 \subsection*{Selection and Methods}
 
-The bacteria and archaea taxonomic assignations were obtained by analysing 16S rRNA sequences, which were clustered into operational taxonomic units (OTUs) sharing 97 \% sequence identity using QIIME\cite{QIIME}. WGS data\cite{kwashiorkor} were analysed and assigned at strain level by the Livermore Metagenomic Analysis Toolkit (LMAT)\cite{LMAT}, according to their default quality threshold. Genus, with best balance between error assignment and number of taxa, was chosen as our reference taxonomic level. We have verified that our conclusions are not significantly affected by selecting family or species as the reference taxonomic level (see Figure \ref{fig:taxlev1}).
+The bacteria and archaea taxonomic assignations were obtained by analysing 16S rRNA sequences, which were clustered into operational taxonomic units (OTUs) sharing 97 \% sequence identity using QIIME\cite{QIIME}. Shotgun metagenomic sequencing (SMS) data\cite{kwashiorkor} were analysed and assigned at strain level by the Livermore Metagenomic Analysis Toolkit (LMAT)\cite{LMAT}, according to their default quality threshold. Genus, with best balance between error assignment and number of taxa, was chosen as our reference taxonomic level. We have verified that our conclusions are not significantly affected by selecting family or species as the reference taxonomic level (see Figure \ref{fig:taxlev1}).
 
 %%
 \subsubsection*{Sample selection}
 We have chosen studies about relevant pathologies containing metagenomic sequencing time data series of bacterial populations from humans in different healthy and non-healthy states. We have selected only those individuals who had three or more time points of data available in databases. Caporaso et al. study \cite{moving} was selected as it has two healthy individuals measured over a very large timespan, with almost daily sampling. Faith et al. study \cite{LEA} was selected due to the BMI differences between subjects, moreover some of them had diets which can be treated as system perturbations. We considered healthy only those individuals who had normal or overweight BMI. Smith et al., study \cite{kwashiorkor} was selected for both the age of the patients and the rare disease. We only worked with the discordant twins, and considered healthy those who were not affected by kwashiorkor in each pair of patients. David et al., study \cite{diet} was selected for its differential diets. We considered as the healthy part the first time samples of each individual before the diet, and the rest of time points as perturbations. Dethlefsen and Relman work \cite{antibiotic} was selected due to the interesting treatment of two antibiotic intakes of the same antibiotic by three different subjects. We considered as the healthy part only those times before any antibiotic treatment, and as perturbations the time of antibiotic intakes and the period after that. And finally, we also considered a study made in our group carried by Durban et al., \cite{IBS} in which we considered as healthy subjects those who didn't suffer from irritable bowel disease, and as perturbation the patients who had this disease. 
 
-Metadata of each study is provided in Supplementary Tables S1 to S4. All used 16S rRNA gene sequencing except for the study of the discordant kwashiorkor twins\cite{kwashiorkor}, where both shotgun metagenomic sequencing (SMS) and 16S rRNA were used. In the latter case we selected to work with SMS data to show that our method is valid regardless of the source of taxonomic information. Each one of the datasets was treated as follows:
+Metadata of each study is provided in Supplementary Tables S1 to S4. All used 16S rRNA gene sequencing except for the study of the discordant kwashiorkor twins\cite{kwashiorkor}, where both SMS and 16S rRNA data were used. In the latter case we selected to work with SMS data to show that our method is valid regardless of the source of taxonomic information. Each one of the datasets was treated as follows:
 
 %%
 \subsubsection*{16rRNA sequences processing}
@@ -53,7 +74,7 @@ Reads from the selected studies were first quality filtered using the FastX tool
 Shotgun metagenomic (and 16S too) sequences were analyzed with LMAT (Livermore Metagenomics Analysis Toolkit) software package\cite{LMAT} (version 1.2.4, with Feb'15 release of data base \emph{LMAT-Grand}). LMAT was run using a Bull shared-memory node belonging to the team's HPC (high performance computing) cluster. It is equipped with 32 cores (64 threads available using Intel Hyper-threading technology) as it has two Haswell-based Xeons ($22\un{nm}$ technology), the E5-2698v3@2.3 GHz, sharing half a tebibyte (0.5 TiB, that is, 512 gibibytes) of DRAM memory. This node is also provided with a PCIe SSD card as NVRAM, the Micron P420m HHHL, with 1.4 TB, and 750000 reading IOPS, 4 KB, achieving 3.3 GB/s. The computing node was supplied with a RAID-0 (striping) scratch disk area. We used the ``Grand'' database\cite{LMAT2}, release Feb'15, provided by the LMAT team, where ``Grand'' refers to a huge database that contains k-mers from all viral, prokaryote, fungal and protist genomes present in the NCBI database, plus Human reference genome (hg19), plus GenBank Human, plus the 1000 Human Genomes Project (HGP) (this represent about 31.75 billion k-mers occupying 457.62 GB)\cite{LMAT2}. Previously to any calculation, the full database was loaded in the NVRAM. With this configuration the observed LMAT sustained sequence classification rate was $20\unclassrate$. Finally, it is worth mentioning that a complete set of Python scripts have been developed as back-end and front-end of the LMAT pipeline in order to manage the added complexity of time series analysis. 
 
 %%
-\subsubsection*{Taxa level selection}
+\subsubsection*{Taxa level robustness}
 We selected genus as taxonomic level for the subsequent steps of our work. In order to ensure that, between adjacent taxonomic levels, there were not crucial differences which could still be of relevance after standardization (see last subsection of Material and Methods), we tested two different data sets. In the former, the antibiotics study\cite{antibiotic} with 16S data, we tested the differences between genus and family levels. The latter dataset tested was the kwashiorkor discordant twins study\cite{kwashiorkor} for both genus and species taxonomic levels. The Figures \ref{fig:taxlev1} (overview) and \ref{fig:taxlev2} (detail) plot the comparison between studies (and so, 16S and SMS) and between adjacent taxonomic levels.
 
 \begin{figure} 
@@ -61,7 +82,7 @@ We selected genus as taxonomic level for the subsequent steps of our work. In or
   \includegraphics[width=0.5\textwidth]{results/taxalevel/sum_sta_16S.pdf}
   \includegraphics[width=0.5\textwidth]{results/taxalevel/sum_raw_SMS.pdf} 
   \includegraphics[width=0.5\textwidth]{results/taxalevel/sum_sta_SMS.pdf}
-\caption{Overview of comparison of different approaches based on adjacent taxonomic levels using plots in the Taylor-parameters space. For 16S (former row of subfigures), the levels are family vs. genus, whereas for SMS (latter row of subfigures) levels are genus vs. species. The left column shows the raw results and the right column plots the standardized results (see Section \ref{sec:stan})}
+\caption{Overview of comparison of different approaches based on adjacent taxonomic levels using plots in the Taylor-parameters space. The former row of subfigures is for 16S, where levels are family (blue circles) vs. genus (purple triangles). Whereas the latter row of subfigures is for SMS, where levels are genus (blue circles) vs. species (purple triangles). The left column shows the raw results and the right column plots the standardized results (see Standardization under Material and Methods).}
 \label{fig:taxlev1}
 \end{figure}
 
@@ -94,25 +115,4 @@ $${\rm RSI} = \left(1-\frac{\text{true rank hops}}{\text{possible rank hops}}\ri
 \end{linenomath}
 where $D$ is the total of rank hops taken by the studied element, $N$ is the number of elements that have been ranked, and $t$ is the number of time samples. The power index $p=4$ is arbitrarily chosen to increase the resolution in the stable region. 
 
-%%
-\subsection*{Standardization} \label{sec:stan}
-In order to properly show all the studies under common axes, we decided to standardize the Taylor parameters using the group of healthy individuals for each study. With this approach, all the studies can be visualized in a shared plot with units of Taylor-parameters standard-deviation on their axes.
-
-For a Taylor parameter, e.g. $V$, the estimate of the mean ($\widehat{V}$) for the healthy subpopulation, composed of $h$ individuals, is:
-\begin{linenomath}
-$$\widehat{V} = \frac{1}{W_1}\sum_{i=1}^h V_i \omega_i=\sum_{i=1}^h V_i \omega_i$$
-\end{linenomath}
-as $W_1=\sum_i^h \omega_i=1$, since $\omega_i$ are normalized weights calculated as:
-\begin{linenomath}
-$$\omega_i = \frac{\frac{1}{\sigma^2_{V_i}}}{\sum_i^h\frac{1}{\sigma^2_{V_i}}}$$
-\end{linenomath}
-being $\sigma_{V_i}$ the estimation of the uncertainty in $V_i$ obtained together with $V_i$ from the X-weighted power-law fit described in Section \ref{sec:X-w}, for healthy individuals.
-
-Likewise, the estimation of the standard deviation for the healthy population ($\widehat{\sigma}_V$) is:
-\begin{linenomath}
-$$\widehat{\sigma}_V = \sqrt{\frac{1}{W_1-\frac{W_2}{W_1}}\sum_{i=1}^h\left[\omega_i\left(V_i-\hat{V}\right)^2\right]}$$
-\end{linenomath}
-being $W_2=\sum_i^h \omega_i^2$, which finally yields to:
-\begin{linenomath}
-$$\widehat{\sigma}_V = \sqrt{\frac{1}{1-\sum_i^h \omega_i^2}\sum_{i=1}^h\left[\omega_i\left(V_i-\hat{V}\right)^2\right]}$$
-\end{linenomath}
+%\normalsize
