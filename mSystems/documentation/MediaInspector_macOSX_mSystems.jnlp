@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- JNLP File for Cadmus Rapid Inspector(TM) -->
+<jnlp
+  spec="1.0+"
+  codebase="http://rapidInspector.cadmus.com">
+  <information>
+    <title>Rapid Inspector</title>
+    <vendor>Cadmus Professional Communications</vendor>
+    <homepage href="http://cpc.cadmus.com/about.html"/>
+    <description>Rapid Inspector(TM) 2.7 from Cadmus KnowledgeWorks?? gives authors for 
+        scientific, technical and medical journals a resource for certifying their 
+        illustrations prior to submission.</description>
+    <description kind="short">Graphic validation utility for Cadmus Digital Art.</description>
+    <icon href="http://rapidInspector.cadmus.com/RapidInspector/images/ri_logo.gif"/>
+  </information>
+  <security>
+      <all-permissions/>
+  </security>
+  <!-- Shared Application Resources -->
+  <resources os="Mac\ OS\ X" arch="PowerPC ppc">
+    <jar href="http://rapidInspector.cadmus.com/RapidInspector/download/RapidInspector-full-2.7.jar"/>
+    <!-- Mac OS X 10.4 -->
+    <j2se version="1.7* 1.6* 1.5*">
+      <resources>
+        <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Darwin.8-powerpc-2.7.jar"/>
+      </resources>
+    </j2se>
+    <!-- Mac OS X <= 10.3 -->
+    <j2se version="1.4* 1.3*">
+      <resources>
+        <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Darwin.6-powerpc-2.7.jar"/>
+      </resources>
+    </j2se>
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="com.apple.macos.useScreenMenuBar" value="true" />
+    <property name="com.apple.mrj.application.apple.menu.about.name" 
+      value="RapidInspector" />
+  </resources>
+  <resources os="Mac\ OS\ X" arch="x86_64">
+    <jar href="http://rapidInspector.cadmus.com/RapidInspector/download/RapidInspector-full-2.7.jar"/>
+    <!-- Mac OS X 10.4 -->
+    <j2se version="1.8* 1.7* 1.6* 1.5*">
+      <resources>
+        <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Darwin-x86_64-2.7.jar"/>
+      </resources>
+    </j2se>
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="com.apple.macos.useScreenMenuBar" value="true" />
+    <property name="com.apple.mrj.application.apple.menu.about.name" 
+      value="RapidInspector" />
+  </resources>
+  <resources os="Mac\ OS\ X" arch="i386">
+    <jar href="http://rapidInspector.cadmus.com/RapidInspector/download/RapidInspector-full-2.7.jar"/>
+    <!-- Mac OS X 10.4 -->
+    <j2se version="1.7* 1.6* 1.5*">
+      <resources>
+        <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Darwin-i386-2.7.jar"/>
+      </resources>
+    </j2se>
+    <property name="apple.laf.useScreenMenuBar" value="true" />
+    <property name="com.apple.macos.useScreenMenuBar" value="true" />
+    <property name="com.apple.mrj.application.apple.menu.about.name" 
+      value="RapidInspector" />
+  </resources>
+  <resources os="Windows" arch="x86">
+    <j2se version="1.8* 1.7* 1.6* 1.5* 1.4* 1.3*"/>
+    <jar href="http://rapidInspector.cadmus.com/RapidInspector/download/RapidInspector-full-2.7.jar"/>
+    <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Cygwin-i686-2.7.jar"/>
+  </resources>
+  <!--
+    this must be a separate block.  os="Windows" doesn't match Vista,
+    and os="Windows*" (note star) doesn't match Windows XP. :-(
+    -->
+  <resources os="Windows Vista" arch="x86">
+    <j2se version="1.7* 1.6* 1.5* 1.4* 1.3*"/>
+    <jar href="http://rapidInspector.cadmus.com/RapidInspector/download/RapidInspector-full-2.7.jar"/>
+    <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Cygwin-i686-2.7.jar"/>
+  </resources>
+  <resources os="Linux" arch="i386 x86 i686">
+    <j2se version="1.8* 1.7* 1.6* 1.5* 1.4* 1.3*"/>
+    <jar href="http://rapidInspector.cadmus.com/RapidInspector/download/RapidInspector-full-2.7.jar"/>
+    <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Linux-i686-2.7.jar"/>
+  </resources>
+  <resources os="Linux" arch="x84_64 amd64">
+    <j2se version="1.8* 1.7* 1.6* 1.5* 1.4* 1.3*"/>
+    <jar href="http://rapidInspector.cadmus.com/RapidInspector/download/RapidInspector-full-2.7.jar"/>
+    <nativelib href="http://rapidInspector.cadmus.com/RapidInspector/download/rinlib-Linux-x86_64-2.7.jar"/>
+  </resources>  
+  <component-desc/>
+  <application-desc main-class="com.cadmus.dps.inspect.ui.SwingClient">
+  <!-- <application-desc main-class="rapidInspector.GUI_main"> -->
+  <argument>http://rapidInspector.cadmus.com/RapidInspector/docs</argument>
+  <argument>http://services.cadmus.com/risoap/servlet/rpcrouter</argument>
+  <argument>sys</argument>
+  <argument>mSystems</argument>
+  <argument>jse.mnl@gmail.com</argument>
+  <argument>919275</argument>
+  <argument>147.156.98.63</argument>
+  <argument>figures</argument>
+  <argument>none</argument>
+  </application-desc>
+</jnlp>
+<!-- 
+vim: expandtab
+  -->
