@@ -91,13 +91,13 @@
   <!-- <application-desc main-class="rapidInspector.GUI_main"> -->
   <argument>http://rapidInspector.cadmus.com/RapidInspector/docs</argument>
   <argument>http://services.cadmus.com/risoap/servlet/rpcrouter</argument>
-  <argument>sys</argument>
-  <argument>mSystems</argument>
+  <argument>sph</argument>
+  <argument>mSphere</argument>
   <argument>jse.mnl@gmail.com</argument>
   <argument>919275</argument>
-  <argument>147.156.98.63</argument>
+  <argument>88.23.103.219</argument>
   <argument>figures</argument>
-  <argument>none</argument>
+  <argument>mSystems00144-16</argument>
   </application-desc>
 </jnlp>
 <!-- 
