@@ -1,0 +1,25 @@
+### Options to use with TeXcount
+# Basically, TEXcount has seven different counts plus an additional file count for use with total counts over a
+# set of files. These and their indices (numbers used to identify them) are:
+# 0. Number of files: When multiple files are included, this is counted.
+# 1. Text words: Words that occur in the main text.
+# 2. Header words: Words that occur in headers, e.g. \title and \section.
+# 3. Caption words: Words that occur in figure and table captions.
+# 4. Header count: This counts the number of headers, i.e. each \section counts as 1.
+# 5. Figure/float count: This counts the number of floats and figures, e.g. table and figure environments.
+# 6. Inline formulae: This counts the number of inline formulae, i.e. $. . . $.
+# 7. Displayed formulae: This counts the number of displayed formulae, e.g. \[. . . \] or equation environments.
+-sum=1,1,0,0,0,1,1
+-tex
+-merge
+
+%macro \cite [ignore]
+
+# Output template
+-template=
+	\Words count for the Abstract section: {abswords} of 250 max\n
+	\Words count for the Importance section: {impwords} of 150 max\n
+	\Words count for the rest of text (inc.refs): {sum} of 5,000 max\n
+	\{5?Number of floats: {5}\n?5}
+	\Number of supplementary figures: {supfig}\n
+#	\{SUB? - {sum} words in {title}\n?SUB}
