@@ -1,8 +1,8 @@
 # Health and disease imprinted in the time variability of the human microbiome
 ## aka MAUS (Microbiota, are you sick?)
-### :open_file_folder: Current release: mSystems (draft)
+### :open_file_folder: Current release: mSystems (minor modifications rev draft)
 
-Jose Manuel Martí(*1,2,*:eight_spoked_asterisk:), Daniel M. Martínez(*1,2,3,*:eight_spoked_asterisk:), Manuel Peña(*2*), César Gracia(*1,2*), Amparo Latorre(*1,3,4,5*), Andrés Moya(*1,3,4,5*,:email:)  & Carlos P. Garay(*1,2*,:email:)
+Jose Manuel Martí(*1,2,*:eight_spoked_asterisk:), Daniel M. Martínez(*1,2,3,*:eight_spoked_asterisk:), Manuel Peña(*2*), César Gracia(*1,2*), Teresa Rubio(*1*), Amparo Latorre(*1,3,4,5*), Andrés Moya(*1,3,4,5*,:email:)  & Carlos P. Garay(*1,2*,:email:)
 
 _**1**_ Institute for Integrative Systems Biology (I2SysBio), 46980, Spain.
 

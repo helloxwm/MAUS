@@ -4,7 +4,7 @@ X=data{1,1};
 XE=data{1,2};
 Y=data{1,3};
 YE=data{1,4};
-sizeSymbol = 15;
+sizeSymbol = 20;
 close all;
 clear title xlabel ylabel;
 %hFigure = figure('Units', 'pixels', 'Position', [100 100 500 375]);
@@ -112,23 +112,28 @@ h8b = errorbarxy(X(initIdx:endIdx),Y(initIdx:endIdx),XE(initIdx:endIdx),YE(initI
 color=[0/255 0/255 0/255]; % 1
 initIdx= 65;
 endIdx= 66;
-h9 = scatter(X(initIdx:endIdx),Y(initIdx:endIdx),sizeSymbol,color,'filled','MarkerEdgeColor',[0/255 0/255 0/255], 'MarkerFaceColor',color);
+h9 = scatter(X(initIdx:endIdx),Y(initIdx:endIdx),sizeSymbol,'p','filled','MarkerEdgeColor',[0/255 0/255 0/255], 'MarkerFaceColor',color);
 h9b = errorbarxy(X(initIdx:endIdx),Y(initIdx:endIdx),XE(initIdx:endIdx),YE(initIdx:endIdx),{'w.',color,color});
 
-% TERESA
-color=[255/255 0/255 255/255]; % 1
-%initIdx= 67;
-%endIdx= 66;
-%h9 = scatter(X(initIdx:endIdx),Y(initIdx:endIdx),sizeSymbol,color,'filled','MarkerEdgeColor',[0/255 0/255 0/255], 'MarkerFaceColor',color);
-%h9b = errorbarxy(X(initIdx:endIdx),Y(initIdx:endIdx),XE(initIdx:endIdx),YE(initIdx:endIdx),{'w.',color,color});
-h10 = scatter([-2,-1,0,1,2,3,4,5,6],[-2,-1,0,1,2,3,4,5,6],sizeSymbol,'d','filled','MarkerEdgeColor',color, 'MarkerFaceColor',color);
+% HLS_TRIP
+color=[255/255 0/255 255/255]; % 
+initIdx= 67;
+endIdx= 67;
+h10 = scatter(X(initIdx:endIdx),Y(initIdx:endIdx),sizeSymbol,'^','filled','MarkerEdgeColor',color, 'MarkerFaceColor',color);
+h10b = errorbarxy(X(initIdx:endIdx),Y(initIdx:endIdx),XE(initIdx:endIdx),YE(initIdx:endIdx),{'w.',color,color});
 
+% HLS_SICK
+color=[127/255 0/255 255/255]; % 
+initIdx= 68;
+endIdx= 68;
+h11 = scatter(X(initIdx:endIdx),Y(initIdx:endIdx),sizeSymbol,'^','filled','MarkerEdgeColor',color, 'MarkerFaceColor',color);
+h11b = errorbarxy(X(initIdx:endIdx),Y(initIdx:endIdx),XE(initIdx:endIdx),YE(initIdx:endIdx),{'w.',color,color});
 
 %hTitle  = title ('Diagram of regions for health and sick members.');
 hXLabel = xlabel('Variability (stdev units)');
 hYLabel = ylabel('Scaling Index (stdev units)');
-lbl = {'Zone of Health','Kwashiorkor','Plant Diet','Animal Diet','Ob III','Ob III Diet','Antibiotics','IBS','PUNTOS TERESA!!!'};
-hLegend = legend([h0 h1 h3 h4 h6 h7 h8 h9 h10],lbl,'Location','southeast');
+lbl = {'Zone of Health','Kwashiorkor','Plant Diet','Animal Diet','Ob III','Ob III Diet','Antibiotics','IBS','Lifestyle Trip','Lifestyle Sick'};
+hLegend = legend([h0 h1 h3 h4 h6 h7 h8 h9 h10 h11],lbl,'Location','southeast');
 
 set([hXLabel, hYLabel],'FontName','AvantGarde','FontSize',14);
 set(gca, 'Box','on','TickDir','out','TickLength',[.01 .01],'XMinorTick','off','YMinorTick','off','XColor',[.0 .0 .0],'YColor',[.0 .0 .0],'LineWidth',0.4,'FontName','AvantGarde','FontSize',10);
