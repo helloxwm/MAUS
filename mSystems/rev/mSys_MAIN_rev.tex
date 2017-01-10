@@ -4,7 +4,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{REVISION draft E}
+\newcommand\releasecode{REVISION draft F}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -145,8 +145,8 @@
 \author[1,2,\#]{Carlos P. Garay}
 
 \affil[1]{Institute for Integrative Systems Biology (I2SysBio), 46980, Spain.}
-\affil[2]{Instituto de Fisica Corpuscular, CSIC-UVEG, P.O.  22085, 46071, Valencia, Spain.}
-\affil[3]{FISABIO, Avda de Catalunya, 21, 46020, Valencia, Spain.}
+\affil[2]{Instituto de Física Corpuscular, CSIC-UVEG, P.O.  22085, 46071, Valencia, Spain.}
+\affil[3]{FISABIO, Avda. de Catalunya, 21, 46020, Valencia, Spain.}
 \affil[4]{Cavanilles Institute of Biodiversity and Evolutionary Biology, UVEG, 46980, Spain.}
 \affil[5]{CIBER en Epidemiología y Salud Pública (CIBEResp), Madrid, Spain}
 
@@ -169,9 +169,9 @@
 %TC:newcounter impwords Words in importance section
 %TC:macro \importance [impwords]
 
-{\abstract{Animal microbiota (human included) plays an important role keeping healthy the physiological status of the host. Increasing research activity is dedicated to understand how changes in composition and function of the microbiota are associated to disease or not. We analyze 16S rRNA and shotgun metagenomic sequencing (SMS) published data from the gut microbiota of 97 individuals monitored in time. Temporal fluctuations in the microbial composition reveal significant differences due to factors such us dietary changes, antibiotic intake, age or disease. Here we show that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law allows to estimate the temporal variability of the microbial population and quantitatively characterizes the path toward disease by a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, applications in other fields where it is important to know if a given community is stable or not.}}
+{\abstract{Animal microbiota (including human microbiota) plays an important role in keeping the physiological status of the host healthy. Research activity into understanding whether changes in the composition and function of the microbiota are associated with disease is increasing. We analyzed 16S rRNA and shotgun metagenomic sequencing (SMS) published data from the gut microbiota of 97 individuals monitored over time. Temporal fluctuations in the microbial composition revealed significant differences due to factors such us dietary changes, antibiotic intake, age and disease. This article shows that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law enables the temporal variability of the microbial population to be estimated and quantitatively characterizes the path toward disease via a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, may also have applications in other fields where it is important to know whether a given community is stable or not.}}
 
-\importance{Human microbiota is tightly associated to the health status of a person. Here we analyse the microbial composition of several subjects under different conditions, over a time span that ranges from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we prove that we are capable to distinguish stable from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of the people, and it will allow the development of a more complete framework in order to deepen the knowledge of this complex system.}
+\importance{Human microbiota is closedly linked to the health status of a person. This article analyzes the microbial composition of several subjects under different conditions, over a time span that ranged from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we proved that stable microbiotas can be distinguised from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of people, and it will enable the development of a more comprehensive framework in order to obtain more in-depth knowledge of this complex system.}
 
 \vspace{4mm}
 \begin{keywords}
@@ -197,10 +197,10 @@ microbiome, systems biology, ecological modeling, metagenomics, stability
 %\clearpage
 
 \section*{Acknowledgments}
-Authors declare that there are no competing financial interests in relation to the work described here. We thereby express our acknowledgement to Bull/Atos and Micron Technology for providing us with the PCIe SSD card Micron P420m HHHL as a free-of-charge sample for high performance throughput database testing purposes.
+The authors declare that there are no competing financial interests in relation to the work described here. We thereby express our acknowledgement to Bull/Atos and Micron Technology for providing us with the PCIe SSD card Micron P420m HHHL as a free-of-charge sample for high performance throughput for database testing purposes.
 
 \section*{Funding Information}
-This work was supported by grants to AM from the Spanish Ministry of Science and Competitivity (projects SAF2012-31187, SAF2013-49788-EXP, SAF2015-65878-R), Carlos III Institute of Health (projects PIE14/00045 and AC15/00022), Generalitat Valenciana (project PrometeoII/2014/065) and co-financed by FEDER, and grants to CPG from the Generalitat Valenciana Prometeo Grants II/2014/050, II/2014/065, 419 by the Spanish Grants FPA2011-29678, BFU2012-39816-C02-01 of MINECO and by PITN-GA-420 2011-289442-INVISIBLES. From the Ministry of Economy and Competitiveness (grants FPI BES-2012-052900 and FPI BES-2013-062767).
+This work was supported by grants to AM from the Spanish Ministry of Science and Competitiveness (projects SAF2012-31187, SAF2013-49788-EXP, SAF2015-65878-R), Carlos III Institute of Health (projects PIE14/00045 and AC15/00022), Generalitat Valenciana (project PrometeoII/2014/065) and co-financed by ERDF, and grants to CPG from the Generalitat Valenciana Prometeo Grants II/2014/050, II/2014/065, 419 by the Spanish Grants FPA2011-29678, BFU2012-39816-C02-01 of MINECO and by PITN-GA-420 2011-289442-INVISIBLES. From the Ministry of Economy and Competitiveness (grants FPI BES-2012-052900 and FPI BES-2013-062767).
 
 %\clearpage
 \begin{thebibliography}{99}
@@ -211,7 +211,7 @@ This work was supported by grants to AM from the Spanish Ministry of Science and
 \bibitem{bileacids} {\bf Swann JR, Want EJ, Geier FM, Spagou K, Wilson ID, Sidaway JE, Nicholson JK, Holmes E.} 2011. Systemic gut microbial modulation of bile acid metabolism in host tissue compartments. Proc Natl Acad Sci {\bf 108}:4523–4530.
 \bibitem{choline} {\bf Spencer MD, Hamp TJ, Reid RW, Fischer LM, Zeisel SH, Fodor AA.} 2011. Association between composition of the human gastrointestinal microbiome and development of fatty liver with choline deficiency. Gastroenterology {\bf 140}:976–986.
 \bibitem{scfa1} {\bf Samuel BS, Shaito A, Motoike T, Rey FE, Backhed F, Manchester JK, Hammer RE, Williams SC, Crowley J, Yanagisawa M, Gordon JI}. 2008. Effects of the gut microbiota on host adiposity are modulated by the short-chain fatty-acid binding G protein-coupled receptor, Gpr41. Proc Natl Acad Sci {\bf 105}:16767–16772.
-\bibitem{scfa2} {\bf Smith PM, Howitt MR, Panikov N, Michaud M, Gallini CA, Bohlooly-Y M, Glickman JN, Garrett WS.} 2013. The Microbial Metabolites, Short-Chain Fatty Acids, Regulate Colonic Treg Cell Homeostasis. Science (80- ) {\bf 341}:569–573.
+\bibitem{scfa2} {\bf Smith PM, Howitt MR, Panikov N, Michaud M, Gallini CA, Bohlooly-Y M, Glickman JN, Garrett WS.} 2013. The Microbial Metabolites, Short--Chain Fatty Acids, Regulate Colonic Treg Cell Homeostasis. Science {\bf 341}:569–573.
 \bibitem {scfa3} {\bf Kimura I, Ozawa K, Inoue D, Imamura T, Kimura K, Maeda T, Terasawa K, Kashihara D, Hirano K, Tani T, Takahashi T, Miyauchi S, Shioi G, Inoue H, Tsujimoto G.} 2013. The gut microbiota suppresses insulin-mediated fat accumulation via the short-chain fatty acid receptor GPR43. Nat Commun {\bf 4}:1829.
 \bibitem {scfa4} {\bf Maslowski KM, Vieira AT, Ng A, Kranich J, Sierro F, Di Yu, Schilter HC, Rolph MS, Mackay F, Artis D, Xavier RJ, Teixeira MM, Mackay CR.} 2009. Regulation of inflammatory responses by gut microbiota and chemoattractant receptor GPR43. Nature {\bf 461}:1282–1286.
 \bibitem{diabetes2} {\bf Qin J, Li Y, Cai Z, Li S, Zhu J, Zhang F, Liang S, Zhang W, Guan Y, Shen D, Peng Y, Zhang D, Jie Z, Wu W, Qin Y, Xue W, Li J, Han L, Lu D, Wu P, Dai Y, Sun X, Li Z, Tang A, Zhong S, Li X, Chen W, Xu R, Wang M, Feng Q, Gong M, Yu J, Zhang Y, Zhang M, Hansen T, Sanchez G, Raes J, Falony G, Okuda S, Almeida M, LeChatelier E, Renault P, Pons N, Batto J-M, Zhang Z, Chen H, Yang R, Zheng W, Li S, Yang H, Wang J, Ehrlich SD, Nielsen R, Pedersen O, Kristiansen K, Wang J.} 2012. A metagenome-wide association study of gut microbiota in type 2 diabetes. Nature {\bf 490}:55–60.
@@ -227,15 +227,15 @@ This work was supported by grants to AM from the Spanish Ministry of Science and
 \bibitem{CFS} {\bf Giloteaux L, Goodrich JK, Walters WA, Levine SM, Ley RE, Hanson MR}. 2016.
 Reduced diversity and altered composition of the gut microbiome in individuals with myalgic encephalomyelitis/chronic fatigue syndrome. Microbiome. {\bf 4}:30
 %
-\bibitem{microb&health} {\bf Marchesi JR, Adams DH, Fava F, Hermes GD a, Hirschfield GM, Hold G, Quraishi MN, Kinross J, Smidt H, Tuohy KM, Thomas L V, Zoetendal EG, Hart A.} 2015. The gut microbiota and host health: a new clinical frontier. Gut 1–10.
-\bibitem{normal1} {\bf Falony G, Joossens M, Vieira-Silva S, Wang J, Darzi Y, Faust K, Kurilshikov A, Bonder MJ, Valles-Colomer M, Vandeputte D, Tito RY, Chaffron S, Rymenans L, Verspecht C, De Sutter L, Lima-Mendez G, Dhoe K, Jonckheere K, Homola D, Garcia R, Tigchelaar EF, Eeckhaudt L, Fu J, Henckaerts L, Zhernakova A, Wijmenga C, Raes J.} 2016. Population-level analysis of gut microbiome variation. Science (80- ) {\bf 352}:560–564.
-\bibitem{normal2} {\bf Zhernakova A, Kurilshikov A, Bonder MJ, Tigchelaar EF, Schirmer M, Vatanen T, Mujagic Z, Vila AV, Falony G, Vieira-Silva S, Wang J, Imhann F, Brandsma E, Jankipersadsing SA, Joossens M, Cenit MC, Deelen P, Swertz MA, Weersma RK, Feskens EJM, Netea MG, Gevers D, Jonkers D, Franke L, Aulchenko YS, Huttenhower C, Raes J, Hofker MH, Xavier RJ, Wijmenga C, Fu J.} 2016. Population-based metagenomics analysis reveals markers for gut microbiome composition and diversity. Science (80- ) {\bf 352}:565–569.
+\bibitem{microb&health} {\bf Marchesi JR, Adams DH, Fava F, Hermes GD a, Hirschfield GM, Hold G, Quraishi MN, Kinross J, Smidt H, Tuohy KM, Thomas L V, Zoetendal EG, Hart A.} 2015. The gut microbiota and host health: a new clinical frontier. Gut {\bf 65}:330–9.
+\bibitem{normal1} {\bf Falony G, Joossens M, Vieira-Silva S, Wang J, Darzi Y, Faust K, Kurilshikov A, Bonder MJ, Valles-Colomer M, Vandeputte D, Tito RY, Chaffron S, Rymenans L, Verspecht C, De Sutter L, Lima-Mendez G, Dhoe K, Jonckheere K, Homola D, Garcia R, Tigchelaar EF, Eeckhaudt L, Fu J, Henckaerts L, Zhernakova A, Wijmenga C, Raes J.} 2016. Population-level analysis of gut microbiome variation. Science {\bf 352}:560–564.
+\bibitem{normal2} {\bf Zhernakova A, Kurilshikov A, Bonder MJ, Tigchelaar EF, Schirmer M, Vatanen T, Mujagic Z, Vila AV, Falony G, Vieira-Silva S, Wang J, Imhann F, Brandsma E, Jankipersadsing SA, Joossens M, Cenit MC, Deelen P, Swertz MA, Weersma RK, Feskens EJM, Netea MG, Gevers D, Jonkers D, Franke L, Aulchenko YS, Huttenhower C, Raes J, Hofker MH, Xavier RJ, Wijmenga C, Fu J.} 2016. Population-based metagenomics analysis reveals markers for gut microbiome composition and diversity. Science {\bf 352}:565–569.
 \bibitem{panthropology} {\bf Amato KR} 2016. Incorporating the Gut Microbiota Into Models of Human and Non-Human Primate Ecology and Evolution. Yearbook Of Physical Anthropology {\bf 157}:S196–S215.
 \bibitem{sysbio&microb} {\bf Wu H, Tremaroli V, Bäckhed F.} 2015. Linking Microbiota to Human Diseases: A Systems Biology Perspective. Trends Endocrinol Metab {\bf 26}:758–770.
 \bibitem{msys1} {\bf Noecker C, Eng A, Srinivasan S, Theriot CM, Young VB, Jansson JK, Fredricks DN, Borenstein E.} 2016. Metabolic Model-Based Integration of Microbiome Taxonomic and Metabolomic Profiles Elucidates Mechanistic Links between Ecological and Metabolic Variation. mSystems {\bf 1}:e00013–15.
 \bibitem {metasysbio} {\bf Greenblum S, Turnbaugh PJ, Borenstein E.} 2012. Metagenomic systems biology of the human gut microbiome reveals topological shifts associated with obesity and inflammatory bowel disease. Proc Natl Acad Sci {\bf 109}:594–599.
 \bibitem {uni_dynam} {\bf Bashan A, Gibson TE, Friedman J, Carey VJ, Weiss ST, Hohmann EL, Liu Y-Y.} 2016. Universality of human microbial dynamics. Nature {\bf 534}:259–262.
-\bibitem{taylor} {\bf Taylor, L.R.} 1961. Aggregation, Variance and the mean. Nature {\bf 189,} 732-35.
+\bibitem{taylor} {\bf Taylor, L.R.} 1961. Aggregation, Variance and the mean. Nature {\bf 189}:732-35.
 \bibitem{randomwalks} {\bf de Menezes MA, Barabási A-L.} 2004. Fluctuations in network dynamics. Phys Rev Lett {\bf 92}:1–4.
 \bibitem{economics1} {\bf Mantegna RN, Stanley HE.} 1995. Scaling behaviour in the dynamics of an economic index. Nature {\bf 376}:46–49.
 \bibitem{economics2} {\bf Eisler Z, Kertesz J, Yook SH, Barabasi AL.} 2005. Multiscaling and non-universality in fluctuations of driven complex systems. Europhys Lett {\bf 69}:664–670.
@@ -264,7 +264,7 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 % <- END main studies
 \bibitem{stat} {\bf Jørgensen B, Martinez JR, Tsao M.} 1994. Asymptotic behaviour of the variance function. Scand J Stat {\bf 21}:223–243.
 \bibitem{convergence1} {\bf Fronczak A, Fronczak P.} 2010. Origins of Taylor’s power law for fluctuation scaling in complex systems. Phys Rev E {\bf 81}:066112.
-\bibitem{convergence2} {\bf Kendal, W.S., Jorgensen,B.} Taylor's power law and fluctuation scaling explained by a central-limit-like convergence.  Phys. Rev. E {\bf 83} 066115.
+\bibitem{convergence2} {\bf Kendal, W.S., Jorgensen,B.} Taylor's power law and fluctuation scaling explained by a central-limit-like convergence.  Phys. Rev. E {\bf 83}:066115.
 \bibitem{convergence3} {\bf Kendal WS, Jørgensen B.} 2011. Tweedie convergence: A mathematical basis for Taylor’s power law, 1/f noise, and multifractality. Phys Rev E {\bf 84}:066120.
 
 %% Discussion
@@ -296,19 +296,19 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 %% mSystems staff asked to send the captions of the supplementary tables at the end
 %%  of the main text PDF.
 \begin{table}
-  \caption{Taylor parameters. Individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to diet,  the population sampled is described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
+  \caption{Taylor's parameters. Individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled is described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
 
-\caption{Taylor parameters for individuals taking antibiotics\cite{antibiotic}. Prior to antibiotics intake, the population sampled is described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$.}
+\caption{Taylor's parameters for individuals taking antibiotics\cite{antibiotic}. Prior to the antibiotics intake, the population sampled is described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$.}
 
-\caption{Taylor parameters for persons diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. Healthy individuals sampled in this study are characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$.}
+\caption{Taylor's parameters for persons diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. Healthy individuals sampled in this study are characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$.}
 
-\caption{Taylor parameters for the healthy subject of the discordant twins\cite{kwashiorkor}. This table continues in Supplementary Table S\ref{tab:DK}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}\label{tab:DH}
+\caption{Taylor's parameters for the healthy subject of the discordant twins\cite{kwashiorkor}. This table continues in Supplementary Table S\ref{tab:DK}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}\label{tab:DH}
 
-\caption{Taylor parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Supplementary Table S\ref{tab:DH}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}\label{tab:DK}
+\caption{Taylor's parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Supplementary Table S\ref{tab:DH}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}\label{tab:DK}
 
-\caption{Taylor parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, whom were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
+\caption{Taylor's parameters for individuals with different degrees of excess weight and obesity\cite{LEA}. The healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
 
-\caption{Taylor parameters for special intervals concerning gut microbiota in the host lifestyle study\cite{hostlife}. The healthy and quotidian periods are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.} 
+\caption{Taylor's parameters for special intervals concerning gut microbiota in the host lifestyle study\cite{hostlife}. The healthy and quotidian periods are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.} 
 \end{table}
 
 \end{document}
