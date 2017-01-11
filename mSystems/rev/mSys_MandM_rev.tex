@@ -113,7 +113,7 @@ where $v_i$ is a Gaussian random variable with mean $\mu_i=0$ and standard devia
 %%
 \subsection*{Rank Stability Index}\label{sec:RSI}
 
-The Rank Stability Index (RSI) is shown as a percentage in a separate bar on the right of the rank matrix plot in Figures \ref{fig:corrank_IBS_A} and \ref{fig:corrank_IBS_P2}. The RSI is strictly $1$ for an element whose range never changes over time, and is strictly $0$ for an element whose rank oscillates between the extremes over time. So, the RSI is calculated, per element, as $1$ less the quotient of the number of true rank hops taken between the number of maximum possible rank hops, all powered to $p$:
+The Rank Stability Index (RSI) is shown as a percentage in a separate bar on the right of the rank matrix plot in Figures \ref{fig:corrank_HLS_abroad} and \ref{fig:corrank_HLS_returned} and Supplementary Figures \ref{supfig:corrank_HLS_before} and \ref{supfig:corrank_HLS_after}. The RSI is strictly $1$ for an element whose range never changes over time, and is strictly $0$ for an element whose rank oscillates between the extremes over time. So, the RSI is calculated, per element, as $1$ less the quotient of the number of true rank hops taken between the number of maximum possible rank hops, all powered to $p$:
 \begin{linenomath}
 $${\rm RSI} = \left(1-\frac{\text{true rank hops}}{\text{possible rank hops}}\right)^p = \left(1-\frac{D}{(N-1)(t-1)}\right)^p$$
 \end{linenomath}
