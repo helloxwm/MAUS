@@ -2,9 +2,10 @@
 % !TEX encoding = UTF-8 Unicode
 
 \documentclass[12pt,oneside,letterpaper]{article}
+%\pagestyle{empty}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{REVISION draft E}
+\newcommand\releasecode{REVISION draft I}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -16,6 +17,7 @@
 \usepackage[printwatermark]{xwatermark}
 %\usepackage{graphicx}
 \usepackage[usenames,dvipsnames,table]{xcolor}
+\usepackage{rotating}
 %\usepackage{parskip}
 %%\usepackage{float}
 %\usepackage[nolists,tablesfirst, nomarkers]{endfloat}
@@ -92,6 +94,9 @@
 
 \begin{document}
 
+% Disable page numbering
+%\pagenumbering{gobble}
+ 
 \title{
 	\vspace*{0mm} % May help to include the corresponding author footnote in the title page
 	\singlespacing
@@ -113,9 +118,9 @@
 
 \author[1,2,$*$]{Jose Manuel Martí}
 \author[1,2,3,$*$]{Daniel Martínez-Martínez}
-\author[2]{Manuel Peña}
-\author[1,2]{César Gracia}
 \author[1]{Teresa Rubio}
+\author[1,2]{César Gracia}
+\author[2]{Manuel Peña}
 \author[1,3,4,5]{Amparo Latorre}
 \author[1,3,4,5,\#]{Andrés Moya}
 \author[1,2,\#]{Carlos P. Garay}
@@ -134,10 +139,10 @@
 
 \clearpage
 \begin{table}
-  \caption{Taylor parameters. Individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to diet,  the population sampled is described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
+  \caption{Taylor's parameters. Individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled is described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
 
   \begin{center}
-    \begin{tabular}{ccccccc}
+    \begin{tabular}{*{7}{c}}
 	    \hline
 		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
 		\hline
@@ -170,9 +175,9 @@
 \clearpage
 
 \begin{table} 
-\caption{Taylor parameters for individuals taking antibiotics\cite{antibiotic}. Prior to antibiotics intake, the population sampled is described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$.}
+\caption{Taylor's parameters for individuals taking antibiotics\cite{antibiotic}. Prior to the antibiotics intake, the population sampled is described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$.}
   \begin{center}
-    \begin{tabular}{ccccccc}
+    \begin{tabular}{*{7}{c}}
 	    \hline
 		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
 		\hline
@@ -192,10 +197,10 @@
 \clearpage
 
 \begin{table}
-\caption{Taylor parameters for persons diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. Healthy individuals sampled in this study are characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$.}
+\caption{Taylor's parameters for persons diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. Healthy individuals sampled in this study are characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$.}
  
   \begin{center}
-    \begin{tabular}{ccccccc}
+    \begin{tabular}{*{7}{c}}
 	    \hline
 		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
 		\hline
@@ -211,9 +216,9 @@
 \clearpage
 
 \begin{table} 
-\caption{Taylor parameters for the healthy subject of the discordant twins\cite{kwashiorkor}. This table continues in Supplementary Table \ref{tab:DK}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
+\caption{Taylor's parameters for the healthy subject of the discordant twins\cite{kwashiorkor}. This table continues in Supplementary Table \ref{tab:DK}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
   \begin{center}
-    \begin{tabular}{ccccccc}
+    \begin{tabular}{*{7}{c}}
 	    \hline
 		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
 		\hline
@@ -239,9 +244,9 @@
 \clearpage
 
 \begin{table}
-\caption{Taylor parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Supplementary Table \ref{tab:DH}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
+\caption{Taylor's parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Supplementary Table \ref{tab:DH}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
    \begin{center}
-    \begin{tabular}{ccccccc}
+    \begin{tabular}{*{7}{c}}
 	    \hline
 		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
 		\hline
@@ -268,9 +273,9 @@
 \clearpage
 
 \begin{table}
-\caption{Taylor parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, whom were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
+\caption{Taylor's parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
   \begin{center}
-    \begin{tabular}{ccccccc}
+    \begin{tabular}{*{7}{c}}
 	    \hline
 		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
 		\hline
@@ -306,10 +311,10 @@
 \clearpage
 
 \begin{table}
-\caption{Taylor parameters for special intervals concerning gut microbiota in the host lifestyle study\cite{hostlife}. The healthy and quotidian periods are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.}
+\caption{Taylor's parameters for special intervals concerning gut microbiota in the host lifestyle study\cite{hostlife}. The healthy and quotidian periods are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.}
  
   \begin{center}
-    \begin{tabular}{ccccccc}
+    \begin{tabular}{*{7}{c}}
 	    \hline
 		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
 		\hline
@@ -322,6 +327,33 @@
   \end{center}
   \label{tab:HLS}
 \end{table}
+
+\clearpage
+
+% Rank and RSI for the HLS study (StoolA samples)
+\begin{sidewaystable}
+\caption{Rank and Rank Stability Index (RSI, as discussed in Material and Methods) over different periods for the taxa listed as \emph{rank stability islands} regarding the gut microbiome of the individual \emph{A} in the host lifestyle study \cite{hostlife}.}
+ 
+  \begin{center}
+  \small
+    \begin{tabular}{*{21}{c}}
+\cline{2-3}\cline{5-21}
+	\multicolumn{1}{c}{\rule[-4mm]{0mm}{10mm}}\vline&\multicolumn{2}{c}{Period}\vline&
+	\multicolumn{1}{c}{}\vline&\multicolumn{17}{c}{Genera}\vline\\
+\cline{2-3}\cline{5-21}
+\rule[-3mm]{0mm}{9mm}&&&&
+	\multicolumn{2}{c}{\bf\emph{Actinomyces}}&&\multicolumn{2}{c}{\bf\emph{Leuconostoc}}&&
+	\multicolumn{2}{c}{\bf\emph{Lachnobacterium}}&&\multicolumn{2}{c}{\bf\emph{Eggerthella}}&&
+	\multicolumn{2}{c}{\bf\emph{Clostridium}}&&\multicolumn{2}{c}{\bf\emph{Collinsella}}\\
+\cline{5-6}\cline{8-9}\cline{11-12}\cline{14-15}\cline{17-18}\cline{20-21}
+\rule[-3mm]{0mm}{9mm}&name&days&&					rank&RSI&&	rank&RSI&&	rank&RSI&&	rank&RSI&&	rank&RSI&&	rank&RSI\\
+\cline{2-3}\cline{5-6}\cline{8-9}\cline{11-12}\cline{14-15}\cline{17-18}\cline{20-21}\rule[-2mm]{0mm}{7mm}&\emph{before}&0 to 70&&		46&72.5&&	44&76.3&&	45&70.2&&	35&73.3&&	28&77.2&&	25&84.2\\\rule[-2mm]{0mm}{7mm}&\emph{abroad}&72 to 122&&		56&67.1&&	46&66.2&&	77&53.3&&	48&53.4&&	36&49.9&&	41&63.5\\\rule[-2mm]{0mm}{7mm}&\emph{returned}&123 to 256&&	44&79.3&&	41&69.5&&	31&74.2&&	33&77.5&&	34&71.6&&	27&81.0\\\rule[-2mm]{0mm}{7mm}&\emph{after}&257 to 364&&		43&79.0&&	39&72.2&&	33&68.4&&	30&78.5&&	34&76.7&&	26&80.4\\
+\cline{2-3}\cline{5-6}\cline{8-9}\cline{11-12}\cline{14-15}\cline{17-18}\cline{20-21}\rule[-3mm]{0mm}{8mm}&\multicolumn{2}{c}{Overall}&&	47&76.4&&	43&71.0&&	36&69.2&&	35&74.1&&	34&70.7&&	28&79.5\\
+\cline{2-3}\cline{5-21}
+    \end{tabular}
+  \end{center}
+  \label{tab:HLS_RSI}
+\end{sidewaystable}
 
 \clearpage
 
