@@ -1,8 +1,8 @@
 # Health and disease imprinted in the time variability of the human microbiome
 ## aka MAUS (Microbiota, are you sick?)
-### :open_file_folder: Current release: mSystems (minor modifications rev draft)
+### :open_file_folder: Current release: mSystems (submitted revision #1)
 
-Jose Manuel Martí(*1,2,*:eight_spoked_asterisk:), Daniel M. Martínez(*1,2,3,*:eight_spoked_asterisk:), Manuel Peña(*2*), César Gracia(*1,2*), Teresa Rubio(*1*), Amparo Latorre(*1,3,4,5*), Andrés Moya(*1,3,4,5*,:email:)  & Carlos P. Garay(*1,2*,:email:)
+Jose Manuel Martí(*1,2,*:eight_spoked_asterisk:), Daniel M. Martínez(*1,2,3,*:eight_spoked_asterisk:), Teresa Rubio(*1*), César Gracia(*1,2*), Manuel Peña(*2*), Amparo Latorre(*1,3,4,5*), Andrés Moya(*1,3,4,5*,:email:)  & Carlos P. Garay(*1,2*,:email:)
 
 _**1**_ Institute for Integrative Systems Biology (I2SysBio), 46980, Spain.
 
@@ -22,7 +22,11 @@ _**5**_ CIBER en Epidemiología y Salud Pública (CIBEResp), Madrid, Spain.
 - - -
 
 ## Abstract: 
-Animal microbiota (human included) plays an important role keeping healthy the physiological status of the host. Increasing research activity is dedicated to understand how changes in composition and function of the microbiota are associated to disease or not. We analyze 16S rRNA and whole genome sequencing (WGS) published data from the gut microbiota of 97 individuals monitored in time. Temporal fluctuations in the microbial composition reveal significant differences due to factors such us dietary changes, antibiotic intake, age or disease. Here we show that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law allows to estimate the temporal variability of the microbial population and quantitatively characterizes the path toward disease by a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, applications in other fields where it is important to know if a given community is stable or not.
+Animal microbiota (including human microbiota) plays an important role in keeping the physiological status of the host healthy. Research activity into understanding whether changes in the composition and function of the microbiota are associated with disease is increasing. We analyzed 16S rRNA and shotgun metagenomic sequencing (SMS) published data from the gut microbiota of 99 individuals monitored over time. Temporal fluctuations in the microbial composition revealed significant differences due to factors such as dietary changes, antibiotic intake, age and disease. This article shows that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law enables the temporal variability of the microbial population to be estimated and quantitatively characterizes the path toward disease via a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, may also have applications in other fields where it is important to know whether a given community is stable or not.
 
 ## Importance:
-Human microbiota is tightly associated to the health status of a person. Here we analyse the microbial composition of several subjects under different conditions, over a time span that ranges from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we prove that we are capable to distinguish stable from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of the people, and it will allow the development of a more complete framework in order to deepen the knowledge of this complex system.
+Human microbiota is closely linked to the health status of a person. This article analyzes the microbial composition of several subjects under different conditions, over a time span that ranged from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we proved that stable microbiotas can be distinguished from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of people, and it will enable the development of a more comprehensive framework in order to obtain more in-depth knowledge of this complex system.
+
+## Keywords: 
+microbiome, systems biology, ecological modeling, metagenomics, stability
+
