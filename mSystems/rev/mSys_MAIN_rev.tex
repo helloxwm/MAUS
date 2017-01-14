@@ -4,7 +4,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{REVISION draft I}
+\newcommand\releasecode{REVISION R1 FINAL}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -25,9 +25,9 @@
 \geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
 
 % watermarks (time consuming!)
-\newwatermark[allpages,color=Mulberry!4,angle=45,scale=7,xpos=-40,ypos=0]{REVISION}
-\newwatermark[allpages,color=Mulberry!12,angle=0,scale=1,xpos=0,ypos=137]{
-\emph{mSystems} \LaTeX\ manuscript \releasecode}
+%\newwatermark[allpages,color=Mulberry!4,angle=45,scale=7,xpos=-40,ypos=0]{REVISION}
+%\newwatermark[allpages,color=Mulberry!12,angle=0,scale=1,xpos=0,ypos=137]{
+%\emph{mSystems} \LaTeX\ manuscript \releasecode}
 
 % helps to keep figures from being orphaned on a page by themselves
 \renewcommand{\topfraction}{0.85}
@@ -234,6 +234,7 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 \bibitem{msys1} {\bf Noecker C, Eng A, Srinivasan S, Theriot CM, Young VB, Jansson JK, Fredricks DN, Borenstein E.} 2016. Metabolic Model-Based Integration of Microbiome Taxonomic and Metabolomic Profiles Elucidates Mechanistic Links between Ecological and Metabolic Variation. mSystems {\bf 1}:e00013–15.
 \bibitem {metasysbio} {\bf Greenblum S, Turnbaugh PJ, Borenstein E.} 2012. Metagenomic systems biology of the human gut microbiome reveals topological shifts associated with obesity and inflammatory bowel disease. Proc Natl Acad Sci {\bf 109}:594–599.
 \bibitem {uni_dynam} {\bf Bashan A, Gibson TE, Friedman J, Carey VJ, Weiss ST, Hohmann EL, Liu Y-Y.} 2016. Universality of human microbial dynamics. Nature {\bf 534}:259–262.
+\bibitem{pretaylor} {\bf Smith H. F.} 1938. An empirical law describing heterogeneity in the yields of agricultural crops. J. Agric. Sci. {\bf 28}:1-23
 \bibitem{taylor} {\bf Taylor, L.R.} 1961. Aggregation, Variance and the mean. Nature {\bf 189}:732-35.
 \bibitem{randomwalks} {\bf de Menezes MA, Barabási A-L.} 2004. Fluctuations in network dynamics. Phys Rev Lett {\bf 92}:1–4.
 \bibitem{economics1} {\bf Mantegna RN, Stanley HE.} 1995. Scaling behaviour in the dynamics of an economic index. Nature {\bf 376}:46–49.
@@ -295,21 +296,17 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 %%  of the main text PDF.
 %TC:ignore
 \begin{table}
-  \caption{Taylor's parameters. Individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled is described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
 
-\caption{Taylor's parameters for individuals taking antibiotics\cite{antibiotic}. Prior to the antibiotics intake, the population sampled is described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$.}
+	\caption{Taylor's parameters of individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled was described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
 
-\caption{Taylor's parameters for persons diagnosed with irritable bowel syndrome (IBS)\cite{IBS}. Healthy individuals sampled in this study are characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$.}
+	\caption{Taylor's parameters for individuals taking antibiotics (Ab) in the antibiotics study \cite{antibiotic}, persons diagnosed with irritable bowel syndrome (IBS) in the IBS study \cite{IBS} and for special intervals concerning gut microbiota (HLS) in the host lifestyle study\cite{hostlife}. Prior to the antibiotics intake, the population sampled in the antibiotics study \cite{antibiotic} was described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$. Healthy individuals sampled in the IBS study \cite{IBS} were characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$. The healthy and quotidian periods in the host lifestyle study \cite{hostlife} are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.}
 
-\caption{Taylor's parameters for the healthy subject of the discordant twins\cite{kwashiorkor}. This table continues in Supplementary Table S\ref{tab:DK}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}\label{tab:DH}
+	\caption{Taylor's parameters for the healthy subject (DH) and kwashiorkor part (DK) of the discordant twins\cite{kwashiorkor}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
 
-\caption{Taylor's parameters for the kwashiorkor part of the discordant twins\cite{kwashiorkor}. This is a continuation of Supplementary Table S\ref{tab:DH}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}\label{tab:DK}
+	\caption{Taylor's parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
 
-\caption{Taylor's parameters for individuals with different degrees of excess weight and obesity\cite{LEA}. The healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
-
-\caption{Taylor's parameters for special intervals concerning gut microbiota in the host lifestyle study\cite{hostlife}. The healthy and quotidian periods are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.} 
-
-\caption{Rank and Rank Stability Index (RSI, as discussed in Material and Methods) over different periods for the taxa listed as \emph{rank stability islands} regarding the gut microbiome of the individual \emph{A} in the host lifestyle study \cite{hostlife}.}
+	\caption{Rank and Rank Stability Index (RSI, as discussed in Material and Methods) over different periods for the taxa listed as \emph{rank stability islands} regarding the gut microbiome of the individual \emph{A} in the host lifestyle study \cite{hostlife}.}
+ 
 \end{table}
 %TC:endignore
 
