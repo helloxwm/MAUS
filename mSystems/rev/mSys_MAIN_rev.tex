@@ -4,7 +4,7 @@
 \documentclass[12pt,oneside,letterpaper]{article}
 
 % release codenumber (update it here!)
-\newcommand\releasecode{REVISION R1 FINAL}
+\newcommand\releasecode{REV2 DRAFT$\alpha$}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -25,8 +25,8 @@
 \geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
 
 % watermarks (time consuming!)
-%\newwatermark[allpages,color=Mulberry!4,angle=45,scale=7,xpos=-40,ypos=0]{REVISION}
-%\newwatermark[allpages,color=Mulberry!12,angle=0,scale=1,xpos=0,ypos=137]{
+%\newwatermark[allpages,color=BurntOrange!4,angle=45,scale=7,xpos=-40,ypos=0]{REVISION}
+%\newwatermark[allpages,color=BurntOrange!12,angle=0,scale=1,xpos=0,ypos=137]{
 %\emph{mSystems} \LaTeX\ manuscript \releasecode}
 
 % helps to keep figures from being orphaned on a page by themselves
@@ -44,6 +44,8 @@
 % Captions will be left justified
 \usepackage[labelfont=bf,labelsep=period,font=small]{caption}
 \captionsetup[table]{name=Supplementary Table S\!\!} % See EOF
+%\DeclareCaptionFormat{empty}{}  %%%%% COMMENT THIS LINE AND THE NEXT FOR REACTIVATING CAPTIONS %%%%%
+%\captionsetup{format=empty,aboveskip=0pt,belowskip=0pt} %%%%%
 
 % review layout with double-spacing
 \usepackage{setspace} 
@@ -100,6 +102,7 @@
 \newcommand\wordcount{\verbatiminput{wordcount_rev.aux}}
 
 % Floating stuff
+\usepackage{rotating}
 \usepackage[nolists, nomarkers]{endfloat}
 %\renewcommand{\processdelayedfloats}{}  % Avoid float processing
 \usepackage{newfloat}
@@ -110,6 +113,8 @@
 	placement=p
 ]{supfig}
 \DeclareDelayedFloat{supfig}{Supplementary Figures}
+\DeclareDelayedFloatFlavor{sidewaysfigure}{figure}
+\DeclareDelayedFloatFlavor{sidewaystable}{table}
 
 %%% DOCUMENT %%%
 
@@ -168,7 +173,7 @@
 %TC:newcounter impwords Words in importance section
 %TC:macro \importance [impwords]
 
-{\abstract{Animal microbiota (including human microbiota) plays an important role in keeping the physiological status of the host healthy. Research activity into understanding whether changes in the composition and function of the microbiota are associated with disease is increasing. We analyzed 16S rRNA and shotgun metagenomic sequencing (SMS) published data from the gut microbiota of 97 individuals monitored over time. Temporal fluctuations in the microbial composition revealed significant differences due to factors such us dietary changes, antibiotic intake, age and disease. This article shows that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law enables the temporal variability of the microbial population to be estimated and quantitatively characterizes the path toward disease via a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, may also have applications in other fields where it is important to know whether a given community is stable or not.}}
+{\abstract{Animal microbiota (including human microbiota) plays an important role in keeping the physiological status of the host healthy. Research activity into understanding whether changes in the composition and function of the microbiota are associated with disease is increasing. We analyzed 16S rRNA and shotgun metagenomic sequencing (SMS) published data from the gut microbiota of 99f individuals monitored over time. Temporal fluctuations in the microbial composition revealed significant differences due to factors such us dietary changes, antibiotic intake, age and disease. This article shows that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law enables the temporal variability of the microbial population to be estimated and quantitatively characterizes the path toward disease via a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, may also have applications in other fields where it is important to know whether a given community is stable or not.}}
 
 \importance{Human microbiota is closedly linked to the health status of a person. This article analyzes the microbial composition of several subjects under different conditions, over a time span that ranged from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we proved that stable microbiotas can be distinguised from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of people, and it will enable the development of a more comprehensive framework in order to obtain more in-depth knowledge of this complex system.}
 
@@ -201,7 +206,8 @@ The authors declare that there are no competing financial interests in relation 
 \section*{Funding Information}
 This work was supported by grants to AM from the Spanish Ministry of Science and Competitiveness (projects SAF2012-31187, SAF2013-49788-EXP, SAF2015-65878-R), Carlos III Institute of Health (projects PIE14/00045 and AC15/00022), Generalitat Valenciana (project PrometeoII/2014/065) and co-financed by ERDF, and grants to CPG from the Generalitat Valenciana Prometeo Grants II/2014/050, II/2014/065, 419 by the Spanish Grants FPA2011-29678, BFU2012-39816-C02-01 of MINECO and by PITN-GA-420 2011-289442-INVISIBLES. From the Ministry of Economy and Competitiveness (grants FPI BES-2012-052900 and FPI BES-2013-062767).
 
-%\clearpage
+%===================================== BIBLIOGRAPHY =======================================
+
 \begin{thebibliography}{99}
 %% Introduction
 \bibitem{holo1} {\bf Rosenberg E, Zilber-Rosenberg I.} 2016. Microbes Drive Evolution of Animals and Plants: the Hologenome Concept. MBio {\bf 7}:e01395–15–.
@@ -238,7 +244,7 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 \bibitem{taylor} {\bf Taylor, L.R.} 1961. Aggregation, Variance and the mean. Nature {\bf 189}:732-35.
 \bibitem{randomwalks} {\bf de Menezes MA, Barabási A-L.} 2004. Fluctuations in network dynamics. Phys Rev Lett {\bf 92}:1–4.
 \bibitem{economics1} {\bf Mantegna RN, Stanley HE.} 1995. Scaling behaviour in the dynamics of an economic index. Nature {\bf 376}:46–49.
-\bibitem{economics2} {\bf Eisler Z, Kertesz J, Yook SH, Barabasi AL.} 2005. Multiscaling and non-universality in fluctuations of driven complex systems. Europhys Lett {\bf 69}:664–670.
+\bibitem{economics2} {\bf Eisler Z, Kertesz J, Yook SH, Barabási AL.} 2005. Multiscaling and non-universality in fluctuations of driven complex systems. Europhys Lett {\bf 69}:664–670.
 \bibitem {cohen_taylor} {\bf Cohen JE, Xu M, Schuster WSF}. 2013. Stochastic multiplicative population growth predicts and interprets Taylor’s power law of fluctuation scaling. Proc R Soc B Biol Sci {\bf 280}:20122955.
 \bibitem{animal1} {\bf Reed DH, Hobbs GR.} 2004. The relationship between population size and temporal variability in population size. Anim Conserv {\bf 7}:1–8.
 \bibitem{animal2} {\bf Anderson RM, Gordon DM, Crawley MJ, Hassell MP.} 1982. Variability in the abundance of animal and plant species. Nature {\bf 18}: 245–248
@@ -294,20 +300,188 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 
 %% mSystems staff asked to send the captions of the supplementary tables at the end
 %%  of the main text PDF.
+%============================== SUPPLEMENTARY TABLES ================================
+
 %TC:ignore
 \begin{table}
+\caption{Taylor's parameters of individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled was described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
 
-	\caption{Taylor's parameters of individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled was described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
-
-	\caption{Taylor's parameters for individuals taking antibiotics (Ab) in the antibiotics study \cite{antibiotic}, persons diagnosed with irritable bowel syndrome (IBS) in the IBS study \cite{IBS} and for special intervals concerning gut microbiota (HLS) in the host lifestyle study\cite{hostlife}. Prior to the antibiotics intake, the population sampled in the antibiotics study \cite{antibiotic} was described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$. Healthy individuals sampled in the IBS study \cite{IBS} were characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$. The healthy and quotidian periods in the host lifestyle study \cite{hostlife} are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.}
-
-	\caption{Taylor's parameters for the healthy subject (DH) and kwashiorkor part (DK) of the discordant twins\cite{kwashiorkor}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
-
-	\caption{Taylor's parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
-
-	\caption{Rank and Rank Stability Index (RSI, as discussed in Material and Methods) over different periods for the taxa listed as \emph{rank stability islands} regarding the gut microbiome of the individual \emph{A} in the host lifestyle study \cite{hostlife}.}
- 
+  \begin{center}
+    \begin{tabular}{*{7}{c}}
+	    \hline
+		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
+		\hline
+		A&$0.26 \pm 0.05$&$0.826 \pm 0.025$&$0.918$&&$3.1 \pm 0.9$&$1.2 \pm 0.6$\\
+		A&$0.32 \pm 0.06$&$0.857 \pm 0.025$&$0.924$&&$4.4 \pm 1.1$&$2.0 \pm 0.6$\\
+		A&$0.194 \pm 0.033$&$0.813 \pm 0.024$&$0.918$&&$1.9 \pm 0.6$&$0.9 \pm 0.6$\\
+		A&$0.24 \pm 0.04$&$0.824 \pm 0.020$&$0.924$&&$2.7 \pm 0.7$&$1.2 \pm 0.5$\\
+		A&$0.34 \pm 0.06$&$0.855 \pm 0.024$&$0.931$&&$4.7 \pm 1.1$&$1.9 \pm 0.6$\\
+		A&$0.30 \pm 0.05$&$0.847 \pm 0.022$&$0.921$&&$3.9 \pm 1.0$&$1.7 \pm 0.5$\\
+		A&$0.133 \pm 0.021$&$0.784 \pm 0.023$&$0.916$&&$0.7 \pm 0.4$&$0.2 \pm 0.6$\\
+		A&$0.25 \pm 0.04$&$0.831 \pm 0.024$&$0.929$&&$3.0 \pm 0.8$&$1.4 \pm 0.6$\\
+		\hline
+		P&$0.23 \pm 0.05$&$0.804 \pm 0.035$&$0.885$&&$2.6 \pm 0.9$&$0.7 \pm 0.8$\\
+		P&$0.097 \pm 0.018$&$0.705 \pm 0.031$&$0.891$&&$0.03 \pm 0.34$&$-1.6 \pm 0.7$\\
+		P&$0.037 \pm 0.006$&$0.642 \pm 0.025$&$0.881$&&$-1.12 \pm 0.11$&$-3.1 \pm 0.6$\\
+		P&$0.118 \pm 0.019$&$0.723 \pm 0.025$&$0.895$&&$0.4 \pm 0.4$&$-1.2 \pm 0.6$\\
+		P&$0.17 \pm 0.04$&$0.78 \pm 0.04$&$0.842$&&$1.5 \pm 0.7$&$0.1 \pm 0.9$\\
+		P&$0.123 \pm 0.020$&$0.757 \pm 0.026$&$0.914$&&$0.5 \pm 0.4$&$-0.4 \pm 0.6$\\
+		P&$0.19 \pm 0.05$&$0.77 \pm 0.04$&$0.871$&&$1.8 \pm 0.9$&$-0.0 \pm 0.9$\\
+		P&$0.121 \pm 0.020$&$0.736 \pm 0.027$&$0.921$&&$0.5 \pm 0.4$&$-0.9 \pm 0.6$\\
+		P&$0.187 \pm 0.034$&$0.771 \pm 0.030$&$0.908$&&$1.8 \pm 0.7$&$-0.1 \pm 0.7$\\
+		P&$0.097 \pm 0.015$&$0.735 \pm 0.025$&$0.922$&&$0.05 \pm 0.28$&$-0.9 \pm 0.6$\\
+	   	\hline
+    	\hline
+    \end{tabular}
+  \end{center}
+  \label{tab:diet}
 \end{table}
+
+\clearpage
+
+\begin{table} 
+\caption{Taylor's parameters for individuals taking antibiotics (Ab) in the antibiotics study \cite{antibiotic}, persons diagnosed with irritable bowel syndrome (IBS) in the IBS study \cite{IBS} and for special intervals concerning gut microbiota (HLS) in the host lifestyle study\cite{hostlife}. Prior to the antibiotics intake, the population sampled in the antibiotics study \cite{antibiotic} was described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$. Healthy individuals sampled in the IBS study \cite{IBS} were characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$. The healthy and quotidian periods in the host lifestyle study \cite{hostlife} are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.}
+
+  \begin{center}
+    \begin{tabular}{*{7}{c}}
+	    \hline
+		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
+		\hline
+		Ab&$0.35 \pm 0.07$&$0.81 \pm 0.04$&$0.925$&&$4.3 \pm 1.4$&$1.3 \pm 0.9$\\
+		Ab&$0.41 \pm 0.09$&$0.82 \pm 0.04$&$0.908$&&$5.6 \pm 1.8$&$1.6 \pm 0.9$\\
+		Ab&$0.23 \pm 0.04$&$0.770 \pm 0.031$&$0.920$&&$2.1 \pm 0.8$&$0.5 \pm 0.7$\\
+		Ab&$0.165 \pm 0.029$&$0.738 \pm 0.031$&$0.928$&&$0.9 \pm 0.6$&$-0.3 \pm 0.7$\\
+		Ab&$0.34 \pm 0.06$&$0.812 \pm 0.032$&$0.936$&&$4.1 \pm 1.2$&$1.5 \pm 0.7$\\
+		Ab&$0.26 \pm 0.05$&$0.798 \pm 0.033$&$0.931$&&$2.8 \pm 0.9$&$1.1 \pm 0.8$\\
+	    \hline
+	 	\hline
+		IBS (minor)&$0.205 \pm 0.034$&$0.740 \pm 0.029$&$0.917$&&$6.9 \pm 3.3$&$2.0 \pm 1.2$\\
+		IBS (severe)&$0.35 \pm 0.06$&$0.793 \pm 0.025$&$0.934$&&$21 \pm 6$&$4.2 \pm 1.0$\\
+        \hline
+    	\hline
+		HLS (abroad)&$0.51 \pm 0.06$&$0.820 \pm 0.012$&$0.928$&&$2.8 \pm 0.6$&$1.7 \pm 0.5$\\
+		HLS (infection)&$0.49 \pm 0.08$&$0.828 \pm 0.018$&$0.923$&&$2.6 \pm 0.9$&$2.0 \pm 0.7$\\
+		HLS (after infection)&$0.36 \pm 0.05$&$0.776 \pm 0.015$&$0.922$&&$1.1 \pm 0.6$&$-0.0 \pm 0.6$\\
+	    \hline
+    	\hline  
+    \end{tabular}
+  \end{center}
+  \label{tab:Ab-IBS-HLS}
+\end{table}
+
+\clearpage
+
+\begin{table} 
+\caption{Taylor's parameters for the healthy subject (DH) and kwashiorkor part (DK) of the discordant twins\cite{kwashiorkor}. The population of healthy twins is characterized by $\bar{V} = 0.25 \pm 0.10, \bar{\beta} = 0.863 \pm 0.028$.}
+  \begin{center}
+    \begin{tabular}{*{7}{c}}
+	    \hline
+		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
+		\hline
+		DH&$0.27 \pm 0.04$&$0.835 \pm 0.016$&$0.925$&&$0.2 \pm 0.4$&$-1.0 \pm 0.6$\\
+		DH&$0.36 \pm 0.06$&$0.858 \pm 0.015$&$0.929$&&$1.1 \pm 0.6$&$-0.2 \pm 0.5$\\
+		DH&$0.35 \pm 0.06$&$0.859 \pm 0.014$&$0.926$&&$1.0 \pm 0.5$&$-0.1 \pm 0.5$\\
+		DH&$0.25 \pm 0.04$&$0.829 \pm 0.014$&$0.911$&&$0.0 \pm 0.4$&$-1.2 \pm 0.5$\\
+		DH&$0.30 \pm 0.05$&$0.844 \pm 0.014$&$0.920$&&$0.5 \pm 0.4$&$-0.7 \pm 0.5$\\
+		DH&$0.29 \pm 0.05$&$0.850 \pm 0.016$&$0.915$&&$0.4 \pm 0.5$&$-0.5 \pm 0.5$\\
+		DH&$0.28 \pm 0.05$&$0.848 \pm 0.016$&$0.921$&&$0.3 \pm 0.5$&$-0.5 \pm 0.6$\\
+		DH&$0.35 \pm 0.07$&$0.861 \pm 0.017$&$0.918$&&$0.9 \pm 0.6$&$-0.0 \pm 0.6$\\
+		DH&$0.31 \pm 0.04$&$0.833 \pm 0.012$&$0.916$&&$0.6 \pm 0.4$&$-1.1 \pm 0.4$\\
+		DH&$0.33 \pm 0.05$&$0.843 \pm 0.013$&$0.925$&&$0.8 \pm 0.5$&$-0.7 \pm 0.5$\\
+		DH&$0.31 \pm 0.05$&$0.852 \pm 0.014$&$0.925$&&$0.6 \pm 0.5$&$-0.4 \pm 0.5$\\
+		DH&$0.31 \pm 0.05$&$0.853 \pm 0.015$&$0.930$&&$0.6 \pm 0.5$&$-0.4 \pm 0.5$\\
+		DH&$0.203 \pm 0.033$&$0.815 \pm 0.015$&$0.907$&&$-0.44 \pm 0.32$&$-1.7 \pm 0.5$\\
+		\hline
+		DK&$0.40 \pm 0.07$&$0.859 \pm 0.017$&$0.926$&&$1.5 \pm 0.7$&$-0.1 \pm 0.6$\\
+		DK&$0.44 \pm 0.08$&$0.868 \pm 0.016$&$0.919$&&$1.8 \pm 0.8$&$0.2 \pm 0.6$\\
+		DK&$0.196 \pm 0.031$&$0.819 \pm 0.014$&$0.916$&&$-0.50 \pm 0.30$&$-1.5 \pm 0.5$\\
+		DK&$0.160 \pm 0.026$&$0.798 \pm 0.015$&$0.904$&&$-0.85 \pm 0.25$&$-2.3 \pm 0.5$\\
+		DK&$0.30 \pm 0.05$&$0.845 \pm 0.014$&$0.924$&&$0.5 \pm 0.4$&$-0.6 \pm 0.5$\\
+		DK&$0.23 \pm 0.04$&$0.834 \pm 0.014$&$0.908$&&$-0.1 \pm 0.4$&$-1.0 \pm 0.5$\\
+		DK&$0.27 \pm 0.05$&$0.848 \pm 0.015$&$0.930$&&$0.2 \pm 0.4$&$-0.5 \pm 0.5$\\
+		DK&$0.35 \pm 0.07$&$0.860 \pm 0.019$&$0.916$&&$1.0 \pm 0.7$&$-0.1 \pm 0.7$\\
+		DK&$0.34 \pm 0.05$&$0.835 \pm 0.012$&$0.917$&&$0.9 \pm 0.5$&$-1.0 \pm 0.4$\\
+		DK&$0.25 \pm 0.04$&$0.831 \pm 0.012$&$0.912$&&$0.0 \pm 0.4$&$-1.1 \pm 0.4$\\
+		DK&$0.36 \pm 0.06$&$0.858 \pm 0.013$&$0.918$&&$1.1 \pm 0.5$&$-0.2 \pm 0.5$\\
+		DK&$0.31 \pm 0.06$&$0.851 \pm 0.016$&$0.924$&&$0.6 \pm 0.6$&$-0.4 \pm 0.6$\\
+		DK&$0.149 \pm 0.022$&$0.799 \pm 0.013$&$0.905$&&$-0.96 \pm 0.22$&$-2.2 \pm 0.5$\\
+	    \hline
+    	\hline
+    \end{tabular}
+  \end{center}
+    \label{tab:Kwash}
+\end{table}
+
+\clearpage
+
+\begin{table}
+\caption{Taylor's parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
+  \begin{center}
+    \begin{tabular}{*{7}{c}}
+	    \hline
+		Metadata&V&$\beta$&$\bar{R}^2$&&V$_{st}$&$\beta_{st}$\\
+		\hline
+		OW&$0.59 \pm 0.12$&$0.894 \pm 0.034$&$0.920$&&$6.6 \pm 2.0$&$2.6 \pm 1.0$\\
+		OW&$0.22 \pm 0.04$&$0.830 \pm 0.030$&$0.904$&&$0.5 \pm 0.6$&$0.7 \pm 0.9$\\
+		\hline
+		OBI&$0.28 \pm 0.04$&$0.855 \pm 0.022$&$0.958$&&$1.5 \pm 0.6$&$1.4 \pm 0.6$\\
+		OBI&$0.33 \pm 0.07$&$0.870 \pm 0.031$&$0.916$&&$2.4 \pm 1.1$&$1.9 \pm 0.9$\\
+		\hline
+		OBII&$0.223 \pm 0.032$&$0.823 \pm 0.023$&$0.938$&&$0.6 \pm 0.5$&$0.5 \pm 0.7$\\
+		OBII&$0.208 \pm 0.029$&$0.844 \pm 0.022$&$0.935$&&$0.4 \pm 0.5$&$1.1 \pm 0.7$\\
+		\hline
+		OBIII&$0.34 \pm 0.05$&$0.855 \pm 0.025$&$0.943$&&$2.5 \pm 0.9$&$1.4 \pm 0.7$\\
+		OBIII&$0.26 \pm 0.04$&$0.845 \pm 0.026$&$0.954$&&$1.1 \pm 0.7$&$1.2 \pm 0.8$\\
+		OBIII&$0.33 \pm 0.06$&$0.870 \pm 0.027$&$0.908$&&$2.4 \pm 1.0$&$1.9 \pm 0.8$\\
+		OBIII&$0.200 \pm 0.026$&$0.843 \pm 0.020$&$0.949$&&$0.2 \pm 0.4$&$1.1 \pm 0.6$\\
+		OBIII&$0.30 \pm 0.05$&$0.846 \pm 0.026$&$0.929$&&$1.9 \pm 0.8$&$1.2 \pm 0.7$\\
+		OBIII&$0.176 \pm 0.029$&$0.826 \pm 0.026$&$0.894$&&$-0.2 \pm 0.5$&$0.6 \pm 0.8$\\
+		OBIII&$0.30 \pm 0.06$&$0.841 \pm 0.031$&$0.896$&&$1.8 \pm 0.9$&$1.0 \pm 0.9$\\
+		OBIII&$0.28 \pm 0.04$&$0.857 \pm 0.025$&$0.941$&&$1.5 \pm 0.7$&$1.5 \pm 0.7$\\
+		OBIII&$0.122 \pm 0.018$&$0.822 \pm 0.024$&$0.930$&&$-1.05 \pm 0.30$&$0.5 \pm 0.7$\\
+		\hline
+		OBIIId&$0.47 \pm 0.08$&$0.872 \pm 0.023$&$0.945$&&$4.7 \pm 1.3$&$1.9 \pm 0.7$\\
+		OBIIId&$0.38 \pm 0.06$&$0.846 \pm 0.023$&$0.951$&&$3.2 \pm 1.0$&$1.2 \pm 0.7$\\
+		OBIIId&$0.36 \pm 0.06$&$0.842 \pm 0.022$&$0.954$&&$2.9 \pm 0.9$&$1.1 \pm 0.6$\\
+	    \hline
+    	\hline
+    \end{tabular}
+  \end{center}
+  \label{tab:LEA}
+\end{table}
+
+\clearpage
+
+% Rank and RSI for the HLS study (StoolA samples)
+\begin{sidewaystable}
+\caption{Rank and Rank Stability Index (RSI, as discussed in Material and Methods) over different periods for the taxa listed as \emph{rank stability islands} regarding the gut microbiome of the individual \emph{A} in the host lifestyle study \cite{hostlife}.}
+ 
+  \begin{center}
+  \small
+    \begin{tabular}{*{21}{c}}
+\cline{2-3}\cline{5-21}
+	\multicolumn{1}{c}{\rule[-4mm]{0mm}{10mm}}\vline&\multicolumn{2}{c}{Period}\vline&
+	\multicolumn{1}{c}{}\vline&\multicolumn{17}{c}{Genera}\vline\\
+\cline{2-3}\cline{5-21}
+\rule[-3mm]{0mm}{9mm}&&&&
+	\multicolumn{2}{c}{\bf\emph{Actinomyces}}&&\multicolumn{2}{c}{\bf\emph{Leuconostoc}}&&
+	\multicolumn{2}{c}{\bf\emph{Lachnobacterium}}&&\multicolumn{2}{c}{\bf\emph{Eggerthella}}&&
+	\multicolumn{2}{c}{\bf\emph{Clostridium}}&&\multicolumn{2}{c}{\bf\emph{Collinsella}}\\
+\cline{5-6}\cline{8-9}\cline{11-12}\cline{14-15}\cline{17-18}\cline{20-21}
+\rule[-3mm]{0mm}{9mm}&name&days&&					rank&RSI&&	rank&RSI&&	rank&RSI&&	rank&RSI&&	rank&RSI&&	rank&RSI\\
+\cline{2-3}\cline{5-6}\cline{8-9}\cline{11-12}\cline{14-15}\cline{17-18}\cline{20-21}
+\rule[-2mm]{0mm}{7mm}&\emph{before}&0 to 70&&		46&72.5&&	44&76.3&&	45&70.2&&	35&73.3&&	28&77.2&&	25&84.2\\
+\rule[-2mm]{0mm}{7mm}&\emph{abroad}&72 to 122&&		56&67.1&&	46&66.2&&	77&53.3&&	48&53.4&&	36&49.9&&	41&63.5\\
+\rule[-2mm]{0mm}{7mm}&\emph{returned}&123 to 256&&	44&79.3&&	41&69.5&&	31&74.2&&	33&77.5&&	34&71.6&&	27&81.0\\
+\rule[-2mm]{0mm}{7mm}&\emph{after}&257 to 364&&		43&79.0&&	39&72.2&&	33&68.4&&	30&78.5&&	34&76.7&&	26&80.4\\
+\cline{2-3}\cline{5-6}\cline{8-9}\cline{11-12}\cline{14-15}\cline{17-18}\cline{20-21}
+\rule[-3mm]{0mm}{8mm}&\multicolumn{2}{c}{Overall}&&	47&76.4&&	43&71.0&&	36&69.2&&	35&74.1&&	34&70.7&&	28&79.5\\
+\cline{2-3}\cline{5-21}
+    \end{tabular}
+  \end{center}
+  \label{tab:HLS_RSI}
+\end{sidewaystable}
+
 %TC:endignore
 
 \end{document}
