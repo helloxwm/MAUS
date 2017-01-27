@@ -127,8 +127,8 @@ h11 = scatter(X(initIdx:endIdx),Y(initIdx:endIdx),sizeSymbol,'^','filled','Marke
 h11b = errorbarxy(X(initIdx:endIdx),Y(initIdx:endIdx),XE(initIdx:endIdx),YE(initIdx:endIdx),{'w.',color,color});
 
 %hTitle  = title ('Diagram of regions for health and sick members.');
-hXLabel = xlabel('Variability (SD units)');
-hYLabel = ylabel('Scaling Index (SD units)');
+hXLabel = xlabel('V  (SD units)');
+hYLabel = ylabel('\beta  (SD units)');
 lbl = {'Zone of Health','Kwashiorkor','Plant Diet','Animal Diet','Ob III','Ob III Diet','Antibiotics','IBS','Lifestyle Trip','Lifestyle Sick'};
 hLegend = legend([h0 h1 h3 h4 h6 h7 h8 h9 h10 h11],lbl,'Location','southeast');
 
