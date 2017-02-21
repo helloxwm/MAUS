@@ -1,10 +1,9 @@
-% !TEX TS-program = pdflatex
-% !TEX encoding = UTF-8 Unicode
-
+% !TeX TS-program = pdflatex
+% !TeX encoding = UTF-8 Unicode
 \documentclass[12pt,oneside,letterpaper]{article}
 
-% release codenumber (update it here!)
-\newcommand\releasecode{REV2 DRAFT$\delta$}
+% release codenumber for mSystems 00144-16R2 (update it here!)
+\newcommand\releasecode{ACCEPTED}
 
 %%% PACKAGES
 \usepackage{lmodern} % Activa fuentes y macros de Latin Modern
@@ -25,13 +24,14 @@
 \geometry{textheight=22.5cm} % 22cm for single-space, 22.5cm for double-space
 
 % watermarks (time consuming!)
-\newwatermark[allpages,color=BurntOrange!4,angle=45,scale=7,xpos=-40,ypos=0]{REVISION}
-\newwatermark[allpages,color=BurntOrange!12,angle=0,scale=1,xpos=0,ypos=137]{
-\emph{mSystems} \LaTeX\ manuscript \releasecode}
+\newwatermark[allpages,color=Aquamarine!5,angle=45,scale=6,xpos=-30,ypos=0]{ACCEPTED}
+\newwatermark[allpages,color=Aquamarine!14,angle=0,scale=1,xpos=0,ypos=137]{
+\textbf{ASM} \emph{mSystems} \LaTeX\ manuscript \releasecode}
 
 % helps to keep figures from being orphaned on a page by themselves
 \renewcommand{\topfraction}{0.85}
 \renewcommand{\textfraction}{0.1}
+
 %% Roman footnote numbering style to not collide with bibliographic cites: 
 \renewcommand{\thefootnote}{\Roman{footnote}}
 
@@ -86,9 +86,6 @@
 
 % notation
 \usepackage{amsmath}
-
-%% Roman footnote numbering style to not collide with bibliographic cites: 
-\renewcommand{\thefootnote}{\Roman{footnote}}
 
 % aux commands
 \newcommand{\CC}[0]{\emph{cmplxcruncher}}
@@ -173,9 +170,9 @@
 %TC:newcounter impwords Words in importance section
 %TC:macro \importance [impwords]
 
-{\abstract{Animal microbiota (including human microbiota) plays an important role in keeping the physiological status of the host healthy. Research activity into understanding whether changes in the composition and function of the microbiota are associated with disease is increasing. We analyzed 16S rRNA and shotgun metagenomic sequencing (SMS) published data from the gut microbiota of 99f individuals monitored over time. Temporal fluctuations in the microbial composition revealed significant differences due to factors such us dietary changes, antibiotic intake, age and disease. This article shows that a fluctuation scaling law describes the temporal changes in the gut microbiota. This law enables the temporal variability of the microbial population to be estimated and quantitatively characterizes the path toward disease via a noise-induced phase transition. The estimation of the systemic parameters for follow-up studies may have clinical use and, more generally, may also have applications in other fields where it is important to know whether a given community is stable or not.}}
+{\abstract{Animal microbiota (including human microbiota) plays an important role in keeping the physiological status of the host healthy. Research seeks greater insight into whether changes in the composition and function of the microbiota are associated with disease. We analyzed 16S rRNA and shotgun metagenomic sequencing (SMS) published data pertaining to the gut microbiota of 99 subjects monitored over time. Temporal fluctuations in the microbial composition revealed significant differences due to factors such as dietary changes, antibiotic intake, age and disease. This article shows that a fluctuation scaling law can describe the temporal changes in the gut microbiota. This law estimates the temporal variability of the microbial population and quantitatively characterizes the path toward disease via a noise-induced phase transition. Estimation of the systemic parameters may be of clinical utility in follow-up studies and have more general applications in fields where it is important to know whether a given community is stable or not.}}
 
-\importance{Human microbiota is closedly linked to the health status of a person. This article analyzes the microbial composition of several subjects under different conditions, over a time span that ranged from days to months. Using the Langevin equation as the basis of our mathematical framework in order to evaluate microbial temporal stability, we proved that stable microbiotas can be distinguised from unstable microbiotas. This first step will help us to determine how microbiota temporal stability is related to the healthiness of people, and it will enable the development of a more comprehensive framework in order to obtain more in-depth knowledge of this complex system.}
+\importance{The human microbiota correlates closely with the health status of its host. This article analyzes the microbial composition of several subjects under different conditions, over a time span that ranged from days to months. Using the Langevin equation as the basis of our mathematical framework to evaluate microbial temporal stability, we proved that stable microbiotas can be distinguished from unstable microbiotas. This initial step will help us to determine how microbiota temporal stability is related to a subject’s health status, and to develop a more comprehensive framework which will provide greater insight into this complex system.}
 
 \vspace{4mm}
 \begin{keywords}
@@ -201,7 +198,7 @@ microbiome, systems biology, ecological modeling, metagenomics, stability
 %\clearpage
 
 \section*{Acknowledgments}
-The authors declare that there are no competing financial interests in relation to the work described here. We thereby express our acknowledgement to Bull/Atos and Micron Technology for providing us with the PCIe SSD card Micron P420m HHHL as a free-of-charge sample for high performance throughput for database testing purposes.
+The authors declare that there are no competing financial interests in relation to the work described here. We thereby express our acknowledgment to Bull/Atos and Micron Technology for providing us with the PCIe SSD card Micron P420m HHHL as a free-of-charge sample for high performance throughput for database testing purposes.
 
 \section*{Funding Information}
 This work was supported by grants to AM from the Spanish Ministry of Science and Competitiveness (projects SAF2012-31187, SAF2013-49788-EXP, SAF2015-65878-R), Carlos III Institute of Health (projects PIE14/00045 and AC15/00022), Generalitat Valenciana (project PrometeoII/2014/065) and co-financed by ERDF, and grants to CPG from the Generalitat Valenciana Prometeo Grants II/2014/050, II/2014/065, 419 by the Spanish Grants FPA2011-29678, BFU2012-39816-C02-01 of MINECO and by PITN-GA-420 2011-289442-INVISIBLES. From the Ministry of Economy and Competitiveness (grants FPI BES-2012-052900 and FPI BES-2013-062767).
@@ -305,7 +302,7 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 
 %TC:ignore
 \begin{table}
-\caption{Taylor's parameters of individuals with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled was described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
+\caption{Taylor's parameters of subjects with either animal-based (A) or plant-based (P) diets\cite{diet}. Previous to the diet, the population sampled was described by $\bar{V} = 0.09 \pm 0.05, \bar{\beta} = 0.77 \pm 0.04$.}
 
   \begin{center}
     \begin{tabular}{*{7}{c}}
@@ -341,7 +338,7 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 \clearpage
 
 \begin{table} 
-\caption{Taylor's parameters for individuals taking antibiotics (Ab) in the antibiotics study \cite{antibiotic}, persons diagnosed with irritable bowel syndrome (IBS) in the IBS study \cite{IBS} and for special intervals concerning gut microbiota (HLS) in the host lifestyle study\cite{hostlife}. Prior to the antibiotics intake, the population sampled in the antibiotics study \cite{antibiotic} was described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$. Healthy individuals sampled in the IBS study \cite{IBS} were characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$. The healthy and quotidian periods in the host lifestyle study \cite{hostlife} are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.}
+\caption{Taylor's parameters for subjects taking antibiotics (Ab) in the antibiotics study \cite{antibiotic}, persons diagnosed with irritable bowel syndrome (IBS) in the IBS study \cite{IBS} and for special intervals concerning gut microbiota (HLS) in the host lifestyle study\cite{hostlife}. Prior to the antibiotics intake, the population sampled in the antibiotics study \cite{antibiotic} was described by $\bar{V} = 0.12 \pm 0.05, \bar{\beta} = 0.75 \pm 0.04$. Healthy subjects sampled in the IBS study \cite{IBS} were characterized by $\bar{V} = 0.135 \pm 0.010, \bar{\beta} = 0.692 \pm 0.024$. The healthy and quotidian periods in the host lifestyle study \cite{hostlife} are characterized by $\bar{V} = 0.25 \pm 0.09, \bar{\beta} = 0.777 \pm 0.025$.}
 
   \begin{center}
     \begin{tabular}{*{7}{c}}
@@ -416,7 +413,7 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 \clearpage
 
 \begin{table}
-\caption{Taylor's parameters for individuals with different degrees of overweight and obesity\cite{LEA}. Healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
+\caption{Taylor's parameters for subjects with varying degrees of overweight and obesity\cite{LEA}. Healthy people in this study, who were not obese, are characterized by $\bar{V} = 0.19 \pm 0.06, \bar{\beta} = 0.806 \pm 0.034$.} 
   \begin{center}
     \begin{tabular}{*{7}{c}}
 	    \hline
@@ -455,7 +452,7 @@ Reduced diversity and altered composition of the gut microbiome in individuals w
 
 % Rank and RSI for the HLS study (StoolA samples)
 \begin{sidewaystable}
-\caption{Rank and Rank Stability Index (RSI, as discussed in Material and Methods) over different periods for the taxa listed as \emph{rank stability islands} regarding the gut microbiome of the individual \emph{A} in the host lifestyle study \cite{hostlife}.}
+\caption{Rank and Rank Stability Index (RSI, as discussed in Material and Methods) over different periods for the taxa listed as \emph{rank stability islands} regarding the gut microbiome of the subject \emph{A} in the host lifestyle study \cite{hostlife}.}
  
   \begin{center}
   \small
